@@ -1,44 +1,50 @@
 module AVLTree
   class SortedMap(K, V)
     private class Node(K, V)
-      property height : Int32
       property key : K
       property value : V
       property size : Int32
       property parent : Node(K, V)?
+      property height : Int32
       property left : Node(K, V)?
       property right : Node(K, V)?
 
       def initialize(@key : K, @value : V, @parent : Node(K, V)? = nil)
-        @height = 1
         @left = @right = nil
         @size = 1
+        @height = 1
       end
 
+      @[AlwaysInline]
       def left!
         @left.not_nil!
       end
 
+      @[AlwaysInline]
       def right!
         @right.not_nil!
       end
 
+      @[AlwaysInline]
       def parent!
         @parent.not_nil!
       end
 
-      def balance_factor : Int32
+      @[AlwaysInline]
+      def balance_factor
         left_height = @left ? left!.height : 0
         right_height = @right ? right!.height : 0
-        left_height - right_height
+        right_height - left_height
       end
 
+      @[AlwaysInline]
       def update_height
         left_height = @left ? left!.height : 0
         right_height = @right ? right!.height : 0
         @height = 1 + Math.max(left_height, right_height)
       end
 
+      @[AlwaysInline]
       def assign(node : Node(K, V))
         @key = node.key
         @value = node.value
@@ -170,15 +176,13 @@ module AVLTree
     end
 
     @root : Node(K, V)?
-    getter size : Int32
 
     def initialize
       @root = nil
-      @size = 0
     end
 
-    def size
-      @root.size
+    def size : Int32
+      @root ? @root.not_nil!.size : 0
     end
 
     def [](key : K) : V
@@ -266,10 +270,10 @@ module AVLTree
 
     def delete(key : K, &)
       entry = delete_impl(key)
-      entry ? entry.value : yield key
+      entry ? entry : yield key
     end
 
-    private def delete_impl(key : K)
+    private def delete_impl(key : K) : V?
       return nil if @root.nil?
 
       node = find_node(@root, key).not_nil!
@@ -280,7 +284,7 @@ module AVLTree
       par = node.parent
 
       if node.left.nil? || node.right.nil?
-        n_node = node.left || node.left
+        n_node = node.left || node.right
         if par
           if key < par.not_nil!.key
             par.left = n_node
@@ -295,9 +299,9 @@ module AVLTree
         child_par = child.parent
 
         if node.right == child
-          n_node.parent = child_par if node.right = n_node
+          n_node.not_nil!.parent = child_par if node.right = n_node
         else
-          n_node.parent = child_par if node.left = n_node
+          n_node.not_nil!.parent = child_par if child_par.not_nil!.left = n_node
         end
 
         node.assign(child)
@@ -325,6 +329,7 @@ module AVLTree
             node = par
           end
         end
+        par = node.not_nil!.parent
       end
 
       if par
@@ -340,7 +345,7 @@ module AVLTree
 
       @root = node
 
-      return entry
+      entry
     end
 
     def has_key?(key : K) : Bool
@@ -354,10 +359,24 @@ module AVLTree
       false
     end
 
+    def empty?
+      @root.nil?
+    end
+
+    def dump(node = @root, depth = 0)
+      if node.nil?
+        puts "NULL"
+        return
+      end
+      puts ("----" * depth) + " #{node.not_nil!.key} (#{node.not_nil!.size})"
+      dump(node.not_nil!.left!, depth + 1) unless node.not_nil!.left.nil?
+      dump(node.not_nil!.right!, depth + 1) unless node.not_nil!.right.nil?
+    end
+
     @[AlwaysInline]
     private def find_node(node : Node(K, V)?, key : K) : Node(K, V)?
       return nil if node.nil?
-      until key == node.not_nil!.key
+      until node.not_nil!.key == key
         if key < node.not_nil!.key
           break if node.not_nil!.left.nil?
           node = node.not_nil!.left
