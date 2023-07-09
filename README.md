@@ -58,7 +58,7 @@ map["bob"] # => -10
 
 map.at(0) # => {"alice", 10}
 map.at(1) # => {"bob", -10}
-map.at(2) # => {"carol", 20}  (self[k] returns the key-value pair to the kth key.)
+map.at(2) # => {"carol", 20}  (at(k) returns the key-value pair to the kth key.)
 
 map.lower_bound("a") # => 0
 map.lower_bound("bob") # => 1
