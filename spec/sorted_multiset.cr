@@ -23,6 +23,26 @@ describe AVLTree::SortedMultiset do
     end
   end
 
+  describe "#index" do
+    it "index" do
+      set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
+      set.index(0).should eq nil
+      set.index(1).should eq 0
+      set.index(2).should eq nil
+      set.index(3).should eq 2
+    end
+  end
+
+  describe "#rindex" do
+    it "rindex" do
+      set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
+      set.rindex(0).should eq nil
+      set.rindex(1).should eq 1
+      set.rindex(2).should eq nil
+      set.rindex(3).should eq 2
+    end
+  end
+
   describe "#concat" do
     it "concat" do
       set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
@@ -31,8 +51,8 @@ describe AVLTree::SortedMultiset do
     end
   end
 
-  describe "#concat" do
-    it "concat" do
+  describe "#to_a" do
+    it "to_a" do
       set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
       set.to_a.should eq [1, 1, 3, 4, 5, 9]
     end
