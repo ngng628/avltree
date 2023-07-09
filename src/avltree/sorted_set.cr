@@ -64,6 +64,14 @@ module AVLTree
       last
     end
 
+    def index(object)
+      @map.index(object)
+    end
+
+    def index!(object)
+      @map.index!(object)
+    end
+
     def count(object)
       includes?(object) ? 1 : 0
     end

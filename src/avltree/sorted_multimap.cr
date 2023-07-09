@@ -794,6 +794,36 @@ module AVLTree
       {node.not_nil!.key, node.not_nil!.value}
     end
 
+    def index(key : K) : Int32?
+      item, index = less_equal_item_with_index(key)
+      index && item.not_nil![0] == key ? index : nil
+    end
+
+    def index!(key : K) : Int32
+      item, index = less_equal_item_with_index(key)
+      index && item.not_nil![0] == key ? index.not_nil! : raise Enumerable::NotFoundError.new
+    end
+
+    def rindex(key : K) : Int32?
+      node, bound = upper_bound_impl(key)
+      if bound == size
+        node = last_node
+      end
+      return nil if node.nil?
+      return nil if node.not_nil!.prev.nil?
+      node.not_nil!.prev.not_nil!.key == key ? bound - 1 : nil
+    end
+
+    def rindex!(key : K) : Int32
+      node, bound = upper_bound_impl(key)
+      if bound == size
+        node = last_node
+      end
+      return nil if node.nil?
+      return nil if node.not_nil!.prev.nil?
+      node.not_nil!.prev.not_nil!.key == key ? bound - 1 : raise Enumerable::NotFoundError.new
+    end
+
     def has_value?(value : V) : Bool
       each_value do |v|
         return true if v == value
