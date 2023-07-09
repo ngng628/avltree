@@ -2,8 +2,13 @@ name: avltree
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - ngng628 <ngng628.kyopro@gmail.com>
 
 crystal: 1.8.2
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: 1.4.3
 
 license: MIT
