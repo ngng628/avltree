@@ -1,5 +1,8 @@
 # AVLTree
 
+[![GitHub release](https://img.shields.io/github/release/ngng628/avltree.svg)](https://github.com/ngng628/avltree/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+
+
 An implement of `SortedSet`, `SortedMap` and `SortedMultiset` using [AVL tree](https://en.wikipedia.org/wiki/AVL_tree).
 
 Each method is implemented to be as compliant as possible with the standard `Set` and `Hash` in the Crystal language.
