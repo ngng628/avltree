@@ -317,10 +317,7 @@ module AVLTree
       end
     end
 
-    def fetch_at(index : Int, &)
-      index += size if k < 0
-      raise yield index unless 0 <= k && k < size
-
+    def unsafe_fetch(index : Int)
       node = @root
       index += 1
       loop do
@@ -334,8 +331,13 @@ module AVLTree
           index -= left_size
         end
       end
-
       {node.not_nil!.key, node.not_nil!.value}
+    end
+
+    def fetch_at(index : Int, &)
+      index += size if k < 0
+      raise yield index unless 0 <= k && k < size
+      unsafe_fetch(index)
     end
 
     def fetch_at(index : Int, default)
@@ -373,11 +375,11 @@ module AVLTree
     end
 
     def keys : Array(K)
-      map &.key
+      map &.[0]
     end
 
     def values : Array(V)
-      map &.value
+      map &.[1]
     end
 
     def values_by_key(*keys : K)
@@ -673,6 +675,26 @@ module AVLTree
       node ? node.not_nil!.value : nil
     end
 
+    def last_key : K
+      node = last_node
+      node ? node.not_nil!.key : raise "Can't get last key of empty SortedMap"
+    end
+
+    def last_key? : K?
+      node = last_node
+      node ? node.not_nil!.key : nil
+    end
+
+    def last_value : K
+      node = last_node
+      node ? node.not_nil!.value : raise "Can't get last value of empty SortedMap"
+    end
+
+    def last_value? : K?
+      node = last_node
+      node ? node.not_nil!.value : nil
+    end
+
     def lower_bound(key : K) : Int32
       lower_bound_impl(key)[1]
     end
@@ -682,11 +704,12 @@ module AVLTree
     end
 
     def less_item_with_index(key : K) : { {K, V}?, Int32?}
+      return {nil, nil} if @root.nil?
       node, bound = lower_bound_impl(key)
       if bound == 0
         {nil, nil}
       else
-        node = node.prev.not_nil!
+        node = (bound == size ? last_node : node.not_nil!.prev).not_nil!
         { {node.key, node.value}, bound - 1}
       end
     end
@@ -700,15 +723,15 @@ module AVLTree
     end
 
     def less_equal_item_with_index(key : K) : { {K, V}?, Int32?}
+      return {nil, nil} if @root.nil?
       node, bound = lower_bound_impl(key)
-      return {nil, nil} if node.nil?
-      if key == node.not_nil!.key
+      if node && key == node.not_nil!.key
         { {node.not_nil!.key, node.not_nil!.value}, bound}
       else
         if bound == 0
           {nil, nil}
         else
-          node = node.prev.not_nil!
+          node = (bound == size ? last_node : node.not_nil!.prev).not_nil!
           { {node.key, node.value}, bound - 1}
         end
       end
@@ -964,16 +987,17 @@ module AVLTree
       node = @root
       return {nil, 0} if @root.nil?
       bound = 0
-      target = @root
+      target = @root.not_nil!
       while node
         if key <= node.not_nil!.key
-          target = node
+          target = node.not_nil!
           node = node.not_nil!.left
         else
           bound += (node.not_nil!.left ? node.not_nil!.left!.size : 0) + 1
           node = node.not_nil!.right
         end
       end
+
       {target, bound}
     end
 
@@ -984,7 +1008,7 @@ module AVLTree
       target = @root
       while node
         if key < node.not_nil!.key
-          target = node
+          target = node.not_nil!
           node = node.not_nil!.left
         else
           bound += (node.not_nil!.left ? node.not_nil!.left!.size : 0) + 1
