@@ -1,5 +1,4 @@
 require "spec"
-
 require "../src/avltree/sorted_set"
 
 describe AVLTree::SortedSet do

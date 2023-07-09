@@ -412,7 +412,7 @@ module AVLTree
       end
       yield value
     end
-  
+
     def clear : self
       @root = nil
       self
@@ -425,7 +425,7 @@ module AVLTree
     end
 
     def compact! : self
-      reject! { |key, value| value.nil? }
+      reject! { |_, value| value.nil? }
     end
 
     def size : Int32
@@ -498,7 +498,7 @@ module AVLTree
     def pop? : {K, V}?
       pop { nil }
     end
-  
+
     def subset_of?(other : SortedMap(K, V)) : Bool
       return false if other.size < size
       all? { |key, value|
@@ -609,7 +609,7 @@ module AVLTree
     end
 
     def reject!(& : K, V ->) : SortedMap(K, V)
-      each_with_index do |(key, value), index|
+      each do |key, value|
         delete(key) if yield key, value
       end
       self
@@ -703,14 +703,14 @@ module AVLTree
       upper_bound_impl(key)[1]
     end
 
-    def less_item_with_index(key : K) : { {K, V}?, Int32?}
+    def less_item_with_index(key : K) : { {K, V}?, Int32? }
       return {nil, nil} if @root.nil?
       node, bound = lower_bound_impl(key)
       if bound == 0
         {nil, nil}
       else
         node = (bound == size ? last_node : node.not_nil!.prev).not_nil!
-        { {node.key, node.value}, bound - 1}
+        { {node.key, node.value}, bound - 1 }
       end
     end
 
@@ -722,17 +722,17 @@ module AVLTree
       less_item_with_index(key)[1]
     end
 
-    def less_equal_item_with_index(key : K) : { {K, V}?, Int32?}
+    def less_equal_item_with_index(key : K) : { {K, V}?, Int32? }
       return {nil, nil} if @root.nil?
       node, bound = lower_bound_impl(key)
       if node && key == node.not_nil!.key
-        { {node.not_nil!.key, node.not_nil!.value}, bound}
+        { {node.not_nil!.key, node.not_nil!.value}, bound }
       else
         if bound == 0
           {nil, nil}
         else
           node = (bound == size ? last_node : node.not_nil!.prev).not_nil!
-          { {node.key, node.value}, bound - 1}
+          { {node.key, node.value}, bound - 1 }
         end
       end
     end
@@ -745,9 +745,9 @@ module AVLTree
       less_equal_item_with_index(key)[1]
     end
 
-    def greater_item_with_index(key : K) : { {K, V}?, Int32?}
+    def greater_item_with_index(key : K) : { {K, V}?, Int32? }
       node, bound = upper_bound_impl(key)
-      bound == size ? {nil, nil} : { {node.not_nil!.key, node.not_nil!.value}, bound}
+      bound == size ? {nil, nil} : { {node.not_nil!.key, node.not_nil!.value}, bound }
     end
 
     def greater_item(key : K) : {K, V}?
@@ -758,9 +758,9 @@ module AVLTree
       greater_item_with_index(key)[1]
     end
 
-    def greater_equal_item_with_index(key : K) : { {K, V}?, Int32?}
+    def greater_equal_item_with_index(key : K) : { {K, V}?, Int32? }
       node, bound = lower_bound_impl(key)
-      bound == size ? {nil, nil} : { {node.not_nil!.key, node.not_nil!.value}, bound}
+      bound == size ? {nil, nil} : { {node.not_nil!.key, node.not_nil!.value}, bound }
     end
 
     def greater_equal_item(key : K) : {K, V}?
@@ -821,7 +821,6 @@ module AVLTree
 
     def to_s(io : IO) : Nil
       io << "{"
-      i = 0
       each_with_index do |(key, value), i|
         io << ", " if i != 0
         io << key << " => " << value
@@ -845,6 +844,7 @@ module AVLTree
       hash
     end
 
+    # ameba:disable Metrics/CyclomaticComplexity
     private def upsert(key, value) : {K, V}
       if @root.nil?
         @root = Node(K, V).new(key, value)
@@ -918,6 +918,7 @@ module AVLTree
       node
     end
 
+    # ameba:disable Metrics/CyclomaticComplexity
     private def delete_impl(key : K) : V?
       return nil if @root.nil?
 

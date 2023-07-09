@@ -6,16 +6,16 @@ module AVLTree
     include Enumerable(T)
     include Indexable(T)
     include Iterable(T)
-  
+
     def initialize
       @map = SortedMap(T, Nil).new
     end
-  
+
     # Optimized version of `new` used when *other* is also an `Indexable`
     def self.new(other : Indexable(T))
       SortedSet(T).new.concat(other)
     end
-  
+
     def self.new(enumerable : Enumerable(T))
       SortedSet(T).new.concat(enumerable)
     end
@@ -35,7 +35,7 @@ module AVLTree
     def first
       @map.first_key
     end
-  
+
     def first?
       @map.first_key?
     end
@@ -43,7 +43,7 @@ module AVLTree
     def last
       @map.last_key
     end
-  
+
     def last?
       @map.last_key?
     end
@@ -79,12 +79,12 @@ module AVLTree
     def <<(object : T)
       add object
     end
-  
+
     def add(object : T)
       @map[object] = nil
       self
     end
-  
+
     def add?(object : T)
       @map.put(object, nil) { return true }
       false
@@ -94,35 +94,35 @@ module AVLTree
       elems.each { |elem| self << elem }
       self
     end
-  
+
     def includes?(object)
       @map.has_key?(object)
     end
-  
+
     def delete(object)
       @map.delete(object)
       self
     end
-  
+
     def size
       @map.size
     end
-  
+
     def clear
       @map.clear
       self
     end
-  
+
     def empty?
       @map.empty?
     end
-  
-    def each
+
+    def each(&)
       @map.each_key do |key|
         yield key
       end
     end
-  
+
     def each
       @map.each_key
     end
@@ -136,7 +136,7 @@ module AVLTree
     def lower_bound(object) : Int32
       @map.lower_bound(object)
     end
-  
+
     def upper_bound(object) : Int32
       @map.upper_bound(object)
     end
@@ -166,7 +166,7 @@ module AVLTree
       if largest.size < smallest.size
         smallest, largest = largest, smallest
       end
-  
+
       set = SortedSet(T).new
       smallest.each do |value|
         set << value if largest.includes?(value)
@@ -180,11 +180,11 @@ module AVLTree
       other.unordered_each { |value| set << value }
       set
     end
-  
+
     def +(other : Set(U)) forall U
       self | other
     end
-  
+
     def -(other : Set)
       set = SortedSet(T).new
       unordered_each do |value|
@@ -192,11 +192,11 @@ module AVLTree
       end
       set
     end
-  
+
     def -(other : Enumerable)
       clone.subtract other
     end
-  
+
     def ^(other : Set(U)) forall U
       set = Set(T | U).new
       unordered_each do |value|
@@ -207,7 +207,7 @@ module AVLTree
       end
       set
     end
-  
+
     def ^(other : Enumerable(U)) forall U
       set = Set(T | U).new(self)
       other.unordered_each do |value|
@@ -219,48 +219,48 @@ module AVLTree
       end
       set
     end
-  
+
     def subtract(other : Enumerable)
       other.unordered_each do |value|
         delete value
       end
       self
     end
-  
+
     def ==(other : Set)
       same?(other) || @map == other.@map
     end
-  
+
     def ===(object : T)
       includes? object
     end
-  
+
     def dup
       set = SortedSet(T).new
       set.map = map.dup
       set
     end
-  
+
     def clone
       set = SortedSet(T).new
       set.map = map.clone
       set
     end
-  
+
     def to_a
       @map.keys
     end
-  
+
     def inspect(io : IO) : Nil
       to_s(io)
     end
-  
+
     def pretty_print(pp) : Nil
       pp.list("SortedSet{", self, "}")
     end
-  
+
     def_hash @map
-  
+
     def intersects?(other : Set)
       if size < other.size
         any? { |o| other.includes?(o) }
@@ -268,18 +268,18 @@ module AVLTree
         other.any? { |o| includes?(o) }
       end
     end
-  
+
     def to_s(io : IO) : Nil
       io << "SortedSet{"
       join io, ", ", &.inspect(io)
       io << '}'
     end
-  
+
     def subset?(other : Set)
       return false if other.size < size
       all? { |value| other.includes?(value) }
     end
-  
+
     def proper_subset?(other : Set)
       return false if other.size <= size
       all? { |value| other.includes?(value) }
@@ -288,15 +288,15 @@ module AVLTree
     def superset?(other : Set)
       other.subset?(self)
     end
-  
+
     def proper_superset?(other : Set)
       other.proper_subset?(self)
     end
-  
+
     def object_id
       @map.object_id
     end
-  
+
     def same?(other : Set)
       @map.same?(other.@map)
     end
