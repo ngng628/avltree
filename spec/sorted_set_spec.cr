@@ -1,6 +1,6 @@
 require "spec"
 
-require "../src/sorted_set"
+require "../src/avltree/sorted_set"
 
 describe AVLTree::SortedSet do
   describe "#includes?" do
@@ -122,6 +122,16 @@ describe AVLTree::SortedSet do
       set.greater_equal_index("E").should eq(3)
       set.greater_equal_index("F").should eq(nil)
       set.greater_equal_index("Z").should eq(nil)
+    end
+  end
+
+  describe "#index" do
+    it "index" do
+      set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
+      set.index(0).should eq nil
+      set.index(1).should eq 0
+      set.index(2).should eq nil
+      set.index(3).should eq 1
     end
   end
 

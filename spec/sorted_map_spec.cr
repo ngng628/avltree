@@ -1,6 +1,6 @@
 require "spec"
 
-require "../src/sorted_map"
+require "../src/avltree/sorted_map"
 
 describe AVLTree::SortedMap do
   describe "#clone" do

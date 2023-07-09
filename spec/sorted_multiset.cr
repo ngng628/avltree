@@ -1,6 +1,6 @@
 require "spec"
 
-require "../src/sorted_multiset"
+require "../src/avltree/sorted_multiset"
 
 describe AVLTree::SortedMultiset do
   describe "#includes?" do
