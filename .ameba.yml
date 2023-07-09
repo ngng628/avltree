@@ -1,0 +1,9 @@
+Globs:
+  - '**/*.cr'
+  - '!lib'
+
+Lint/NotNil:
+  Enabled: false
+
+Lint/DebugCalls:
+  Enabled: false
