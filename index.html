@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.7.3">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="avltree">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="avltree">
+  <title>avltree main</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          avltree
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="avltree/AVLTree" data-name="avltree">
+      <a href="AVLTree.html">AVLTree</a>
+      
+        <ul>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMap" data-name="avltree::sortedmap(k, v)">
+      <a href="AVLTree/SortedMap.html">SortedMap</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMultimap" data-name="avltree::sortedmultimap(k, v)">
+      <a href="AVLTree/SortedMultimap.html">SortedMultimap</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMultiset" data-name="avltree::sortedmultiset(t)">
+      <a href="AVLTree/SortedMultiset.html">SortedMultiset</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedSet" data-name="avltree::sortedset(t)">
+      <a href="AVLTree/SortedSet.html">SortedSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="avltree/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="avl-tree" class="anchor" href="#avl-tree">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>AVLTree</h1>
+<p><a href="https://github.com/ngng628/avltree/releases"><img src="https://img.shields.io/github/release/ngng628/avltree.svg" alt="GitHub release" /></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-red.svg" alt="License: MIT" /></a></p>
+<p>An implement of <code>SortedSet</code>, <code>SortedMap</code> and <code>SortedMultiset</code> using <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a>.</p>
+<p>Each method is implemented to be as compliant as possible with the standard <code>Set</code> and <code>Hash</code> in the Crystal language.</p>
+<h2><a id="arrow-down-installation" class="anchor" href="#arrow-down-installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>:arrow_down: Installation</h2>
+<ol>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  avltree:
+    github: ngng628/avltree</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="pencil2-usage" class="anchor" href="#pencil2-usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>:pencil2: Usage</h2>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;avltree&quot;</span></code></pre>
+<h2><a id="bulb-sample" class="anchor" href="#bulb-sample">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>:bulb: Sample</h2>
+<p>If you want more details, please refer to the API documentation.</p>
+<pre><code class="language-crystal">set <span class="o">=</span> <span class="t">AVLTree</span><span class="t">::</span><span class="t">SortedSet</span>(<span class="t">Int32</span>).new
+set <span class="o">&lt;&lt;</span> <span class="n">3</span> <span class="o">&lt;&lt;</span> <span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="o">&lt;&lt;</span> <span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">5</span> <span class="o">&lt;&lt;</span> <span class="n">9</span>
+
+set <span class="c"># =&gt; SortedSet{1, 3, 4, 5, 9}</span>
+
+set[<span class="n">0</span>] <span class="c"># =&gt; 1</span>
+set[<span class="n">1</span>] <span class="c"># =&gt; 3</span>
+set[<span class="n">2</span>] <span class="c"># =&gt; 4  (SortedSet#[k] returns the kth object)</span>
+
+set.lower_bound(<span class="n">-1</span>) <span class="c"># =&gt; 0</span>
+set.lower_bound(<span class="n">2</span>) <span class="c"># =&gt; 1</span>
+set.lower_bound(<span class="n">3</span>) <span class="c"># =&gt; 1</span>
+set.lower_bound(<span class="n">9</span>) <span class="c"># =&gt; 4</span>
+set.lower_bound(<span class="n">10</span>) <span class="c"># =&gt; 5</span>
+
+set.delete(<span class="n">1</span>)
+set <span class="c"># =&gt; SortedSet{3, 4, 5, 9}</span></code></pre>
+<pre><code class="language-crystal">map <span class="o">=</span> <span class="t">AVLTree</span><span class="t">::</span><span class="t">SortedMap</span>(<span class="t">String</span>, <span class="t">Int32</span>).new
+
+map[<span class="s">&quot;alice&quot;</span>] <span class="o">=</span> <span class="n">10</span>
+map[<span class="s">&quot;alice&quot;</span>] <span class="c"># =&gt; 10</span>
+map[<span class="s">&quot;carol&quot;</span>] <span class="o">=</span> <span class="n">20</span>
+map[<span class="s">&quot;carol&quot;</span>] <span class="c"># =&gt; 20</span>
+map[<span class="s">&quot;bob&quot;</span>] <span class="o">=</span> <span class="n">-10</span>
+map[<span class="s">&quot;bob&quot;</span>] <span class="c"># =&gt; -10</span>
+
+map.at(<span class="n">0</span>) <span class="c"># =&gt; {&quot;alice&quot;, 10}</span>
+map.at(<span class="n">1</span>) <span class="c"># =&gt; {&quot;bob&quot;, -10}</span>
+map.at(<span class="n">2</span>) <span class="c"># =&gt; {&quot;carol&quot;, 20}  (at(k) returns the key-value pair to the kth key.)</span>
+
+map.lower_bound(<span class="s">&quot;a&quot;</span>) <span class="c"># =&gt; 0</span>
+map.lower_bound(<span class="s">&quot;bob&quot;</span>) <span class="c"># =&gt; 1</span>
+map.lower_bound(<span class="s">&quot;dave&quot;</span>) <span class="c"># =&gt; 3</span>
+
+map.delete(<span class="s">&quot;alice&quot;</span>)
+map <span class="c"># {&quot;bob&quot; =&gt; -10, &quot;carol&quot; =&gt; 20}</span>
+map.delete_at(<span class="n">1</span>)
+map <span class="c"># {&quot;bob&quot; =&gt; -10}</span></code></pre>
+<pre><code class="language-crystal">mset <span class="o">=</span> <span class="t">AVLTree</span><span class="t">::</span><span class="t">SortedMultiset</span>(<span class="t">Int32</span>).new
+mset <span class="o">&lt;&lt;</span> <span class="n">3</span> <span class="o">&lt;&lt;</span> <span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">4</span> <span class="o">&lt;&lt;</span> <span class="n">1</span> <span class="o">&lt;&lt;</span> <span class="n">5</span> <span class="o">&lt;&lt;</span> <span class="n">9</span>
+
+mset <span class="c"># =&gt; SortedMultiset{1, 1, 3, 4, 5, 9}</span>
+
+mset[<span class="n">0</span>] <span class="c"># =&gt; 1</span>
+mset[<span class="n">1</span>] <span class="c"># =&gt; 1</span>
+mset[<span class="n">2</span>] <span class="c"># =&gt; 3  (SortedMultiset#[k] returns the kth object)</span>
+
+mset.lower_bound(<span class="n">-1</span>) <span class="c"># =&gt; 0</span>
+mset.lower_bound(<span class="n">2</span>) <span class="c"># =&gt; 2</span>
+mset.lower_bound(<span class="n">3</span>) <span class="c"># =&gt; 2</span>
+mset.lower_bound(<span class="n">9</span>) <span class="c"># =&gt; 5</span>
+mset.lower_bound(<span class="n">10</span>) <span class="c"># =&gt; 6</span>
+
+mset.delete(<span class="n">1</span>)
+mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
+<h2><a id="busts-in-silhouette-contributing" class="anchor" href="#busts-in-silhouette-contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>:busts_in_silhouette: Contributing</h2>
+<ol>
+<li>Fork it (<a href="https://github.com/ngng628/avltree/fork">https://github.com/ngng628/avltree/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am ':sparkles: Add some feature'</code>)
+<ul>
+<li>Please follow the <code>.gitmessage</code> format for the commit message.</li>
+</ul>
+</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2><a id="desktop-computer-contributors" class="anchor" href="#desktop-computer-contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>:desktop_computer: Contributors</h2>
+<ul>
+<li><a href="https://github.com/ngng628">ngng628</a> - creator and maintainer</li>
+</ul>
+</div>
+</body>
+</html>

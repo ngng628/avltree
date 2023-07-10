@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.7.3">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="avltree">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="avltree">
+  <title>AVLTree::SortedMultimap(K, V) - avltree main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          avltree
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="avltree/AVLTree" data-name="avltree">
+      <a href="../AVLTree.html">AVLTree</a>
+      
+        <ul>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMap" data-name="avltree::sortedmap(k, v)">
+      <a href="../AVLTree/SortedMap.html">SortedMap</a>
+      
+    </li>
+  
+  <li class=" current" data-id="avltree/AVLTree/SortedMultimap" data-name="avltree::sortedmultimap(k, v)">
+      <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMultiset" data-name="avltree::sortedmultiset(t)">
+      <a href="../AVLTree/SortedMultiset.html">SortedMultiset</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedSet" data-name="avltree::sortedset(t)">
+      <a href="../AVLTree/SortedSet.html">SortedSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="avltree/Enumerable" data-name="enumerable(t)">
+      <a href="../Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> AVLTree::SortedMultimap(K, V)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../AVLTree/SortedMultimap.html">AVLTree::SortedMultimap(K, V)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Enumerable.html">Enumerable({K, V})</a></li>
+    
+      <li class="other-type">Iterable({K, V})</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L2" target="_blank">
+        avltree/sorted_multimap.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28hash%3AHash%28K%2CV%29%29-class-method" class="signature"><strong>.new</strong>(hash : Hash(K, V))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28defalut_value%3AV%29-class-method" class="signature"><strong>.new</strong>(defalut_value : V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28%26block%3Aself%2CK-%3EV%29-class-method" class="signature"><strong>.new</strong>(&block : <span class="k">self</span>, K -> V)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#zip%28ary1%3AArray%28K%29%2Cary2%3AArray%28V%29%29-class-method" class="signature"><strong>.zip</strong>(ary1 : Array(K), ary2 : Array(V))</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%28other%3ASortedMultimap%29%3ABool-instance-method" class="signature"><strong>#==</strong>(other : SortedMultimap) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%28key%3AK%29%3AV-instance-method" class="signature"><strong>#[]</strong>(key : K) : V</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3D%28key%3AK%2Cvalue%3AV%29%3AV-instance-method" class="signature"><strong>#[]=</strong>(key : K, value : V) : V</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3F%28key%3AK%29%3AV%7CNil-instance-method" class="signature"><strong>#[]?</strong>(key : K) : V | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#at%28index%3AInt%29-instance-method" class="signature"><strong>#at</strong>(index : Int)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#at%28index%3AInt%2C%26%29-instance-method" class="signature"><strong>#at</strong>(index : Int, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#at%3F%28index%3AInt%29-instance-method" class="signature"><strong>#at?</strong>(index : Int)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear%3Aself-instance-method" class="signature"><strong>#clear</strong> : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compact-instance-method" class="signature"><strong>#compact</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compact%21%3Aself-instance-method" class="signature"><strong>#compact!</strong> : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28key%3AK%29%3AV%7CNil-instance-method" class="signature"><strong>#delete</strong>(key : K) : V | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28key%3AK%2C%26%29-instance-method" class="signature"><strong>#delete</strong>(key : K, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete_at%28index%3AInt%29-instance-method" class="signature"><strong>#delete_at</strong>(index : Int)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete_at%3F%28index%3AInt%29-instance-method" class="signature"><strong>#delete_at?</strong>(index : Int)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dig%28key%3AK%29-instance-method" class="signature"><strong>#dig</strong>(key : K)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dig%28key%3AK%2C%2Asubkeys%29-instance-method" class="signature"><strong>#dig</strong>(key : K, *subkeys)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dig%3F%28key%3AK%29-instance-method" class="signature"><strong>#dig?</strong>(key : K)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dig%3F%28key%3AK%2C%2Asubkeys%29-instance-method" class="signature"><strong>#dig?</strong>(key : K, *subkeys)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dup-instance-method" class="signature"><strong>#dup</strong></a>
+        
+          <div class="summary"><p>Returns a shallow copy of this object.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each%28%26%3ATuple%28K%2CV%29-%3E%29%3ANil-instance-method" class="signature"><strong>#each</strong>(& : Tuple(K, V) -> ) : Nil</a>
+        
+          <div class="summary"><p>Must yield this collection's elements to the block.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each-instance-method" class="signature"><strong>#each</strong></a>
+        
+          <div class="summary"><p>Must return an <code>Iterator</code> over the elements in this collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_key%28%26%3AK-%3E%29%3ANil-instance-method" class="signature"><strong>#each_key</strong>(& : K -> ) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_key-instance-method" class="signature"><strong>#each_key</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_value%28%26%3AV-%3E%29%3ANil-instance-method" class="signature"><strong>#each_value</strong>(& : V -> ) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_value-instance-method" class="signature"><strong>#each_value</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty%3F-instance-method" class="signature"><strong>#empty?</strong></a>
+        
+          <div class="summary"><p>Returns <code>true</code> if <code>self</code> is empty, <code>false</code> otherwise.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fetch%28key%3AK%2Cdefault%29-instance-method" class="signature"><strong>#fetch</strong>(key : K, default)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fetch%28key%3AK%2C%26%29-instance-method" class="signature"><strong>#fetch</strong>(key : K, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fetch_at%28index%3AInt%2C%26%29-instance-method" class="signature"><strong>#fetch_at</strong>(index : Int, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fetch_at%28index%3AInt%2Cdefault%29-instance-method" class="signature"><strong>#fetch_at</strong>(index : Int, default)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first_key%3AK-instance-method" class="signature"><strong>#first_key</strong> : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first_key%3F%3AK%7CNil-instance-method" class="signature"><strong>#first_key?</strong> : K | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first_value%3AK-instance-method" class="signature"><strong>#first_value</strong> : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first_value%3F%3AK%7CNil-instance-method" class="signature"><strong>#first_value?</strong> : K | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_equal_index</strong>(key : K) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method" class="signature"><strong>#greater_equal_item</strong>(key : K) : Tuple(K, V) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_equal_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_index%28key%3AK%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_index</strong>(key : K) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method" class="signature"><strong>#greater_item</strong>(key : K) : Tuple(K, V) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_key%3F%28key%3AK%29%3ABool-instance-method" class="signature"><strong>#has_key?</strong>(key : K) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_value%3F%28value%3AV%29%3ABool-instance-method" class="signature"><strong>#has_value?</strong>(value : V) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index%28key%3AK%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index</strong>(key : K) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index%21%28key%3AK%29%3AInt32-instance-method" class="signature"><strong>#index!</strong>(key : K) : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Appends a String representation of this object which includes its class name, its object address and the values of all instance variables.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#invert%3ASortedMultimap%28V%2CK%29-instance-method" class="signature"><strong>#invert</strong> : SortedMultimap(V, K)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_at%28index%3AInt%29%3AK-instance-method" class="signature"><strong>#key_at</strong>(index : Int) : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_at%3F%28index%3AInt%29%3AK-instance-method" class="signature"><strong>#key_at?</strong>(index : Int) : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_for%28value%29%3AK-instance-method" class="signature"><strong>#key_for</strong>(value) : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_for%28value%2C%26%29-instance-method" class="signature"><strong>#key_for</strong>(value, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_for%3F%28value%29%3AK%7CNil-instance-method" class="signature"><strong>#key_for?</strong>(value) : K | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#keys%3AArray%28K%29-instance-method" class="signature"><strong>#keys</strong> : Array(K)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last_key%3AK-instance-method" class="signature"><strong>#last_key</strong> : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last_key%3F%3AK%7CNil-instance-method" class="signature"><strong>#last_key?</strong> : K | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last_value%3AK-instance-method" class="signature"><strong>#last_value</strong> : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last_value%3F%3AK%7CNil-instance-method" class="signature"><strong>#last_value?</strong> : K | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_equal_index</strong>(key : K) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method" class="signature"><strong>#less_equal_item</strong>(key : K) : Tuple(K, V) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_equal_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_index%28key%3AK%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_index</strong>(key : K) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method" class="signature"><strong>#less_item</strong>(key : K) : Tuple(K, V) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lower_bound%28key%3AK%29%3AInt32-instance-method" class="signature"><strong>#lower_bound</strong>(key : K) : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max-instance-method" class="signature"><strong>#max</strong></a>
+        
+          <div class="summary"><p>Returns the element with the maximum value in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min-instance-method" class="signature"><strong>#min</strong></a>
+        
+          <div class="summary"><p>Returns the element with the minimum value in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pop%3ATuple%28K%2CV%29-instance-method" class="signature"><strong>#pop</strong> : Tuple(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pop%28%26%29-instance-method" class="signature"><strong>#pop</strong>(&)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pop%3F%3ATuple%28K%2CV%29%7CNil-instance-method" class="signature"><strong>#pop?</strong> : Tuple(K, V) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_superset_of%3F%28other%3AHash%29%3ABool-instance-method" class="signature"><strong>#proper_superset_of?</strong>(other : Hash) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%28key%3AK%2Cvalue%3AV%2C%26%29-instance-method" class="signature"><strong>#put</strong>(key : K, value : V, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reject%28%26%3AK%2CV-%3E%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#reject</strong>(& : K, V -> ) : SortedMultimap(K, V)</a>
+        
+          <div class="summary"><p>Returns an <code>Array</code> with all the elements in the collection for which the passed block is falsey.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reject%28%2Akeys%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#reject</strong>(*keys) : SortedMultimap(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reject%21%28%26%3AK%2CV-%3E%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#reject!</strong>(& : K, V -> ) : SortedMultimap(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reject%21%28keys%3AEnumerable%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#reject!</strong>(keys : Enumerable) : SortedMultimap(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reject%21%28%2Akeys%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#reject!</strong>(*keys) : SortedMultimap(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse_each%28%26%3ATuple%28K%2CV%29-%3E%29%3ANil-instance-method" class="signature"><strong>#reverse_each</strong>(& : Tuple(K, V) -> ) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse_each-instance-method" class="signature"><strong>#reverse_each</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse_each_key%28%26%3AK-%3E%29%3ANil-instance-method" class="signature"><strong>#reverse_each_key</strong>(& : K -> ) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse_each_key-instance-method" class="signature"><strong>#reverse_each_key</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse_each_value%28%26%3AV-%3E%29%3ANil-instance-method" class="signature"><strong>#reverse_each_value</strong>(& : V -> ) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reverse_each_value-instance-method" class="signature"><strong>#reverse_each_value</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rindex%28key%3AK%29%3AInt32%7CNil-instance-method" class="signature"><strong>#rindex</strong>(key : K) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rindex%21%28key%3AK%29%3AInt32-instance-method" class="signature"><strong>#rindex!</strong>(key : K) : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%28keys%3AEnumerable%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#select</strong>(keys : Enumerable) : SortedMultimap(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%28%2Akeys%29%3ASortedMultimap%28K%2CV%29-instance-method" class="signature"><strong>#select</strong>(*keys) : SortedMultimap(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%21%28keys%3AIndexable%29%3Aself-instance-method" class="signature"><strong>#select!</strong>(keys : Indexable) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%21%28keys%3AEnumerable%29%3Aself-instance-method" class="signature"><strong>#select!</strong>(keys : Enumerable) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%21%28%2Akeys%29%3Aself-instance-method" class="signature"><strong>#select!</strong>(*keys) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shift%3ATuple%28K%2CV%29-instance-method" class="signature"><strong>#shift</strong> : Tuple(K, V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shift%28%26%29-instance-method" class="signature"><strong>#shift</strong>(&)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shift%3F%3ATuple%28K%2CV%29%7CNil-instance-method" class="signature"><strong>#shift?</strong> : Tuple(K, V) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3AInt32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the number of elements in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subset_of%3F%28other%3ASortedMultimap%28K%2CV%29%29%3ABool-instance-method" class="signature"><strong>#subset_of?</strong>(other : SortedMultimap(K, V)) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#superset_of%3F%28other%3ASortedMultimap%28K%2CV%29%29%3ABool-instance-method" class="signature"><strong>#superset_of?</strong>(other : SortedMultimap(K, V)) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_a%3AArray%28Tuple%28K%2CV%29%29-instance-method" class="signature"><strong>#to_a</strong> : Array(Tuple(K, V))</a>
+        
+          <div class="summary"><p>Returns an <code>Array</code> with all the elements in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_hash-instance-method" class="signature"><strong>#to_hash</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#to_s</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Appends a short String representation of this object which includes its class name and its object address.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unordered_each%28node%3D%40root%2C%26%3ATuple%28K%2CV%29-%3E%29%3ANil-instance-method" class="signature"><strong>#unordered_each</strong>(node = @root, & : Tuple(K, V) -> ) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unsafe_fetch%28index%3AInt%29-instance-method" class="signature"><strong>#unsafe_fetch</strong>(index : Int)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update%28key%3AK%2C%26%3AV-%3EV%29%3AV-instance-method" class="signature"><strong>#update</strong>(key : K, & : V -> V) : V</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#upper_bound%28key%3AK%29%3AInt32-instance-method" class="signature"><strong>#upper_bound</strong>(key : K) : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#values%3AArray%28V%29-instance-method" class="signature"><strong>#values</strong> : Array(V)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#values_at%28%2Aindices%3AInt%29-instance-method" class="signature"><strong>#values_at</strong>(*indices : Int)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#values_by_key%28%2Akeys%3AK%29-instance-method" class="signature"><strong>#values_by_key</strong>(*keys : K)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../Enumerable.html">Enumerable({K, V})</a></code></h3>
+  
+  
+    <a href="../Enumerable.html#to_sorted_set-instance-method" class="tooltip">
+      <span>to_sorted_set</span>
+    to_sorted_set</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(hash:Hash(K,V))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(hash : Hash(K, V))
+
+        <a class="method-permalink" href="#new%28hash%3AHash%28K%2CV%29%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L243" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(defalut_value:V)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(defalut_value : V)
+
+        <a class="method-permalink" href="#new%28defalut_value%3AV%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L226" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L238" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(&amp;block:self,K-&gt;V)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(&block : <span class="k">self</span>, K -> V)
+
+        <a class="method-permalink" href="#new%28%26block%3Aself%2CK-%3EV%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L234" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="zip(ary1:Array(K),ary2:Array(V))-class-method">
+      <div class="signature">
+        
+        def self.<strong>zip</strong>(ary1 : Array(K), ary2 : Array(V))
+
+        <a class="method-permalink" href="#zip%28ary1%3AArray%28K%29%2Cary2%3AArray%28V%29%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L251" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="==(other:SortedMultimap):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>) : Bool
+
+        <a class="method-permalink" href="#%3D%3D%28other%3ASortedMultimap%29%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L259" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[](key:K):V-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(key : K) : V
+
+        <a class="method-permalink" href="#%5B%5D%28key%3AK%29%3AV-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L289" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(key:K,value:V):V-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(key : K, value : V) : V
+
+        <a class="method-permalink" href="#%5B%5D%3D%28key%3AK%2Cvalue%3AV%29%3AV-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L303" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]?(key:K):V|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>[]?</strong>(key : K) : V | Nil
+
+        <a class="method-permalink" href="#%5B%5D%3F%28key%3AK%29%3AV%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L299" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="at(index:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>at</strong>(index : Int)
+
+        <a class="method-permalink" href="#at%28index%3AInt%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L347" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="at(index:Int,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>at</strong>(index : Int, &)
+
+        <a class="method-permalink" href="#at%28index%3AInt%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L351" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="at?(index:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>at?</strong>(index : Int)
+
+        <a class="method-permalink" href="#at%3F%28index%3AInt%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L355" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear:self-instance-method">
+      <div class="signature">
+        
+        def <strong>clear</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#clear%3Aself-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L416" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clone-instance-method">
+      <div class="signature">
+        
+        def <strong>clone</strong>
+
+        <a class="method-permalink" href="#clone-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L270" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compact-instance-method">
+      <div class="signature">
+        
+        def <strong>compact</strong>
+
+        <a class="method-permalink" href="#compact-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L421" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compact!:self-instance-method">
+      <div class="signature">
+        
+        def <strong>compact!</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#compact%21%3Aself-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L427" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(key:K):V|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(key : K) : V | Nil
+
+        <a class="method-permalink" href="#delete%28key%3AK%29%3AV%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L448" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(key:K,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(key : K, &)
+
+        <a class="method-permalink" href="#delete%28key%3AK%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L452" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_at(index:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_at</strong>(index : Int)
+
+        <a class="method-permalink" href="#delete_at%28index%3AInt%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L457" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_at?(index:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_at?</strong>(index : Int)
+
+        <a class="method-permalink" href="#delete_at%3F%28index%3AInt%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L462" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dig(key:K)-instance-method">
+      <div class="signature">
+        
+        def <strong>dig</strong>(key : K)
+
+        <a class="method-permalink" href="#dig%28key%3AK%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L525" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dig(key:K,*subkeys)-instance-method">
+      <div class="signature">
+        
+        def <strong>dig</strong>(key : K, *subkeys)
+
+        <a class="method-permalink" href="#dig%28key%3AK%2C%2Asubkeys%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L518" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dig?(key:K)-instance-method">
+      <div class="signature">
+        
+        def <strong>dig?</strong>(key : K)
+
+        <a class="method-permalink" href="#dig%3F%28key%3AK%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L536" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dig?(key:K,*subkeys)-instance-method">
+      <div class="signature">
+        
+        def <strong>dig?</strong>(key : K, *subkeys)
+
+        <a class="method-permalink" href="#dig%3F%28key%3AK%2C%2Asubkeys%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L529" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dup-instance-method">
+      <div class="signature">
+        
+        def <strong>dup</strong>
+
+        <a class="method-permalink" href="#dup-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Returns a shallow copy of this object.</p>
+<p>This allocates a new object and copies the contents of
+<code>self</code> into it.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L278" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each(&amp;:Tuple(K,V)-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>(& : Tuple(K, V) -> ) : Nil
+
+        <a class="method-permalink" href="#each%28%26%3ATuple%28K%2CV%29-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Must yield this collection's elements to the block.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L540" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>
+
+        <a class="method-permalink" href="#each-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Iterable({K, V})
+            </div>
+          
+          <p>Must return an <code>Iterator</code> over the elements in this collection.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L545" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_key(&amp;:K-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>each_key</strong>(& : K -> ) : Nil
+
+        <a class="method-permalink" href="#each_key%28%26%3AK-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L549" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_key-instance-method">
+      <div class="signature">
+        
+        def <strong>each_key</strong>
+
+        <a class="method-permalink" href="#each_key-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L554" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_value(&amp;:V-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>each_value</strong>(& : V -> ) : Nil
+
+        <a class="method-permalink" href="#each_value%28%26%3AV-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L558" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_value-instance-method">
+      <div class="signature">
+        
+        def <strong>each_value</strong>
+
+        <a class="method-permalink" href="#each_value-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L563" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong>
+
+        <a class="method-permalink" href="#empty%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Returns <code>true</code> if <code>self</code> is empty, <code>false</code> otherwise.</p>
+<pre><code class="language-crystal">(<span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>).empty? <span class="c"># =&gt; true</span>
+([<span class="n">1</span>]).empty?         <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L834" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fetch(key:K,default)-instance-method">
+      <div class="signature">
+        
+        def <strong>fetch</strong>(key : K, default)
+
+        <a class="method-permalink" href="#fetch%28key%3AK%2Cdefault%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L435" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fetch(key:K,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>fetch</strong>(key : K, &)
+
+        <a class="method-permalink" href="#fetch%28key%3AK%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L439" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fetch_at(index:Int,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>fetch_at</strong>(index : Int, &)
+
+        <a class="method-permalink" href="#fetch_at%28index%3AInt%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L337" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fetch_at(index:Int,default)-instance-method">
+      <div class="signature">
+        
+        def <strong>fetch_at</strong>(index : Int, default)
+
+        <a class="method-permalink" href="#fetch_at%28index%3AInt%2Cdefault%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L343" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first_key:K-instance-method">
+      <div class="signature">
+        
+        def <strong>first_key</strong> : K
+
+        <a class="method-permalink" href="#first_key%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L658" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first_key?:K|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>first_key?</strong> : K | Nil
+
+        <a class="method-permalink" href="#first_key%3F%3AK%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L663" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first_value:K-instance-method">
+      <div class="signature">
+        
+        def <strong>first_value</strong> : K
+
+        <a class="method-permalink" href="#first_value%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L668" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first_value?:K|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>first_value?</strong> : K | Nil
+
+        <a class="method-permalink" href="#first_value%3F%3AK%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L673" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_equal_index(key:K):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_equal_index</strong>(key : K) : Int32 | Nil
+
+        <a class="method-permalink" href="#greater_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L770" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_equal_item(key:K):Tuple(K,V)|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_equal_item</strong>(key : K) : Tuple(K, V) | Nil
+
+        <a class="method-permalink" href="#greater_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L766" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_equal_item_with_index(key:K):Tuple(Tuple(K,V)|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_equal_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#greater_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L761" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_index(key:K):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_index</strong>(key : K) : Int32 | Nil
+
+        <a class="method-permalink" href="#greater_index%28key%3AK%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L757" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_item(key:K):Tuple(K,V)|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_item</strong>(key : K) : Tuple(K, V) | Nil
+
+        <a class="method-permalink" href="#greater_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L753" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_item_with_index(key:K):Tuple(Tuple(K,V)|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#greater_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L748" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_key?(key:K):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_key?</strong>(key : K) : Bool
+
+        <a class="method-permalink" href="#has_key%3F%28key%3AK%29%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L774" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_value?(value:V):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_value?</strong>(value : V) : Bool
+
+        <a class="method-permalink" href="#has_value%3F%28value%3AV%29%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L827" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index(key:K):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index</strong>(key : K) : Int32 | Nil
+
+        <a class="method-permalink" href="#index%28key%3AK%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L797" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index!(key:K):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>index!</strong>(key : K) : Int32
+
+        <a class="method-permalink" href="#index%21%28key%3AK%29%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L802" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inspect(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>inspect</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#inspect%28io%3AIO%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Appends a String representation of this object
+which includes its class name, its object address
+and the values of all instance variables.</p>
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">Person</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @age : <span class="t">Int32</span>)
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="t">Person</span>.new(<span class="s">&quot;John&quot;</span>, <span class="n">32</span>).inspect <span class="c"># =&gt; #&lt;Person:0x10fd31f20 @name=&quot;John&quot;, @age=32&gt;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L838" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="invert:SortedMultimap(V,K)-instance-method">
+      <div class="signature">
+        
+        def <strong>invert</strong> : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(V, K)
+
+        <a class="method-permalink" href="#invert%3ASortedMultimap%28V%2CK%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L393" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_at(index:Int):K-instance-method">
+      <div class="signature">
+        
+        def <strong>key_at</strong>(index : Int) : K
+
+        <a class="method-permalink" href="#key_at%28index%3AInt%29%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L368" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_at?(index:Int):K-instance-method">
+      <div class="signature">
+        
+        def <strong>key_at?</strong>(index : Int) : K
+
+        <a class="method-permalink" href="#key_at%3F%28index%3AInt%29%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L372" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_for(value):K-instance-method">
+      <div class="signature">
+        
+        def <strong>key_for</strong>(value) : K
+
+        <a class="method-permalink" href="#key_for%28value%29%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L401" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_for(value,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>key_for</strong>(value, &)
+
+        <a class="method-permalink" href="#key_for%28value%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L409" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_for?(value):K|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>key_for?</strong>(value) : K | Nil
+
+        <a class="method-permalink" href="#key_for%3F%28value%29%3AK%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L405" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="keys:Array(K)-instance-method">
+      <div class="signature">
+        
+        def <strong>keys</strong> : Array(K)
+
+        <a class="method-permalink" href="#keys%3AArray%28K%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L377" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last_key:K-instance-method">
+      <div class="signature">
+        
+        def <strong>last_key</strong> : K
+
+        <a class="method-permalink" href="#last_key%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L678" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last_key?:K|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>last_key?</strong> : K | Nil
+
+        <a class="method-permalink" href="#last_key%3F%3AK%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L683" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last_value:K-instance-method">
+      <div class="signature">
+        
+        def <strong>last_value</strong> : K
+
+        <a class="method-permalink" href="#last_value%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L688" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last_value?:K|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>last_value?</strong> : K | Nil
+
+        <a class="method-permalink" href="#last_value%3F%3AK%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L693" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_equal_index(key:K):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_equal_index</strong>(key : K) : Int32 | Nil
+
+        <a class="method-permalink" href="#less_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L744" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_equal_item(key:K):Tuple(K,V)|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_equal_item</strong>(key : K) : Tuple(K, V) | Nil
+
+        <a class="method-permalink" href="#less_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L740" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_equal_item_with_index(key:K):Tuple(Tuple(K,V)|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>less_equal_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#less_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L725" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_index(key:K):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_index</strong>(key : K) : Int32 | Nil
+
+        <a class="method-permalink" href="#less_index%28key%3AK%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L721" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_item(key:K):Tuple(K,V)|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_item</strong>(key : K) : Tuple(K, V) | Nil
+
+        <a class="method-permalink" href="#less_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L717" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_item_with_index(key:K):Tuple(Tuple(K,V)|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>less_item_with_index</strong>(key : K) : Tuple(Tuple(K, V) | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#less_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L706" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lower_bound(key:K):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>lower_bound</strong>(key : K) : Int32
+
+        <a class="method-permalink" href="#lower_bound%28key%3AK%29%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L698" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max-instance-method">
+      <div class="signature">
+        
+        def <strong>max</strong>
+
+        <a class="method-permalink" href="#max-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Returns the element with the maximum value in the collection.</p>
+<p>It compares using <code>&gt;</code> so it will work for any type that supports that method.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].max        <span class="c"># =&gt; 3</span>
+[<span class="s">&quot;Alice&quot;</span>, <span class="s">&quot;Bob&quot;</span>].max <span class="c"># =&gt; &quot;Bob&quot;</span></code></pre>
+<p>Raises <code>Enumerable::EmptyError</code> if the collection is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L785" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min-instance-method">
+      <div class="signature">
+        
+        def <strong>min</strong>
+
+        <a class="method-permalink" href="#min-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Returns the element with the minimum value in the collection.</p>
+<p>It compares using <code>&lt;</code> so it will work for any type that supports that method.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].min        <span class="c"># =&gt; 1</span>
+[<span class="s">&quot;Alice&quot;</span>, <span class="s">&quot;Bob&quot;</span>].min <span class="c"># =&gt; &quot;Alice&quot;</span></code></pre>
+<p>Raises <code>Enumerable::EmptyError</code> if the collection is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L791" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pop:Tuple(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>pop</strong> : Tuple(K, V)
+
+        <a class="method-permalink" href="#pop%3ATuple%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L485" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pop(&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>pop</strong>(&)
+
+        <a class="method-permalink" href="#pop%28%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L489" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pop?:Tuple(K,V)|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>pop?</strong> : Tuple(K, V) | Nil
+
+        <a class="method-permalink" href="#pop%3F%3ATuple%28K%2CV%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L498" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_superset_of?(other:Hash):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_superset_of?</strong>(other : Hash) : Bool
+
+        <a class="method-permalink" href="#proper_superset_of%3F%28other%3AHash%29%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L514" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put(key:K,value:V,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>put</strong>(key : K, value : V, &)
+
+        <a class="method-permalink" href="#put%28key%3AK%2Cvalue%3AV%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L284" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reject(&amp;:K,V-&gt;):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>reject</strong>(& : K, V -> ) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#reject%28%26%3AK%2CV-%3E%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Returns an <code>Array</code> with all the elements in the collection for which
+the passed block is falsey.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>].reject { <span class="o">|</span>i<span class="o">|</span> i <span class="o">%</span> <span class="n">2</span> <span class="o">==</span> <span class="n">0</span> } <span class="c"># =&gt; [1, 3, 5]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L605" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reject(*keys):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>reject</strong>(*keys) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#reject%28%2Akeys%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L618" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reject!(&amp;:K,V-&gt;):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>reject!</strong>(& : K, V -> ) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#reject%21%28%26%3AK%2CV-%3E%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L611" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reject!(keys:Enumerable):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>reject!</strong>(keys : <a href="../Enumerable.html">Enumerable</a>) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#reject%21%28keys%3AEnumerable%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L623" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reject!(*keys):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>reject!</strong>(*keys) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#reject%21%28%2Akeys%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L628" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse_each(&amp;:Tuple(K,V)-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse_each</strong>(& : Tuple(K, V) -> ) : Nil
+
+        <a class="method-permalink" href="#reverse_each%28%26%3ATuple%28K%2CV%29-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L578" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse_each-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse_each</strong>
+
+        <a class="method-permalink" href="#reverse_each-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L583" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse_each_key(&amp;:K-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse_each_key</strong>(& : K -> ) : Nil
+
+        <a class="method-permalink" href="#reverse_each_key%28%26%3AK-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L587" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse_each_key-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse_each_key</strong>
+
+        <a class="method-permalink" href="#reverse_each_key-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L592" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse_each_value(&amp;:V-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse_each_value</strong>(& : V -> ) : Nil
+
+        <a class="method-permalink" href="#reverse_each_value%28%26%3AV-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L596" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reverse_each_value-instance-method">
+      <div class="signature">
+        
+        def <strong>reverse_each_value</strong>
+
+        <a class="method-permalink" href="#reverse_each_value-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L601" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rindex(key:K):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>rindex</strong>(key : K) : Int32 | Nil
+
+        <a class="method-permalink" href="#rindex%28key%3AK%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L807" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rindex!(key:K):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>rindex!</strong>(key : K) : Int32
+
+        <a class="method-permalink" href="#rindex%21%28key%3AK%29%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L817" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select(keys:Enumerable):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>select</strong>(keys : <a href="../Enumerable.html">Enumerable</a>) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#select%28keys%3AEnumerable%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L632" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select(*keys):SortedMultimap(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>select</strong>(*keys) : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)
+
+        <a class="method-permalink" href="#select%28%2Akeys%29%3ASortedMultimap%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L639" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select!(keys:Indexable):self-instance-method">
+      <div class="signature">
+        
+        def <strong>select!</strong>(keys : Indexable) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#select%21%28keys%3AIndexable%29%3Aself-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L643" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select!(keys:Enumerable):self-instance-method">
+      <div class="signature">
+        
+        def <strong>select!</strong>(keys : <a href="../Enumerable.html">Enumerable</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#select%21%28keys%3AEnumerable%29%3Aself-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L648" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select!(*keys):self-instance-method">
+      <div class="signature">
+        
+        def <strong>select!</strong>(*keys) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#select%21%28%2Akeys%29%3Aself-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L654" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shift:Tuple(K,V)-instance-method">
+      <div class="signature">
+        
+        def <strong>shift</strong> : Tuple(K, V)
+
+        <a class="method-permalink" href="#shift%3ATuple%28K%2CV%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L468" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shift(&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>shift</strong>(&)
+
+        <a class="method-permalink" href="#shift%28%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L472" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shift?:Tuple(K,V)|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>shift?</strong> : Tuple(K, V) | Nil
+
+        <a class="method-permalink" href="#shift%3F%3ATuple%28K%2CV%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L481" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong> : Int32
+
+        <a class="method-permalink" href="#size%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Returns the number of elements in the collection.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>].size <span class="c"># =&gt; 4</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L431" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subset_of?(other:SortedMultimap(K,V)):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>subset_of?</strong>(other : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)) : Bool
+
+        <a class="method-permalink" href="#subset_of%3F%28other%3ASortedMultimap%28K%2CV%29%29%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L502" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="superset_of?(other:SortedMultimap(K,V)):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>superset_of?</strong>(other : <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>(K, V)) : Bool
+
+        <a class="method-permalink" href="#superset_of%3F%28other%3ASortedMultimap%28K%2CV%29%29%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L510" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_a:Array(Tuple(K,V))-instance-method">
+      <div class="signature">
+        
+        def <strong>to_a</strong> : Array(Tuple(K, V))
+
+        <a class="method-permalink" href="#to_a%3AArray%28Tuple%28K%2CV%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable({K, V})</a>
+            </div>
+          
+          <p>Returns an <code>Array</code> with all the elements in the collection.</p>
+<pre><code class="language-crystal">(<span class="n">1</span>..<span class="n">5</span>).to_a <span class="c"># =&gt; [1, 2, 3, 4, 5]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L851" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_hash-instance-method">
+      <div class="signature">
+        
+        def <strong>to_hash</strong>
+
+        <a class="method-permalink" href="#to_hash-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L859" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#to_s%28io%3AIO%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Appends a short String representation of this object
+which includes its class name and its object address.</p>
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">Person</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @age : <span class="t">Int32</span>)
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="t">Person</span>.new(<span class="s">&quot;John&quot;</span>, <span class="n">32</span>).to_s <span class="c"># =&gt; #&lt;Person:0x10a199f20&gt;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L842" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unordered_each(node=@root,&amp;:Tuple(K,V)-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>unordered_each</strong>(node = @root, & : Tuple(K, V) -> ) : Nil
+
+        <a class="method-permalink" href="#unordered_each%28node%3D%40root%2C%26%3ATuple%28K%2CV%29-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L567" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unsafe_fetch(index:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>unsafe_fetch</strong>(index : Int)
+
+        <a class="method-permalink" href="#unsafe_fetch%28index%3AInt%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L320" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update(key:K,&amp;:V-&gt;V):V-instance-method">
+      <div class="signature">
+        
+        def <strong>update</strong>(key : K, & : V -> V) : V
+
+        <a class="method-permalink" href="#update%28key%3AK%2C%26%3AV-%3EV%29%3AV-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="upper_bound(key:K):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>upper_bound</strong>(key : K) : Int32
+
+        <a class="method-permalink" href="#upper_bound%28key%3AK%29%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L702" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="values:Array(V)-instance-method">
+      <div class="signature">
+        
+        def <strong>values</strong> : Array(V)
+
+        <a class="method-permalink" href="#values%3AArray%28V%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L381" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="values_at(*indices:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>values_at</strong>(*indices : Int)
+
+        <a class="method-permalink" href="#values_at%28%2Aindices%3AInt%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L389" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="values_by_key(*keys:K)-instance-method">
+      <div class="signature">
+        
+        def <strong>values_by_key</strong>(*keys : K)
+
+        <a class="method-permalink" href="#values_by_key%28%2Akeys%3AK%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multimap.cr#L385" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

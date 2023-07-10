@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.7.3">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="avltree">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="avltree">
+  <title>AVLTree::SortedMultiset(T) - avltree main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          avltree
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="avltree/AVLTree" data-name="avltree">
+      <a href="../AVLTree.html">AVLTree</a>
+      
+        <ul>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMap" data-name="avltree::sortedmap(k, v)">
+      <a href="../AVLTree/SortedMap.html">SortedMap</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMultimap" data-name="avltree::sortedmultimap(k, v)">
+      <a href="../AVLTree/SortedMultimap.html">SortedMultimap</a>
+      
+    </li>
+  
+  <li class=" current" data-id="avltree/AVLTree/SortedMultiset" data-name="avltree::sortedmultiset(t)">
+      <a href="../AVLTree/SortedMultiset.html">SortedMultiset</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedSet" data-name="avltree::sortedset(t)">
+      <a href="../AVLTree/SortedSet.html">SortedSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="avltree/Enumerable" data-name="enumerable(t)">
+      <a href="../Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> AVLTree::SortedMultiset(T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../AVLTree/SortedMultiset.html">AVLTree::SortedMultiset(T)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><code><a href="../AVLTree/SortedMultiset.html">SortedMultiset</a></code> implements a collection of sorted values with no duplicates.</p>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Enumerable.html">Enumerable(T)</a></li>
+    
+      <li class="other-type">Indexable(T)</li>
+    
+      <li class="other-type">Iterable(T)</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L5" target="_blank">
+        avltree/sorted_multiset.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28other%3AIndexable%28T%29%29-class-method" class="signature"><strong>.new</strong>(other : Indexable(T))</a>
+        
+          <div class="summary"><p>Optimized version of <code><a href="../AVLTree/SortedMultiset.html#new-class-method">.new</a></code> used when <em>other</em> is also an <code>Indexable</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28enumerable%3AEnumerable%28T%29%29-class-method" class="signature"><strong>.new</strong>(enumerable : Enumerable(T))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%26%28other%3ASet%29-instance-method" class="signature"><strong>#&</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2B%28other%3ASet%28U%29%29forallU-instance-method" class="signature"><strong>#+</strong>(other : Set(U)) forall U</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28other%3ASet%29-instance-method" class="signature"><strong>#-</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28other%3AEnumerable%29-instance-method" class="signature"><strong>#-</strong>(other : Enumerable)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%3C%28object%3AT%29-instance-method" class="signature"><strong>#<<</strong>(object : T)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%28other%3ASet%29-instance-method" class="signature"><strong>#==</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%3D%28object%3AT%29-instance-method" class="signature"><strong>#===</strong>(object : T)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5E%28other%3ASet%28U%29%29forallU-instance-method" class="signature"><strong>#^</strong>(other : Set(U)) forall U</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5E%28other%3AEnumerable%28U%29%29forallU-instance-method" class="signature"><strong>#^</strong>(other : Enumerable(U)) forall U</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%7C%28other%3ASet%28U%29%29forallU-instance-method" class="signature"><strong>#|</strong>(other : Set(U)) forall U</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add%28object%3AT%29-instance-method" class="signature"><strong>#add</strong>(object : T)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add%3F%28object%3AT%29-instance-method" class="signature"><strong>#add?</strong>(object : T)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#concat%28elems%29-instance-method" class="signature"><strong>#concat</strong>(elems)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#count%28object%29-instance-method" class="signature"><strong>#count</strong>(object)</a>
+        
+          <div class="summary"><p>Returns the number of times that the passed item is present in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28object%29-instance-method" class="signature"><strong>#delete</strong>(object)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dup-instance-method" class="signature"><strong>#dup</strong></a>
+        
+          <div class="summary"><p>Returns a shallow copy of this object.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each%28%26%29-instance-method" class="signature"><strong>#each</strong>(&)</a>
+        
+          <div class="summary"><p>Calls the given block once for each element in <code>self</code>, passing that element as a parameter.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each-instance-method" class="signature"><strong>#each</strong></a>
+        
+          <div class="summary"><p>Must return an <code>Iterator</code> over the elements in this collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty%3F-instance-method" class="signature"><strong>#empty?</strong></a>
+        
+          <div class="summary"><p>Returns <code>true</code> if <code>self</code> is empty, <code>false</code> otherwise.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fetch%28index%3AInt%2C%26%29-instance-method" class="signature"><strong>#fetch</strong>(index : Int, &)</a>
+        
+          <div class="summary"><p>Returns the element at the given <em>index</em>, if in bounds, otherwise executes the given block with the index and returns its value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fetch%28index%3AInt%2Cdefault%29-instance-method" class="signature"><strong>#fetch</strong>(index : Int, default)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first-instance-method" class="signature"><strong>#first</strong></a>
+        
+          <div class="summary"><p>Returns the first element in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first%3F-instance-method" class="signature"><strong>#first?</strong></a>
+        
+          <div class="summary"><p>Returns the first element in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_equal_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_equal_index</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_equal_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#greater_equal_object</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_index</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#greater_object</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#greater_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hash%28hasher%29-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
+        
+          <div class="summary"><p>See <code>Object#hash(hasher)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#includes%3F%28object%29-instance-method" class="signature"><strong>#includes?</strong>(object)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the collection contains <em>obj</em>, <code>false</code> otherwise.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index%28object%29-instance-method" class="signature"><strong>#index</strong>(object)</a>
+        
+          <div class="summary"><p>Returns the index of the first appearance of <em>object</em> in <code>self</code> starting from the given <em>offset</em>, or <code>nil</code> if <em>object</em> is not in <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index%21%28object%29-instance-method" class="signature"><strong>#index!</strong>(object)</a>
+        
+          <div class="summary"><p>Returns the index of the first appearance of <em>obj</em> in <code>self</code> starting from the given <em>offset</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Appends this struct's name and instance variables names and values to the given IO.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#intersects%3F%28other%3ASet%29-instance-method" class="signature"><strong>#intersects?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last-instance-method" class="signature"><strong>#last</strong></a>
+        
+          <div class="summary"><p>Returns the last element of <code>self</code> if it's not empty, or raises <code>IndexError</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last%3F-instance-method" class="signature"><strong>#last?</strong></a>
+        
+          <div class="summary"><p>Returns the last element of <code>self</code> if it's not empty, or <code>nil</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_equal_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_equal_index</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_equal_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#less_equal_object</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_index</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#less_object</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#less_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lower_bound%28object%29%3AInt32-instance-method" class="signature"><strong>#lower_bound</strong>(object) : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max-instance-method" class="signature"><strong>#max</strong></a>
+        
+          <div class="summary"><p>Returns the element with the maximum value in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max%3F-instance-method" class="signature"><strong>#max?</strong></a>
+        
+          <div class="summary"><p>Like <code><a href="../AVLTree/SortedMultiset.html#max-instance-method">#max</a></code> but returns <code>nil</code> if the collection is empty.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min-instance-method" class="signature"><strong>#min</strong></a>
+        
+          <div class="summary"><p>Returns the element with the minimum value in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3F-instance-method" class="signature"><strong>#min?</strong></a>
+        
+          <div class="summary"><p>Like <code><a href="../AVLTree/SortedMultiset.html#min-instance-method">#min</a></code> but returns <code>nil</code> if the collection is empty.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#object_id-instance-method" class="signature"><strong>#object_id</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pretty_print%28pp%29%3ANil-instance-method" class="signature"><strong>#pretty_print</strong>(pp) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_subset%3F%28other%3ASet%29-instance-method" class="signature"><strong>#proper_subset?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#proper_superset%3F%28other%3ASet%29-instance-method" class="signature"><strong>#proper_superset?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rindex%28object%29-instance-method" class="signature"><strong>#rindex</strong>(object)</a>
+        
+          <div class="summary"><p>Returns the index of the last appearance of <em>value</em> in <code>self</code>, or <code>nil</code> if the value is not in <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rindex%21%28object%29-instance-method" class="signature"><strong>#rindex!</strong>(object)</a>
+        
+          <div class="summary"><p>Returns the index of the last appearance of <em>value</em> in <code>self</code>, or <code>nil</code> if the value is not in <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#same%3F%28other%3ASet%29-instance-method" class="signature"><strong>#same?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size-instance-method" class="signature"><strong>#size</strong></a>
+        
+          <div class="summary"><p>Returns the number of elements in this container.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subset%3F%28other%3ASet%29-instance-method" class="signature"><strong>#subset?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subtract%28other%3AEnumerable%29-instance-method" class="signature"><strong>#subtract</strong>(other : Enumerable)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#superset%3F%28other%3ASet%29-instance-method" class="signature"><strong>#superset?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_a-instance-method" class="signature"><strong>#to_a</strong></a>
+        
+          <div class="summary"><p>Returns an <code>Array</code> with all the elements in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#to_s</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Same as <code><a href="../AVLTree/SortedMultiset.html#inspect%28io%3AIO%29%3ANil-instance-method">#inspect(io)</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unordered_each%28%26%29-instance-method" class="signature"><strong>#unordered_each</strong>(&)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unsafe_fetch%28index%3AInt%29-instance-method" class="signature"><strong>#unsafe_fetch</strong>(index : Int)</a>
+        
+          <div class="summary"><p>Returns the element at the given <em>index</em>, without doing any bounds check.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#upper_bound%28object%29%3AInt32-instance-method" class="signature"><strong>#upper_bound</strong>(object) : Int32</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../Enumerable.html">Enumerable(T)</a></code></h3>
+  
+  
+    <a href="../Enumerable.html#to_sorted_set-instance-method" class="tooltip">
+      <span>to_sorted_set</span>
+    to_sorted_set</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../Enumerable.html">Enumerable(T)</a></code></h3>
+  
+  
+    <a href="../Enumerable.html#to_sorted_set-instance-method" class="tooltip">
+      <span>to_sorted_set</span>
+    to_sorted_set</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(other:Indexable(T))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(other : Indexable(T))
+
+        <a class="method-permalink" href="#new%28other%3AIndexable%28T%29%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Optimized version of <code><a href="../AVLTree/SortedMultiset.html#new-class-method">.new</a></code> used when <em>other</em> is also an <code>Indexable</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(enumerable:Enumerable(T))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(enumerable : <a href="../Enumerable.html">Enumerable</a>(T))
+
+        <a class="method-permalink" href="#new%28enumerable%3AEnumerable%28T%29%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="&amp;(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>&</strong>(other : Set)
+
+        <a class="method-permalink" href="#%26%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L172" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="+(other:Set(U))forallU-instance-method">
+      <div class="signature">
+        
+        def <strong>+</strong>(other : Set(U)) forall U
+
+        <a class="method-permalink" href="#%2B%28other%3ASet%28U%29%29forallU-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L192" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : Set)
+
+        <a class="method-permalink" href="#-%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L196" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : <a href="../Enumerable.html">Enumerable</a>)
+
+        <a class="method-permalink" href="#-%28other%3AEnumerable%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L204" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;&lt;(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong><<</strong>(object : T)
+
+        <a class="method-permalink" href="#%3C%3C%28object%3AT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L87" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : Set)
+
+        <a class="method-permalink" href="#%3D%3D%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L238" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="===(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>===</strong>(object : T)
+
+        <a class="method-permalink" href="#%3D%3D%3D%28object%3AT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L242" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="^(other:Set(U))forallU-instance-method">
+      <div class="signature">
+        
+        def <strong>^</strong>(other : Set(U)) forall U
+
+        <a class="method-permalink" href="#%5E%28other%3ASet%28U%29%29forallU-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L208" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="^(other:Enumerable(U))forallU-instance-method">
+      <div class="signature">
+        
+        def <strong>^</strong>(other : <a href="../Enumerable.html">Enumerable</a>(U)) forall U
+
+        <a class="method-permalink" href="#%5E%28other%3AEnumerable%28U%29%29forallU-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L219" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="|(other:Set(U))forallU-instance-method">
+      <div class="signature">
+        
+        def <strong>|</strong>(other : Set(U)) forall U
+
+        <a class="method-permalink" href="#%7C%28other%3ASet%28U%29%29forallU-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L185" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>add</strong>(object : T)
+
+        <a class="method-permalink" href="#add%28object%3AT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L91" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add?(object:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>add?</strong>(object : T)
+
+        <a class="method-permalink" href="#add%3F%28object%3AT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L96" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear-instance-method">
+      <div class="signature">
+        
+        def <strong>clear</strong>
+
+        <a class="method-permalink" href="#clear-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L119" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clone-instance-method">
+      <div class="signature">
+        
+        def <strong>clone</strong>
+
+        <a class="method-permalink" href="#clone-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L252" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="concat(elems)-instance-method">
+      <div class="signature">
+        
+        def <strong>concat</strong>(elems)
+
+        <a class="method-permalink" href="#concat%28elems%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="count(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>count</strong>(object)
+
+        <a class="method-permalink" href="#count%28object%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Returns the number of times that the passed item is present in the collection.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>].count(<span class="n">3</span>) <span class="c"># =&gt; 1</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L83" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>(object)
+
+        <a class="method-permalink" href="#delete%28object%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L110" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dup-instance-method">
+      <div class="signature">
+        
+        def <strong>dup</strong>
+
+        <a class="method-permalink" href="#dup-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from struct Value
+            </div>
+          
+          <p>Returns a shallow copy of this object.</p>
+<p>Because <code>Value</code> is a value type, this method returns <code>self</code>,
+which already involves a shallow copy of this object because
+value types are passed by value.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L246" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each(&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>(&)
+
+        <a class="method-permalink" href="#each%28%26%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Calls the given block once for each element in <code>self</code>, passing that
+element as a parameter.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>]
+a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class="s">&quot; -- &quot;</span> }</code></pre>
+<p>produces:</p>
+<pre><code class="language-text">a -- b -- c --</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L128" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>
+
+        <a class="method-permalink" href="#each-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Iterable(T)
+            </div>
+          
+          <p>Must return an <code>Iterator</code> over the elements in this collection.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L134" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong>
+
+        <a class="method-permalink" href="#empty%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns <code>true</code> if <code>self</code> is empty, <code>false</code> otherwise.</p>
+<pre><code class="language-crystal">(<span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>).empty? <span class="c"># =&gt; true</span>
+([<span class="n">1</span>]).empty?         <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L124" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fetch(index:Int,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>fetch</strong>(index : Int, &)
+
+        <a class="method-permalink" href="#fetch%28index%3AInt%2C%26%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the element at the given <em>index</em>, if in bounds,
+otherwise executes the given block with the index and returns its value.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> [<span class="n">:foo</span>, <span class="n">:bar</span>]
+a.fetch(<span class="n">0</span>) { <span class="n">:default_value</span> }    <span class="c"># =&gt; :foo</span>
+a.fetch(<span class="n">2</span>) { <span class="n">:default_value</span> }    <span class="c"># =&gt; :default_value</span>
+a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o">|</span> index <span class="o">*</span> <span class="n">3</span> } <span class="c"># =&gt; 6</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fetch(index:Int,default)-instance-method">
+      <div class="signature">
+        
+        def <strong>fetch</strong>(index : Int, default)
+
+        <a class="method-permalink" href="#fetch%28index%3AInt%2Cdefault%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first-instance-method">
+      <div class="signature">
+        
+        def <strong>first</strong>
+
+        <a class="method-permalink" href="#first-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Returns the first element in the collection. Raises <code>Enumerable::EmptyError</code>
+if the collection is empty.</p>
+<pre><code class="language-crystal">([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]).first   <span class="c"># =&gt; 1</span>
+(<span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>).first <span class="c"># raises Enumerable::EmptyError</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first?-instance-method">
+      <div class="signature">
+        
+        def <strong>first?</strong>
+
+        <a class="method-permalink" href="#first%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Returns the first element in the collection.
+When the collection is empty, returns <code>nil</code>.</p>
+<pre><code class="language-crystal">([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]).first?   <span class="c"># =&gt; 1</span>
+(<span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>).first? <span class="c"># =&gt; nil</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_equal_index(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_equal_index</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#greater_equal_index%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_equal_object(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_equal_object</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#greater_equal_object%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_equal_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#greater_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_index(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_index</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#greater_index%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_object(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_object</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#greater_object%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="greater_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>greater_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#greater_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hash(hasher)-instance-method">
+      <div class="signature">
+        
+        def <strong>hash</strong>(hasher)
+
+        <a class="method-permalink" href="#hash%28hasher%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>See <code>Object#hash(hasher)</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L270" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="includes?(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>includes?</strong>(object)
+
+        <a class="method-permalink" href="#includes%3F%28object%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Returns <code>true</code> if the collection contains <em>obj</em>, <code>false</code> otherwise.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].includes?(<span class="n">2</span>) <span class="c"># =&gt; true</span>
+[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].includes?(<span class="n">5</span>) <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>index</strong>(object)
+
+        <a class="method-permalink" href="#index%28object%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the index of the first appearance of <em>object</em> in <code>self</code>
+starting from the given <em>offset</em>, or <code>nil</code> if <em>object</em> is not in <code>self</code>.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].index(<span class="n">2</span>, offset: <span class="n">2</span>) <span class="c"># =&gt; 4</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L67" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index!(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>index!</strong>(object)
+
+        <a class="method-permalink" href="#index%21%28object%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the index of the first appearance of <em>obj</em> in <code>self</code>
+starting from the given <em>offset</em>. Raises <code>Enumerable::NotFoundError</code> if
+<em>obj</em> is not in <code>self</code>.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].index!(<span class="n">2</span>, offset: <span class="n">2</span>) <span class="c"># =&gt; 4</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L71" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inspect(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>inspect</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#inspect%28io%3AIO%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from struct Struct
+            </div>
+          
+          <p>Appends this struct's name and instance variables names and values
+to the given IO.</p>
+<pre><code class="language-crystal"><span class="k">struct</span> <span class="t">Point</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@x : <span class="t">Int32</span>, @y : <span class="t">Int32</span>)
+  <span class="k">end</span>
+<span class="k">end</span>
+
+p1 <span class="o">=</span> <span class="t">Point</span>.new <span class="n">1</span>, <span class="n">2</span>
+p1.to_s    <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span>
+p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L262" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="intersects?(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>intersects?</strong>(other : Set)
+
+        <a class="method-permalink" href="#intersects%3F%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L272" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last-instance-method">
+      <div class="signature">
+        
+        def <strong>last</strong>
+
+        <a class="method-permalink" href="#last-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the last element of <code>self</code> if it's not empty, or raises <code>IndexError</code>.</p>
+<pre><code class="language-crystal">([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]).last   <span class="c"># =&gt; 3</span>
+(<span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>).last <span class="c"># raises IndexError</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L43" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last?-instance-method">
+      <div class="signature">
+        
+        def <strong>last?</strong>
+
+        <a class="method-permalink" href="#last%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the last element of <code>self</code> if it's not empty, or <code>nil</code>.</p>
+<pre><code class="language-crystal">([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]).last?   <span class="c"># =&gt; 3</span>
+(<span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>).last? <span class="c"># =&gt; nil</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L47" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_equal_index(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_equal_index</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#less_equal_index%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_equal_object(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_equal_object</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#less_equal_object%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_equal_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>less_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#less_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_index(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_index</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#less_index%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_object(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>less_object</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#less_object%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="less_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>less_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#less_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lower_bound(object):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>lower_bound</strong>(object) : Int32
+
+        <a class="method-permalink" href="#lower_bound%28object%29%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L144" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max-instance-method">
+      <div class="signature">
+        
+        def <strong>max</strong>
+
+        <a class="method-permalink" href="#max-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Returns the element with the maximum value in the collection.</p>
+<p>It compares using <code>&gt;</code> so it will work for any type that supports that method.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].max        <span class="c"># =&gt; 3</span>
+[<span class="s">&quot;Alice&quot;</span>, <span class="s">&quot;Bob&quot;</span>].max <span class="c"># =&gt; &quot;Bob&quot;</span></code></pre>
+<p>Raises <code>Enumerable::EmptyError</code> if the collection is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L59" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max?-instance-method">
+      <div class="signature">
+        
+        def <strong>max?</strong>
+
+        <a class="method-permalink" href="#max%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Like <code><a href="../AVLTree/SortedMultiset.html#max-instance-method">#max</a></code> but returns <code>nil</code> if the collection is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L63" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min-instance-method">
+      <div class="signature">
+        
+        def <strong>min</strong>
+
+        <a class="method-permalink" href="#min-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Returns the element with the minimum value in the collection.</p>
+<p>It compares using <code>&lt;</code> so it will work for any type that supports that method.</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].min        <span class="c"># =&gt; 1</span>
+[<span class="s">&quot;Alice&quot;</span>, <span class="s">&quot;Bob&quot;</span>].min <span class="c"># =&gt; &quot;Alice&quot;</span></code></pre>
+<p>Raises <code>Enumerable::EmptyError</code> if the collection is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min?-instance-method">
+      <div class="signature">
+        
+        def <strong>min?</strong>
+
+        <a class="method-permalink" href="#min%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+            </div>
+          
+          <p>Like <code><a href="../AVLTree/SortedMultiset.html#min-instance-method">#min</a></code> but returns <code>nil</code> if the collection is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L55" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="object_id-instance-method">
+      <div class="signature">
+        
+        def <strong>object_id</strong>
+
+        <a class="method-permalink" href="#object_id-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L304" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pretty_print(pp):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>pretty_print</strong>(pp) : Nil
+
+        <a class="method-permalink" href="#pretty_print%28pp%29%3ANil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L266" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_subset?(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_subset?</strong>(other : Set)
+
+        <a class="method-permalink" href="#proper_subset%3F%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L291" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="proper_superset?(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>proper_superset?</strong>(other : Set)
+
+        <a class="method-permalink" href="#proper_superset%3F%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L300" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rindex(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>rindex</strong>(object)
+
+        <a class="method-permalink" href="#rindex%28object%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the index of the last appearance of <em>value</em> in <code>self</code>, or
+<code>nil</code> if the value is not in <code>self</code>.</p>
+<p>If <em>offset</em> is given, it defines the position to <em>end</em> the search
+(elements beyond this point are ignored).</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">3</span>].rindex(<span class="n">2</span>)            <span class="c"># =&gt; 3</span>
+[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">3</span>].rindex(<span class="n">2</span>, offset: <span class="n">2</span>) <span class="c"># =&gt; 1</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L75" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rindex!(object)-instance-method">
+      <div class="signature">
+        
+        def <strong>rindex!</strong>(object)
+
+        <a class="method-permalink" href="#rindex%21%28object%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the index of the last appearance of <em>value</em> in <code>self</code>, or
+<code>nil</code> if the value is not in <code>self</code>.</p>
+<p>If <em>offset</em> is given, it defines the position to <em>end</em> the search
+(elements beyond this point are ignored).</p>
+<pre><code class="language-crystal">[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">3</span>].rindex(<span class="n">2</span>)            <span class="c"># =&gt; 3</span>
+[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">3</span>].rindex(<span class="n">2</span>, offset: <span class="n">2</span>) <span class="c"># =&gt; 1</span></code></pre>
+<p>Raises <code>Enumerable::NotFoundError</code> if <em>value</em> is not in <code>self</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L79" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="same?(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>same?</strong>(other : Set)
+
+        <a class="method-permalink" href="#same%3F%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong>
+
+        <a class="method-permalink" href="#size-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the number of elements in this container.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L115" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subset?(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>subset?</strong>(other : Set)
+
+        <a class="method-permalink" href="#subset%3F%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L286" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subtract(other:Enumerable)-instance-method">
+      <div class="signature">
+        
+        def <strong>subtract</strong>(other : <a href="../Enumerable.html">Enumerable</a>)
+
+        <a class="method-permalink" href="#subtract%28other%3AEnumerable%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L231" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="superset?(other:Set)-instance-method">
+      <div class="signature">
+        
+        def <strong>superset?</strong>(other : Set)
+
+        <a class="method-permalink" href="#superset%3F%28other%3ASet%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L296" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_a-instance-method">
+      <div class="signature">
+        
+        def <strong>to_a</strong>
+
+        <a class="method-permalink" href="#to_a-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns an <code>Array</code> with all the elements in the collection.</p>
+<pre><code class="language-crystal">{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.to_a <span class="c"># =&gt; [1, 2, 3]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L258" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#to_s%28io%3AIO%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from struct Struct
+            </div>
+          
+          <p>Same as <code><a href="../AVLTree/SortedMultiset.html#inspect%28io%3AIO%29%3ANil-instance-method">#inspect(io)</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L280" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unordered_each(&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>unordered_each</strong>(&)
+
+        <a class="method-permalink" href="#unordered_each%28%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L138" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unsafe_fetch(index:Int)-instance-method">
+      <div class="signature">
+        
+        def <strong>unsafe_fetch</strong>(index : Int)
+
+        <a class="method-permalink" href="#unsafe_fetch%28index%3AInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Indexable(T)
+            </div>
+          
+          <p>Returns the element at the given <em>index</em>, without doing any bounds check.</p>
+<p><code>Indexable</code> makes sure to invoke this method with <em>index</em> in <code>0...size</code>,
+so converting negative indices to positive ones is not needed here.</p>
+<p>Clients never invoke this method directly. Instead, they access
+elements with <code>#[](index)</code> and <code>#[]?(index)</code>.</p>
+<p>This method should only be directly invoked if you are absolutely
+sure the index is in bounds, to avoid a bounds check for a small boost
+of performance.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="upper_bound(object):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>upper_bound</strong>(object) : Int32
+
+        <a class="method-permalink" href="#upper_bound%28object%29%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_multiset.cr#L148" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

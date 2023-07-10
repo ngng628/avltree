@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.7.3">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="avltree">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="avltree">
+  <title>Enumerable(T) - avltree main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          avltree
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="avltree/AVLTree" data-name="avltree">
+      <a href="AVLTree.html">AVLTree</a>
+      
+        <ul>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMap" data-name="avltree::sortedmap(k, v)">
+      <a href="AVLTree/SortedMap.html">SortedMap</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMultimap" data-name="avltree::sortedmultimap(k, v)">
+      <a href="AVLTree/SortedMultimap.html">SortedMultimap</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedMultiset" data-name="avltree::sortedmultiset(t)">
+      <a href="AVLTree/SortedMultiset.html">SortedMultiset</a>
+      
+    </li>
+  
+  <li class=" " data-id="avltree/AVLTree/SortedSet" data-name="avltree::sortedset(t)">
+      <a href="AVLTree/SortedSet.html">SortedSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" current" data-id="avltree/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Enumerable(T)
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>The <code><a href="Enumerable.html">Enumerable</a></code> mixin provides collection classes with several traversal, searching,
+filtering and querying methods.</p>
+<p>Including types must provide an <code>each</code> method, which yields successive members
+of the collection.</p>
+<p>For example:</p>
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">Three</span>
+  <span class="k">include</span> <span class="t">Enumerable</span>(<span class="t">Int32</span>)
+
+  <span class="k">def</span> <span class="m">each</span>(<span class="o">&amp;</span>)
+    <span class="k">yield</span> <span class="n">1</span>
+    <span class="k">yield</span> <span class="n">2</span>
+    <span class="k">yield</span> <span class="n">3</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+three <span class="o">=</span> <span class="t">Three</span>.new
+three.to_a                <span class="c"># =&gt; [1, 2, 3]</span>
+three.<span class="k">select</span> <span class="o">&amp;</span>.odd?       <span class="c"># =&gt; [1, 3]</span>
+three.all? { <span class="o">|</span>x<span class="o">|</span> x <span class="o">&lt;</span> <span class="n">10</span> } <span class="c"># =&gt; true</span></code></pre>
+<p>Note that most search and filter methods traverse an Enumerable eagerly,
+producing an <code>Array</code> as the result. For a lazy alternative refer to
+the <code>Iterator</code> and <code>Iterable</code> modules.</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="AVLTree/SortedMap.html">AVLTree::SortedMap(K, V)</a></li>
+    
+      <li class="other-type"><a href="AVLTree/SortedMultimap.html">AVLTree::SortedMultimap(K, V)</a></li>
+    
+      <li class="other-type"><a href="AVLTree/SortedMultiset.html">AVLTree::SortedMultiset(T)</a></li>
+    
+      <li class="other-type"><a href="AVLTree/SortedSet.html">AVLTree::SortedSet(T)</a></li>
+    
+  </ul>
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_set.cr#L306" target="_blank">
+        avltree/sorted_set.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#to_sorted_set-instance-method" class="signature"><strong>#to_sorted_set</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="to_sorted_set-instance-method">
+      <div class="signature">
+        
+        def <strong>to_sorted_set</strong>
+
+        <a class="method-permalink" href="#to_sorted_set-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_set.cr#L307" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
