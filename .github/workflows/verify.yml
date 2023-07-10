@@ -2,6 +2,8 @@ on:
   push:
   pull_request:
     branches: [main]
+permissions:
+  contents: write
 jobs:
   spec:
     runs-on: ubuntu-latest
@@ -31,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
       - name: Install shards
@@ -40,9 +42,9 @@ jobs:
         run: crystal doc
       - name: deploy
         if: github.ref == 'refs/heads/main'
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@4
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_PAT }}
           BRANCH: gh-pages
           FOLDER: docs
           SINGLE_COMMIT: true
