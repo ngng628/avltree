@@ -42,7 +42,7 @@ jobs:
         run: crystal doc
       - name: deploy
         if: github.ref == 'refs/heads/main'
-        uses: JamesIves/github-pages-deploy-action@4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_PAT }}
           BRANCH: gh-pages
