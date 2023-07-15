@@ -80,7 +80,7 @@ module AVLTree
     end
 
     def min?
-      first
+      first?
     end
 
     def max
@@ -88,7 +88,7 @@ module AVLTree
     end
 
     def max?
-      last
+      last?
     end
 
     def index(object)
