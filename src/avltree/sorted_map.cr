@@ -1,4 +1,36 @@
 module AVLTree
+  # `SortedMap` implements a associative array that guarantees that its keys are yielded in sorted order
+  # (according to the return keys of their #<=> methods) when iterating over them.
+  #
+  # SortedMap is implemented using an AVL tree.
+  #
+  # While it often has slower computational speed compared to a Hash implemented using a hash-based approach,
+  # it offers potential optimizations for operations related to order.
+  # For example, retrieving the maximum and minimum keys of the map can be performed in logarithmic time.
+  #
+  # `SortedMap` does not allow duplicates and only stores unique keys.
+  #
+  # ### Example
+  #
+  # ```
+  # require "avltree"
+  #
+  # map = AVLTree::SortedMap(String, Int32).new({"bob" => 3, "alice" => 1, "carol" => -2})
+  # map.to_a == [{"alice", 1}, {"bob", 3}, {"carol", -2}] # => true
+  # map.to_a == [{"bob", 3}, {"alice", 1}, {"carol", -2}] # => false
+  #
+  # map["dave"] = 4
+  # map["oscar"] = 3
+  #
+  # map # => {alice => 1, bob => 3, carol => -2, dave => 4, oscar => 3}
+  #
+  # map.min # => {"alice", 1}  (O(logN))
+  # map.max # => {"oscar", 3}  (O(logN))
+  #
+  # map.lower_bound("a")     # => 0  (O(logN))
+  # map.lower_bound("bryan") # => 2  (O(logN))
+  # map.lower_bound("zoe")   # => 5  (O(logN))
+  # ```
   class SortedMap(K, V)
     include Enumerable({K, V})
     include Iterable({K, V})

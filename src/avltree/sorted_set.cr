@@ -1,7 +1,35 @@
 require "./sorted_map"
 
 module AVLTree
-  # `SortedSet` implements a collection of sorted values with no duplicates.
+  # `SortedSet` implements a Set that guarantees that its elements are yielded in sorted order
+  # (according to the return values of their #<=> methods) when iterating over them.
+  #
+  # `SortedSet` utilizes an internally implemented `SortedMap` using an AVL tree.
+  #
+  # While it often has slower computational speed compared to a Set implemented using a hash-based approach,
+  # it offers potential optimizations for operations related to order.
+  # For example, retrieving the maximum and minimum values of the set can be performed in logarithmic time.
+  #
+  # `SortedSet` does not allow duplicates and only stores unique values.
+  #
+  # ### Example
+  #
+  # ```
+  # require "avltree"
+  #
+  # set = AVLTree::SortedSet.new [3, 1, 4]
+  # set.to_a == [1, 3, 4] # => true
+  # set.to_a == [3, 1, 4] # => false
+  #
+  # set << 1 << 5
+  # set                 # => SortedSet{1, 3, 4, 5}
+  # set.min             # => 1  (O(logN))
+  # set.max             # => 5  (O(logN))
+  # set.index(4)        # => 2  (O(logN))
+  # set.upper_bound(2)  # => 1  (O(logN))
+  # set.upper_bound(3)  # => 1  (O(logN))
+  # set.upper_bound(10) # => 4  (O(logN))
+  # ```
   struct SortedSet(T)
     include Enumerable(T)
     include Indexable(T)
@@ -11,7 +39,6 @@ module AVLTree
       @map = SortedMap(T, Nil).new
     end
 
-    # Optimized version of `new` used when *other* is also an `Indexable`
     def self.new(other : Indexable(T))
       SortedSet(T).new.concat(other)
     end
@@ -127,21 +154,50 @@ module AVLTree
       @map.each_key
     end
 
+    # Yields each element of the set, and returns self.
+    #
+    # It doesn't guarantee that its elements are yielded in sorted order when iterating over them.
     def unordered_each(&)
       @map.unordered_each do |key, _|
         yield key
       end
+      self
     end
 
+    # ```
+    # set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
+    # set                  # => SortedSet{"A", "B", "C", "E"}
+    # set.lower_bound("@") # => 0
+    # set.lower_bound("A") # => 0
+    # set.lower_bound("B") # => 1
+    # set.lower_bound("C") # => 2
+    # set.lower_bound("D") # => 3
+    # set.lower_bound("E") # => 3
+    # set.lower_bound("F") # => 4
+    # set.lower_bound("Z") # => 4
+    # ```
     def lower_bound(object) : Int32
       @map.lower_bound(object)
     end
 
+    # ```
+    # set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
+    # set                  # => SortedSet{"A", "B", "C", "E"}
+    # set.upper_bound("@") # => 0
+    # set.upper_bound("A") # => 1
+    # set.upper_bound("B") # => 2
+    # set.upper_bound("C") # => 3
+    # set.upper_bound("D") # => 3
+    # set.upper_bound("E") # => 4
+    # set.upper_bound("F") # => 4
+    # set.upper_bound("Z") # => 4
+    # ```
     def upper_bound(object) : Int32
       @map.upper_bound(object)
     end
 
     {% for method_name in ["less", "less_equal", "greater", "greater_equal"] %}
+      # See `SortedMap#{{ method_name.id }}_item_with_index`
       def {{ method_name.id }}_object_with_index(object) : {T?, Int32?}
         item, index = @map.{{ method_name.id }}_item_with_index(object)
         if item
@@ -151,11 +207,13 @@ module AVLTree
         end
       end
 
+      # See `SortedMap#{{ method_name.id }}_item`
       def {{ method_name.id }}_object(object) : T?
         item = @map.{{ method_name.id }}_item(object)
         item ? item.not_nil![0] : nil
       end
 
+      # See `SortedMap#{{ method_name.id }}_index`
       def {{ method_name.id }}_index(object) : Int32?
         @map.{{ method_name.id }}_index(object)
       end

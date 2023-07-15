@@ -1,7 +1,31 @@
 require "./sorted_multimap"
 
 module AVLTree
-  # `SortedMultiset` implements a collection of sorted values with no duplicates.
+  # `SortedMultiset` implements a collection of sorted values with possible duplicates.
+  #
+  # ### Sample
+  #
+  # ```
+  # require "avltree"
+  #
+  # mset = AVLTree::SortedMultiset(Int32).new
+  # mset << 3 << 1 << 4 << 1 << 5 << 9
+  #
+  # mset # => SortedMultiset{1, 1, 3, 4, 5, 9}
+  #
+  # mset[0] # => 1
+  # mset[1] # => 1
+  # mset[2] # => 3  (SortedMultiset#[k] returns the kth object)
+  #
+  # mset.lower_bound(-1) # => 0
+  # mset.lower_bound(2)  # => 2
+  # mset.lower_bound(3)  # => 2
+  # mset.lower_bound(9)  # => 5
+  # mset.lower_bound(10) # => 6
+  #
+  # mset.delete(1)
+  # mset # => SortedMultiset{1, 3, 4, 5, 9}
+  # ```
   struct SortedMultiset(T)
     include Enumerable(T)
     include Indexable(T)
@@ -11,7 +35,6 @@ module AVLTree
       @map = SortedMultimap(T, Nil).new
     end
 
-    # Optimized version of `new` used when *other* is also an `Indexable`
     def self.new(other : Indexable(T))
       SortedMultiset(T).new.concat(other)
     end
