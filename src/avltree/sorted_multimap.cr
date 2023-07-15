@@ -335,8 +335,8 @@ module AVLTree
     end
 
     def fetch_at(index : Int, &)
-      index += size if k < 0
-      raise yield index unless 0 <= k && k < size
+      index += size if index < 0
+      return yield index unless 0 <= index && index < size
       unsafe_fetch(index)
     end
 
@@ -871,7 +871,7 @@ module AVLTree
         return {key, value}
       end
 
-      node = find_node(@root, key).not_nil!
+      node = find_node2(@root, key).not_nil!
 
       new_node = Node(K, V).new(key, value, node)
       if key <= node.key
@@ -934,11 +934,26 @@ module AVLTree
       node
     end
 
+    @[AlwaysInline]
+    private def find_node2(node : Node(K, V)?, key : K) : Node(K, V)?
+      return nil if node.nil?
+      loop do
+        if key <= node.not_nil!.key
+          break if node.not_nil!.left.nil?
+          node = node.not_nil!.left
+        else
+          break if node.not_nil!.right.nil?
+          node = node.not_nil!.right
+        end
+      end
+      node
+    end
+
     # ameba:disable Metrics/CyclomaticComplexity
     private def delete_impl(key : K) : V?
       return nil if @root.nil?
 
-      node = find_node(@root, key).not_nil!
+      node = find_node2(@root, key).not_nil!
       return nil if node.key != key
 
       entry = node.value
@@ -956,7 +971,7 @@ module AVLTree
         end
         node.parent = par if node = n_node
       else
-        child = find_node(node.right, key).not_nil!
+        child = find_node2(node.right, key).not_nil!
         n_node = child.right
         child_par = child.parent
 

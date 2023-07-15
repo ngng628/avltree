@@ -44,11 +44,13 @@ module AVLTree
     end
 
     def fetch(index : Int, &)
-      @map.fetch_at(index) { |i| yield i }[0]
+      ret = @map.fetch_at(index) { nil }
+      ret.nil? ? yield index : ret.not_nil![0]
     end
 
     def fetch(index : Int, default)
-      @map.fetch_at(index) { default }[0]
+      ret = @map.fetch_at(index) { nil }
+      ret.nil? ? default : ret.not_nil![0]
     end
 
     def unsafe_fetch(index : Int)
