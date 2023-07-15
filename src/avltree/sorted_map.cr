@@ -367,8 +367,8 @@ module AVLTree
     end
 
     def fetch_at(index : Int, &)
-      index += size if k < 0
-      raise yield index unless 0 <= k && k < size
+      index += size if index < 0
+      return yield index unless 0 <= index && index < size
       unsafe_fetch(index)
     end
 
