@@ -13,6 +13,46 @@ describe AVLTree::SortedMultiset do
     end
   end
 
+  describe "#fetch(index : Int, &)" do
+    it "fetch" do
+      set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
+      set.fetch(-7) { |i| i }.should eq -7
+      set.fetch(-6) { |i| i }.should eq 1
+      set.fetch(-5) { |i| i }.should eq 1
+      set.fetch(-4) { |i| i }.should eq 3
+      set.fetch(-3) { |i| i }.should eq 4
+      set.fetch(-2) { |i| i }.should eq 5
+      set.fetch(-1) { |i| i }.should eq 9
+      set.fetch(0) { |i| i }.should eq 1
+      set.fetch(1) { |i| i }.should eq 1
+      set.fetch(2) { |i| i }.should eq 3
+      set.fetch(3) { |i| i }.should eq 4
+      set.fetch(4) { |i| i }.should eq 5
+      set.fetch(5) { |i| i }.should eq 9
+      set.fetch(6) { |i| i }.should eq 6
+    end
+  end
+
+  describe "#fetch(index : Int, default)" do
+    it "fetch" do
+      set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
+      set.fetch(-7, nil).should eq nil
+      set.fetch(-6, nil).should eq 1
+      set.fetch(-5, nil).should eq 1
+      set.fetch(-4, nil).should eq 3
+      set.fetch(-3, nil).should eq 4
+      set.fetch(-2, nil).should eq 5
+      set.fetch(-1, nil).should eq 9
+      set.fetch(0, nil).should eq 1
+      set.fetch(1, nil).should eq 1
+      set.fetch(2, nil).should eq 3
+      set.fetch(3, nil).should eq 4
+      set.fetch(4, nil).should eq 5
+      set.fetch(5, nil).should eq 9
+      set.fetch(6, nil).should eq nil
+    end
+  end
+
   describe "#count" do
     it "count" do
       s1 = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
@@ -23,13 +63,12 @@ describe AVLTree::SortedMultiset do
 
       s2 = AVLTree::SortedMultiset(Int32).new
       n = 10**5
-      n.times { |i| s2 << i << n - i - 1 }
+      5.times { n.times { |i| s2 << i << n - i - 1 } }
       n.times do |i|
-        s2.count(i).should eq 2
-        s2.delete(i)
-        s2.count(i).should eq 1
-        s2.delete(i)
-        s2.count(i).should eq 0
+        10.downto(0) do |cnt|
+          s2.count(i).should eq cnt
+          s2.delete(i)
+        end
       end
     end
   end
