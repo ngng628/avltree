@@ -15,11 +15,22 @@ describe AVLTree::SortedMultiset do
 
   describe "#count" do
     it "count" do
-      set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
-      set.count(0).should eq 0
-      set.count(1).should eq 2
-      set.count(2).should eq 0
-      set.count(3).should eq 1
+      s1 = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
+      s1.count(0).should eq 0
+      s1.count(1).should eq 2
+      s1.count(2).should eq 0
+      s1.count(3).should eq 1
+
+      s2 = AVLTree::SortedMultiset(Int32).new
+      n = 10**5
+      n.times { |i| s2 << i << n - i - 1 }
+      n.times do |i|
+        s2.count(i).should eq 2
+        s2.delete(i)
+        s2.count(i).should eq 1
+        s2.delete(i)
+        s2.count(i).should eq 0
+      end
     end
   end
 
