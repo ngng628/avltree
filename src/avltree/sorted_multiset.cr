@@ -192,7 +192,7 @@ module AVLTree
       end
     {% end %}
 
-    def &(other : Set)
+    def &(other : SortedMultiset)
       smallest, largest = self, other
       if largest.size < smallest.size
         smallest, largest = largest, smallest
@@ -205,18 +205,18 @@ module AVLTree
       set
     end
 
-    def |(other : Set(U)) forall U
-      set = Set(T | U).new
+    def |(other : SortedMultiset(U)) forall U
+      set = SortedMultiset(T | U).new
       unordered_each { |value| set << value }
       other.unordered_each { |value| set << value }
       set
     end
 
-    def +(other : Set(U)) forall U
+    def +(other : SortedMultiset(U)) forall U
       self | other
     end
 
-    def -(other : Set)
+    def -(other : SortedMultiset)
       set = SortedMultiset(T).new
       unordered_each do |value|
         set << value unless other.includes?(value)
@@ -228,8 +228,8 @@ module AVLTree
       clone.subtract other
     end
 
-    def ^(other : Set(U)) forall U
-      set = Set(T | U).new
+    def ^(other : SortedMultiset(U)) forall U
+      set = SortedMultiset(T | U).new
       unordered_each do |value|
         set << value unless other.includes?(value)
       end
@@ -240,7 +240,7 @@ module AVLTree
     end
 
     def ^(other : Enumerable(U)) forall U
-      set = Set(T | U).new(self)
+      set = SortedMultiset(T | U).new(self)
       other.unordered_each do |value|
         if includes?(value)
           set.delete value
@@ -258,7 +258,7 @@ module AVLTree
       self
     end
 
-    def ==(other : Set)
+    def ==(other : SortedMultiset)
       same?(other) || @map == other.@map
     end
 
@@ -292,7 +292,7 @@ module AVLTree
 
     def_hash @map
 
-    def intersects?(other : Set)
+    def intersects?(other : SortedMultiset)
       if size < other.size
         any? { |o| other.includes?(o) }
       else
@@ -306,21 +306,21 @@ module AVLTree
       io << '}'
     end
 
-    def subset?(other : Set)
+    def subset?(other : SortedMultiset)
       return false if other.size < size
       all? { |value| other.includes?(value) }
     end
 
-    def proper_subset?(other : Set)
+    def proper_subset?(other : SortedMultiset)
       return false if other.size <= size
       all? { |value| other.includes?(value) }
     end
 
-    def superset?(other : Set)
+    def superset?(other : SortedMultiset)
       other.subset?(self)
     end
 
-    def proper_superset?(other : Set)
+    def proper_superset?(other : SortedMultiset)
       other.proper_subset?(self)
     end
 
@@ -328,8 +328,14 @@ module AVLTree
       @map.object_id
     end
 
-    def same?(other : Set)
+    def same?(other : SortedMultiset)
       @map.same?(other.@map)
     end
+  end
+end
+
+module Enumerable
+  def to_sorted_multiset
+    AVLTree::SortedMultiset.new(self)
   end
 end

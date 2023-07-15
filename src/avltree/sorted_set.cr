@@ -232,8 +232,8 @@ module AVLTree
       set
     end
 
-    def |(other : Set(U)) forall U
-      set = Set(T | U).new
+    def |(other : SortedSet(U)) forall U
+      set = SortedSet(T | U).new
       unordered_each { |value| set << value }
       other.unordered_each { |value| set << value }
       set
@@ -255,8 +255,8 @@ module AVLTree
       clone.subtract other
     end
 
-    def ^(other : Set(U)) forall U
-      set = Set(T | U).new
+    def ^(other : SortedSet(U)) forall U
+      set = SortedSet(T | U).new
       unordered_each do |value|
         set << value unless other.includes?(value)
       end
@@ -267,8 +267,8 @@ module AVLTree
     end
 
     def ^(other : Enumerable(U)) forall U
-      set = Set(T | U).new(self)
-      other.unordered_each do |value|
+      set = SortedSet(T | U).new(self)
+      other.each do |value|
         if includes?(value)
           set.delete value
         else
@@ -285,7 +285,7 @@ module AVLTree
       self
     end
 
-    def ==(other : Set)
+    def ==(other : SortedSet)
       same?(other) || @map == other.@map
     end
 
@@ -333,21 +333,21 @@ module AVLTree
       io << '}'
     end
 
-    def subset?(other : Set)
+    def subset?(other : SortedSet)
       return false if other.size < size
       all? { |value| other.includes?(value) }
     end
 
-    def proper_subset?(other : Set)
+    def proper_subset?(other : SortedSet)
       return false if other.size <= size
       all? { |value| other.includes?(value) }
     end
 
-    def superset?(other : Set)
+    def superset?(other : SortedSet)
       other.subset?(self)
     end
 
-    def proper_superset?(other : Set)
+    def proper_superset?(other : SortedSet)
       other.proper_subset?(self)
     end
 
@@ -355,7 +355,7 @@ module AVLTree
       @map.object_id
     end
 
-    def same?(other : Set)
+    def same?(other : SortedSet)
       @map.same?(other.@map)
     end
   end
