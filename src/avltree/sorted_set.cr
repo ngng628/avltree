@@ -121,26 +121,26 @@ module AVLTree
     #
     # ```
     # set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
-    # set.count(2..3) # => 1
+    # set.count(2..3)  # => 1
     # set.count(2...3) # => 0
-    # set.count(2..9) # => 4
+    # set.count(2..9)  # => 4
     # set.count(2...9) # => 3
-    # set.count(2...) # => 4
-    # set.count(...) # => 5
-    # set.count(...9) # => 4
+    # set.count(2...)  # => 4
+    # set.count(...)   # => 5
+    # set.count(...9)  # => 4
     # ```
     def count(range : Range(T?, T?))
       left = range.begin ? lower_bound(range.begin.not_nil!) : 0
       right = if range.end.nil?
-          size
-        else
-          if range.exclusive?
-            lower_bound(range.end.not_nil!)
-          else
-            upper_bound(range.end.not_nil!)
-          end
-        end
-  
+                size
+              else
+                if range.exclusive?
+                  lower_bound(range.end.not_nil!)
+                else
+                  upper_bound(range.end.not_nil!)
+                end
+              end
+
       right - left
     end
 

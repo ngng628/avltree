@@ -128,15 +128,15 @@ module AVLTree
     def count(range : Range(T?, T?))
       left = range.begin ? lower_bound(range.begin.not_nil!) : 0
       right = if range.end.nil?
-          size
-        else
-          if range.exclusive?
-            lower_bound(range.end.not_nil!)
-          else
-            upper_bound(range.end.not_nil!)
-          end
-        end
-  
+                size
+              else
+                if range.exclusive?
+                  lower_bound(range.end.not_nil!)
+                else
+                  upper_bound(range.end.not_nil!)
+                end
+              end
+
       right - left
     end
 
