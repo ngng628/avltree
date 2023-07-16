@@ -426,22 +426,22 @@ module AVLTree
       io << '}'
     end
 
-    def subset?(other : SortedSet)
+    def subset_of?(other : SortedSet)
       return false if other.size < size
       all? { |value| other.includes?(value) }
     end
 
-    def proper_subset?(other : SortedSet)
+    def proper_subset_of?(other : SortedSet)
       return false if other.size <= size
       all? { |value| other.includes?(value) }
     end
 
-    def superset?(other : SortedSet)
-      other.subset?(self)
+    def superset_of?(other : SortedSet)
+      other.subset_of?(self)
     end
 
-    def proper_superset?(other : SortedSet)
-      other.proper_subset?(self)
+    def proper_superset_of?(other : SortedSet)
+      other.proper_subset_of?(self)
     end
 
     def object_id
