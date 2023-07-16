@@ -57,6 +57,22 @@ module AVLTree
       @map.unsafe_fetch(index)[0]
     end
 
+    # Returns the element at the *index*-th.
+    def at(index : Int)
+      fetch(index) { raise IndexError.new }
+    end
+
+    # Returns the element at the *index*-th.
+    def at(index : Int, &)
+      fetch(index) { |i| yield i }
+    end
+
+    # Like `at`, but returns `nil`
+    # if trying to access an element outside the multiset's range.
+    def at?(index : Int)
+      fetch(index) { nil }
+    end
+
     def first
       @map.first_key
     end
@@ -109,7 +125,7 @@ module AVLTree
       upper_bound(object) - lower_bound(object)
     end
 
-    # it returns the number of elements in the set that exist within the range
+    # Returns the number of elements in the set that exist within the range
     #
     # ```
     # set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}

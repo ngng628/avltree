@@ -376,33 +376,43 @@ module AVLTree
       fetch_at(index) { default }
     end
 
-    def at(index : Int)
+    # Returns the key-value at the *index*-th.
+    def at(index : Int) : {K, V}
       fetch_at(index) { raise IndexError.new }
     end
 
+    # Returns the key-value at the *index*-th.
     def at(index : Int, &)
       fetch_at(index) { |i| yield i }
     end
 
-    def at?(index : Int)
+    # Like `at`, but returns `nil`
+    # if trying to access an key-value outside the set's range.
+    def at?(index : Int) : {K, V}?
       fetch_at(index) { nil }
     end
 
+    # Returns the key at the *index*-th.
     def key_at(index : Int) : K
       ret = fetch_at(index, nil)
       ret ? ret.not_nil![0] : raise IndexError.new
     end
 
-    def key_at?(index : Int) : K
+    # Like `at`, but returns `nil`
+    # if trying to access an key outside the set's range.
+    def key_at?(index : Int) : K?
       item = at?(index)
       item ? item.not_nil![0] : nil
     end
 
-    def value_at(index : Int) : K
+    # Returns the value at the *index*-th.
+    def value_at(index : Int) : V
       ret ? ret.not_nil![1] : raise IndexError.new
     end
 
-    def value_at?(index : Int) : K
+    # Like `at`, but returns `nil`
+    # if trying to access an value outside the set's range.
+    def value_at?(index : Int) : V?
       item = at?(index)
       item ? item.not_nil![1] : nil
     end
