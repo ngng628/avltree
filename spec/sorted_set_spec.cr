@@ -76,6 +76,71 @@ describe AVLTree::SortedSet do
     end
   end
 
+  describe "#count" do
+    it "count" do
+      s1 = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
+      s1.count(2..3).should eq 1
+      s1.count(2...3).should eq 0
+      s1.count(2..9).should eq 4
+      s1.count(2...9).should eq 3
+      s1.count(2...).should eq 4
+      s1.count(...).should eq 5
+      s1.count(...9).should eq 4
+
+      s2 = AVLTree::SortedSet(String){"C", "A", "D", "A", "E", "I"}
+      s2.count("B".."C").should eq 1
+      s2.count("B"..."C").should eq 0
+      s2.count("B".."I").should eq 4
+      s2.count("B"..."I").should eq 3
+      s2.count("B"...).should eq 4
+      s2.count(...).should eq 5
+      s2.count(..."I").should eq 4
+    end
+  end
+
+  describe "#delete_at" do
+    it "delete at" do
+      set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
+      set.to_a.should eq [1, 3, 4, 5, 9]
+      set.delete_at(2)
+      set.to_a.should eq [1, 3, 5, 9]
+      set.delete_at(2)
+      set.to_a.should eq [1, 3, 9]
+      set.delete_at(1)
+      set.to_a.should eq [1, 9]
+      set.delete_at(1)
+      set.to_a.should eq [1]
+      set.delete_at(0)
+      set.to_a.should eq [] of Int32
+    end
+  end
+
+  describe "#shift" do
+    it "shift" do
+      n = 10**5
+      ary = [] of Int32
+      2.times { n.times { |i| ary << i << i + n << i + 2*n } }
+      set = AVLTree::SortedSet(Int32).new(ary)
+      ary.uniq!.sort!.reverse!
+      (3*n).times do
+        set.shift.should eq ary.pop
+      end
+    end
+  end
+
+  describe "#pop" do
+    it "pop" do
+      n = 10**5
+      ary = [] of Int32
+      2.times { n.times { |i| ary << i << i + n << i + 2*n } }
+      set = AVLTree::SortedSet(Int32).new(ary)
+      ary.uniq!.sort!
+      (3*n).times do
+        set.pop.should eq ary.pop
+      end
+    end
+  end
+
   describe "#min" do
     it "returns min object" do
       s1 = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
