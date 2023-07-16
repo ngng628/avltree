@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.7.3">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.8.2">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="avltree">
 
@@ -25,6 +26,11 @@
     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -105,6 +111,45 @@
 
 
 
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><code><a href="../AVLTree/SortedMap.html">SortedMap</a></code> implements a associative array that guarantees that its keys are yielded in sorted order
+(according to the return keys of their #&lt;=&gt; methods) when iterating over them.</p>
+<p>SortedMap is implemented using an AVL tree.</p>
+<p>While it often has slower computational speed compared to a Hash implemented using a hash-based approach,
+it offers potential optimizations for operations related to order.
+For example, retrieving the maximum and minimum keys of the map can be performed in logarithmic time.</p>
+<p><code><a href="../AVLTree/SortedMap.html">SortedMap</a></code> does not allow duplicates and only stores unique keys.</p>
+<h3><a id="example" class="anchor" href="#example">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Example</h3>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;avltree&quot;</span>
+
+map <span class="o">=</span> <span class="t">AVLTree</span><span class="t">::</span><span class="t">SortedMap</span>(<span class="t">String</span>, <span class="t">Int32</span>).new({<span class="s">&quot;bob&quot;</span> <span class="o">=&gt;</span> <span class="n">3</span>, <span class="s">&quot;alice&quot;</span> <span class="o">=&gt;</span> <span class="n">1</span>, <span class="s">&quot;carol&quot;</span> <span class="o">=&gt;</span> <span class="n">-2</span>})
+map.to_a <span class="o">==</span> [{<span class="s">&quot;alice&quot;</span>, <span class="n">1</span>}, {<span class="s">&quot;bob&quot;</span>, <span class="n">3</span>}, {<span class="s">&quot;carol&quot;</span>, <span class="n">-2</span>}] <span class="c"># =&gt; true</span>
+map.to_a <span class="o">==</span> [{<span class="s">&quot;bob&quot;</span>, <span class="n">3</span>}, {<span class="s">&quot;alice&quot;</span>, <span class="n">1</span>}, {<span class="s">&quot;carol&quot;</span>, <span class="n">-2</span>}] <span class="c"># =&gt; false</span>
+
+map[<span class="s">&quot;dave&quot;</span>] <span class="o">=</span> <span class="n">4</span>
+map[<span class="s">&quot;oscar&quot;</span>] <span class="o">=</span> <span class="n">3</span>
+
+map <span class="c"># =&gt; {alice =&gt; 1, bob =&gt; 3, carol =&gt; -2, dave =&gt; 4, oscar =&gt; 3}</span>
+
+map.min <span class="c"># =&gt; {&quot;alice&quot;, 1}  (O(logN))</span>
+map.max <span class="c"># =&gt; {&quot;oscar&quot;, 3}  (O(logN))</span>
+
+map.lower_bound(<span class="s">&quot;a&quot;</span>)     <span class="c"># =&gt; 0  (O(logN))</span>
+map.lower_bound(<span class="s">&quot;bryan&quot;</span>) <span class="c"># =&gt; 2  (O(logN))</span>
+map.lower_bound(<span class="s">&quot;zoe&quot;</span>)   <span class="c"># =&gt; 5  (O(logN))</span></code></pre>
+
 
 
 
@@ -144,7 +189,7 @@
   </h2>
   
     
-      <a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L2" target="_blank">
+      <a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L34" target="_blank">
         avltree/sorted_map.cr
       </a>
     
@@ -280,6 +325,11 @@
     
       <li class="entry-summary">
         <a href="#delete%28key%3AK%2C%26%29-instance-method" class="signature"><strong>#delete</strong>(key : K, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete_at%28index%3AInt%2C%26%29-instance-method" class="signature"><strong>#delete_at</strong>(index : Int, &)</a>
         
       </li>
     
@@ -741,6 +791,16 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#value_at%28index%3AInt%29%3AK-instance-method" class="signature"><strong>#value_at</strong>(index : Int) : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value_at%3F%28index%3AInt%29%3AK-instance-method" class="signature"><strong>#value_at?</strong>(index : Int) : K</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#values%3AArray%28V%29-instance-method" class="signature"><strong>#values</strong> : Array(V)</a>
         
       </li>
@@ -777,6 +837,11 @@
 
   <h3>Instance methods inherited from module <code><a href="../Enumerable.html">Enumerable({K, V})</a></code></h3>
   
+  
+    <a href="../Enumerable.html#to_sorted_multiset-instance-method" class="tooltip">
+      <span>to_sorted_multiset</span>
+    to_sorted_multiset</a>, 
+    
   
     <a href="../Enumerable.html#to_sorted_set-instance-method" class="tooltip">
       <span>to_sorted_set</span>
@@ -835,7 +900,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L243" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L275" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -851,7 +916,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L226" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L258" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -867,7 +932,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L238" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L270" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -883,7 +948,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L234" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L266" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -911,7 +976,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L251" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L283" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -939,7 +1004,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L259" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L291" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -955,7 +1020,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L289" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L321" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -971,7 +1036,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L303" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L335" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -987,7 +1052,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L299" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L331" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1003,7 +1068,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L347" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L379" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1019,7 +1084,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L351" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L383" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1035,7 +1100,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L355" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L387" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1051,7 +1116,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L416" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L449" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1067,7 +1132,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L270" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L302" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1083,7 +1148,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L421" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L454" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1099,7 +1164,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L427" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L460" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1115,7 +1180,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L448" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L481" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1131,7 +1196,23 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L452" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L485" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_at(index:Int,&amp;)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_at</strong>(index : Int, &)
+
+        <a class="method-permalink" href="#delete_at%28index%3AInt%2C%26%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L490" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1147,7 +1228,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L457" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L495" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1163,7 +1244,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L462" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L500" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1179,7 +1260,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L525" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L563" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1195,7 +1276,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L518" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L556" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1211,7 +1292,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L536" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L574" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1227,7 +1308,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L529" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L567" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1254,7 +1335,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L278" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L310" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1279,7 +1360,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L540" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L578" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1304,7 +1385,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L545" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L583" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1320,7 +1401,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L549" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L587" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1336,7 +1417,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L554" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L592" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1352,7 +1433,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L558" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L596" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1368,7 +1449,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L563" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L601" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1395,7 +1476,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L814" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L852" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1411,7 +1492,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L435" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L468" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1427,7 +1508,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L439" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L472" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1443,7 +1524,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L337" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L369" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1459,7 +1540,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L343" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L375" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1475,7 +1556,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L658" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L696" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1491,7 +1572,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L663" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L701" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1507,7 +1588,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L668" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L706" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1523,7 +1604,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L673" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L711" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1539,7 +1620,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L770" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L808" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1555,7 +1636,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L766" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L804" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1571,7 +1652,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L761" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L799" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1587,7 +1668,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L757" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L795" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1603,7 +1684,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L753" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L791" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1619,7 +1700,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L748" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L786" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1635,7 +1716,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L774" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L812" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1651,7 +1732,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L807" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L845" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1667,7 +1748,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L797" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L835" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1683,7 +1764,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L802" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L840" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1716,7 +1797,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L818" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L856" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1732,7 +1813,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L393" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L426" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1748,7 +1829,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L368" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L391" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1764,7 +1845,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L372" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L396" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1780,7 +1861,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L401" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L434" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1796,7 +1877,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L409" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L442" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1812,7 +1893,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L405" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L438" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1828,7 +1909,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L377" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L410" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1844,7 +1925,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L678" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L716" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1860,7 +1941,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L683" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L721" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1876,7 +1957,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L688" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L726" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1892,7 +1973,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L693" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L731" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1908,7 +1989,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L744" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L782" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1924,7 +2005,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L740" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L778" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1940,7 +2021,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L725" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L763" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1956,7 +2037,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L721" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L759" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1972,7 +2053,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L717" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L755" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1988,7 +2069,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L706" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L744" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2004,7 +2085,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L698" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L736" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2033,7 +2114,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L785" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L823" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2062,7 +2143,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L791" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L829" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2078,7 +2159,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L485" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L523" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2094,7 +2175,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L489" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L527" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2110,7 +2191,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L498" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L536" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2126,7 +2207,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L514" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L552" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2142,7 +2223,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L284" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L316" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2169,7 +2250,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L605" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L643" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2185,7 +2266,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L618" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L656" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2201,7 +2282,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L611" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L649" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2217,7 +2298,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L623" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L661" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2233,7 +2314,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L628" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L666" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2249,7 +2330,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L578" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L616" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2265,7 +2346,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L583" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L621" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2281,7 +2362,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L587" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L625" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2297,7 +2378,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L592" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L630" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2313,7 +2394,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L596" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L634" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2329,7 +2410,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L601" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L639" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2345,7 +2426,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L632" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L670" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2361,7 +2442,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L639" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L677" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2377,7 +2458,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L643" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L681" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2393,7 +2474,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L648" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L686" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2409,7 +2490,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L654" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L692" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2425,7 +2506,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L468" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L506" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2441,7 +2522,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L472" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L510" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2457,7 +2538,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L481" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L519" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2483,7 +2564,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L431" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L464" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2499,7 +2580,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L502" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L540" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2515,7 +2596,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L510" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L548" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2541,7 +2622,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L831" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L869" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2557,7 +2638,7 @@ the passed block is falsey.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L839" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L877" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2589,7 +2670,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L822" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L860" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2605,7 +2686,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L567" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L605" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2621,7 +2702,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L320" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L352" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2637,7 +2718,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L308" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L340" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2653,7 +2734,39 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L702" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L740" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value_at(index:Int):K-instance-method">
+      <div class="signature">
+        
+        def <strong>value_at</strong>(index : Int) : K
+
+        <a class="method-permalink" href="#value_at%28index%3AInt%29%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L401" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value_at?(index:Int):K-instance-method">
+      <div class="signature">
+        
+        def <strong>value_at?</strong>(index : Int) : K
+
+        <a class="method-permalink" href="#value_at%3F%28index%3AInt%29%3AK-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L405" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2669,7 +2782,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L381" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L414" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2685,7 +2798,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L389" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L422" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2701,7 +2814,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/4438c07fb60d9e766022b9df8d32ebb0cce47a52/src/avltree/sorted_map.cr#L385" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f12db28c8f60f14990577ccb03729037adedb0e6/src/avltree/sorted_map.cr#L418" target="_blank">View source</a>]
         
       </div>
     </div>
