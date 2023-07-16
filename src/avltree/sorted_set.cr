@@ -61,6 +61,18 @@ module AVLTree
       @map.unsafe_fetch(index)[0]
     end
 
+    def at(index : Int)
+      fetch(index) { raise IndexError.new }
+    end
+
+    def at(index : Int, &)
+      fetch(index) { |i| yield i }
+    end
+
+    def at?(index : Int)
+      fetch(index) { nil }
+    end
+
     def first
       @map.first_key
     end
@@ -105,6 +117,33 @@ module AVLTree
       includes?(object) ? 1 : 0
     end
 
+    # it returns the number of elements in the set that exist within the range
+    #
+    # ```
+    # set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
+    # set.count(2..3) # => 1
+    # set.count(2...3) # => 0
+    # set.count(2..9) # => 4
+    # set.count(2...9) # => 3
+    # set.count(2...) # => 4
+    # set.count(...) # => 5
+    # set.count(...9) # => 4
+    # ```
+    def count(range : Range(T?, T?))
+      left = range.begin ? lower_bound(range.begin.not_nil!) : 0
+      right = if range.end.nil?
+          size
+        else
+          if range.exclusive?
+            lower_bound(range.end.not_nil!)
+          else
+            upper_bound(range.end.not_nil!)
+          end
+        end
+  
+      right - left
+    end
+
     def <<(object : T)
       add object
     end
@@ -131,6 +170,54 @@ module AVLTree
     def delete(object)
       @map.delete(object)
       self
+    end
+
+    def delete_at(index : Int, &)
+      @map.delete_at(index) { yield index }
+    end
+
+    def delete_at(index : Int)
+      @map.delete_at(index)
+    end
+
+    def delete_at?(index : Int)
+      @map.delete_at?(index)
+    end
+
+    def shift : T
+      shift { raise IndexError.new }
+    end
+
+    def shift(&)
+      object = first?
+      if object
+        delete(object)
+        object
+      else
+        yield
+      end
+    end
+
+    def shift? : T?
+      shift { nil }
+    end
+
+    def pop : T
+      pop { raise IndexError.new }
+    end
+
+    def pop(&)
+      object = last?
+      if object
+        delete(object)
+        object
+      else
+        yield
+      end
+    end
+
+    def pop? : T?
+      pop { nil }
     end
 
     def size

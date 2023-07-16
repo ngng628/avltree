@@ -109,6 +109,37 @@ module AVLTree
       upper_bound(object) - lower_bound(object)
     end
 
+    # it returns the number of elements in the set that exist within the range
+    #
+    # ```
+    # set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
+    # set.count(0..1).should eq 2
+    # set.count(0...1).should eq 0
+    # set.count(0..2).should eq 2
+    # set.count(0...2).should eq 2
+    # set.count(2..3).should eq 1
+    # set.count(2...3).should eq 0
+    # set.count(2..9).should eq 4
+    # set.count(2...9).should eq 3
+    # set.count(2...).should eq 4
+    # set.count(...).should eq 6
+    # set.count(...9).should eq 5
+    # ```
+    def count(range : Range(T?, T?))
+      left = range.begin ? lower_bound(range.begin.not_nil!) : 0
+      right = if range.end.nil?
+          size
+        else
+          if range.exclusive?
+            lower_bound(range.end.not_nil!)
+          else
+            upper_bound(range.end.not_nil!)
+          end
+        end
+  
+      right - left
+    end
+
     def <<(object : T)
       add object
     end
@@ -135,6 +166,52 @@ module AVLTree
     def delete(object)
       @map.delete(object)
       self
+    end
+
+    def delete_at(object)
+      @map.delete_at(object)
+      self
+    end
+
+    def delete_at?(object)
+      @map.delete_at?(object)
+      self
+    end
+
+    def shift : T
+      shift { raise IndexError.new }
+    end
+
+    def shift(&)
+      object = first?
+      if object
+        delete(object)
+        object
+      else
+        yield
+      end
+    end
+
+    def shift? : T?
+      shift { nil }
+    end
+
+    def pop : T
+      pop { raise IndexError.new }
+    end
+
+    def pop(&)
+      object = last?
+      if object
+        delete(object)
+        object
+      else
+        yield
+      end
+    end
+
+    def pop? : T?
+      pop { nil }
     end
 
     def size

@@ -389,7 +389,8 @@ module AVLTree
     end
 
     def key_at(index : Int) : K
-      fetch_at(index)[0]
+      ret = fetch_at(index, nil)
+      ret ? ret.not_nil![0] : raise IndexError.new
     end
 
     def key_at?(index : Int) : K
@@ -397,11 +398,11 @@ module AVLTree
       item ? item.not_nil![0] : nil
     end
 
-    def key_at(index : Int) : K
-      at(index)[1]
+    def value_at(index : Int) : K
+      ret ? ret.not_nil![1] : raise IndexError.new
     end
 
-    def key_at?(index : Int) : K
+    def value_at?(index : Int) : K
       item = at?(index)
       item ? item.not_nil![1] : nil
     end
@@ -486,13 +487,18 @@ module AVLTree
       entry ? entry : yield key
     end
 
+    def delete_at(index : Int, &)
+      key = key_at(index)
+      delete(key) { yield index }
+    end
+
     def delete_at(index : Int)
-      key = key_at(k)
+      key = key_at(index)
       delete(key)
     end
 
     def delete_at?(index : Int)
-      key = key_at?(k)
+      key = key_at?(index)
       return nil if key.nil?
       delete(key.not_nil!)
     end

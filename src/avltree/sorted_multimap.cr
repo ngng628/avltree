@@ -357,7 +357,8 @@ module AVLTree
     end
 
     def key_at(index : Int) : K
-      fetch_at(index)[0]
+      ret = at?(index)
+      ret ? ret.not_nil![0] : raise IndexError.new
     end
 
     def key_at?(index : Int) : K
@@ -365,11 +366,12 @@ module AVLTree
       item ? item.not_nil![0] : nil
     end
 
-    def key_at(index : Int) : K
-      at(index)[1]
+    def value_at(index : Int) : K
+      ret = at?(index)
+      ret ? ret.not_nil![1] : raise IndexError.new
     end
 
-    def key_at?(index : Int) : K
+    def value_at?(index : Int) : K
       item = at?(index)
       item ? item.not_nil![1] : nil
     end
@@ -455,12 +457,12 @@ module AVLTree
     end
 
     def delete_at(index : Int)
-      key = key_at(k)
+      key = key_at(index)
       delete(key)
     end
 
     def delete_at?(index : Int)
-      key = key_at?(k)
+      key = key_at?(index)
       return nil if key.nil?
       delete(key.not_nil!)
     end
@@ -483,7 +485,7 @@ module AVLTree
     end
 
     def pop : Tuple(K, V)
-      delete_at(size - 1) { raise IndexError.new }
+      pop { raise IndexError.new }
     end
 
     def pop(&)
@@ -953,7 +955,7 @@ module AVLTree
     private def delete_impl(key : K) : V?
       return nil if @root.nil?
 
-      node = find_node2(@root, key).not_nil!
+      node = find_node(@root, key).not_nil!
       return nil if node.key != key
 
       entry = node.value
