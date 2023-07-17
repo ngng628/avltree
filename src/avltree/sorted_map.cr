@@ -67,15 +67,15 @@ module AVLTree
 
       @[AlwaysInline]
       def balance_factor
-        left_height = @left ? left!.height : 0
-        right_height = @right ? right!.height : 0
+        left_height = @left.try &.height || 0
+        right_height = @right.try &.height || 0
         right_height - left_height
       end
 
       @[AlwaysInline]
       def update_height
-        left_height = @left ? left!.height : 0
-        right_height = @right ? right!.height : 0
+        left_height = @left.try &.height || 0
+        right_height = @right.try &.height || 0
         @height = 1 + Math.max(left_height, right_height)
       end
 
@@ -145,7 +145,7 @@ module AVLTree
         @parent = r
 
         sz = @size
-        @size += (m ? m.size : 0) - r.size
+        @size += (m.try &.size || 0) - r.size
         r.size = sz
 
         update_height
@@ -172,7 +172,7 @@ module AVLTree
         @parent = l
 
         sz = @size
-        @size += (m ? m.size : 0) - l.size
+        @size += (m.try &.size || 0) - l.size
         l.size = sz
 
         update_height
@@ -205,8 +205,8 @@ module AVLTree
         @parent = m
 
         sz = @size
-        @size += (mr ? mr.size : 0) - l.size
-        l.size += (ml ? ml.size : 0) - m.size
+        @size += (mr.try &.size || 0) - l.size
+        l.size += (ml.try &.size || 0) - m.size
         m.size = sz
 
         update_height
@@ -240,8 +240,8 @@ module AVLTree
         r.parent = m
 
         sz = @size
-        @size += (ml ? ml.size : 0) - r.size
-        r.size += (mr ? mr.size : 0) - m.size
+        @size += (ml.try &.size || 0) - r.size
+        r.size += (mr.try &.size || 0) - m.size
         m.size = sz
 
         update_height
@@ -353,7 +353,7 @@ module AVLTree
       node = @root
       index += 1
       loop do
-        left_size = (node.not_nil!.left ? node.not_nil!.left!.size : 0) + 1
+        left_size = (node.not_nil!.left.try &.size || 0) + 1
         break if left_size == index
 
         if index < left_size
@@ -472,7 +472,7 @@ module AVLTree
     end
 
     def size : Int32
-      @root ? @root.not_nil!.size : 0
+      @root.try &.size || 0
     end
 
     def fetch(key : K, default)
