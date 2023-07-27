@@ -94,4 +94,49 @@ describe AVLTree::SortedMap do
       map.min.should eq({-100, 0})
     end
   end
+
+  describe "#index" do
+    it "index" do
+      map = AVLTree::SortedMap(String, Int32).new
+      map["alice"] = 1
+      map["bob"] = 2
+      map["carol"] = 3
+
+      map.index("alice").should eq 0
+      map.index("bob").should eq 1
+      map.index("carol").should eq 2
+      map.index("zoe").should eq nil
+    end
+  end
+
+  describe "#index!" do
+    it "index!" do
+      map = AVLTree::SortedMap(String, Int32).new
+      map["alice"] = 1
+      map["bob"] = 2
+      map["carol"] = 3
+
+      map.index!("alice").should eq 0
+      map.index!("bob").should eq 1
+      map.index!("carol").should eq 2
+    end
+  end
+
+  describe "#unordered_each" do
+    it "yield unordered each elements." do
+      map = AVLTree::SortedMap(String, Int32).new
+      map["alice"] = 1
+      map["bob"] = 2
+      map["carol"] = 3
+
+      ans = [{"bob", 2}, {"alice", 1}, {"carol", 3}]
+
+      i = 0
+      map.unordered_each do |key, value|
+        key.should eq ans[i][0]
+        value.should eq ans[i][1]
+        i += 1
+      end
+    end
+  end
 end
