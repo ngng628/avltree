@@ -49,12 +49,12 @@ module AVLTree
 
     def fetch(index : Int, &)
       ret = @map.fetch_at(index) { nil }
-      ret.nil? ? yield index : ret.not_nil![0]
+      ret.nil? ? yield index : ret[0]
     end
 
     def fetch(index : Int, default)
       ret = @map.fetch_at(index) { nil }
-      ret.nil? ? default : ret.not_nil![0]
+      ret.nil? ? default : ret[0]
     end
 
     def unsafe_fetch(index : Int)
@@ -134,14 +134,15 @@ module AVLTree
     # set.count(...9)  # => 4
     # ```
     def count(range : Range(T?, T?))
-      left = range.begin ? lower_bound(range.begin.not_nil!) : 0
-      right = if range.end.nil?
+      b, e = range.begin, range.end
+      left = b ? lower_bound(b) : 0
+      right = if e.nil?
                 size
               else
                 if range.exclusive?
-                  lower_bound(range.end.not_nil!)
+                  lower_bound(e)
                 else
-                  upper_bound(range.end.not_nil!)
+                  upper_bound(e)
                 end
               end
 
@@ -293,17 +294,17 @@ module AVLTree
       # See `SortedMap#{{ method_name.id }}_item_with_index`
       def {{ method_name.id }}_object_with_index(object) : {T?, Int32?}
         item, index = @map.{{ method_name.id }}_item_with_index(object)
-        if item
-          {item.not_nil![0], index}
-        else
+        if item.nil?
           {nil, nil}
+        else
+          {item[0], index}
         end
       end
 
       # See `SortedMap#{{ method_name.id }}_item`
       def {{ method_name.id }}_object(object) : T?
         item = @map.{{ method_name.id }}_item(object)
-        item ? item.not_nil![0] : nil
+        item.try &.[0]
       end
 
       # See `SortedMap#{{ method_name.id }}_index`
