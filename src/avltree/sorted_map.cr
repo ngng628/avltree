@@ -51,21 +51,6 @@ module AVLTree
       end
 
       @[AlwaysInline]
-      def left!
-        @left.not_nil!
-      end
-
-      @[AlwaysInline]
-      def right!
-        @right.not_nil!
-      end
-
-      @[AlwaysInline]
-      def parent!
-        @parent.not_nil!
-      end
-
-      @[AlwaysInline]
       def balance_factor
         left_height = @left.try &.height || 0
         right_height = @right.try &.height || 0
@@ -87,16 +72,16 @@ module AVLTree
 
       def next : Node(K, V)?
         node = self
-        if node.not_nil!.right
-          node = node.not_nil!.right
-          while node.not_nil!.left
-            node = node.not_nil!.left
+        if node.try &.right
+          node = node.try &.right
+          while node.try &.left
+            node = node.try &.left
           end
           node
         else
           while node
-            par = node.not_nil!.parent
-            if par && par.not_nil!.left == node
+            par = node.try &.parent
+            if par && par.try &.left == node
               return par
             end
             node = par
@@ -108,16 +93,16 @@ module AVLTree
 
       def prev : Node(K, V)?
         node = self
-        if node.not_nil!.left
-          node = node.not_nil!.left
-          while node.not_nil!.right
-            node = node.not_nil!.right
+        if node.try &.left
+          node = node.try &.left
+          while node.try &.right
+            node = node.try &.right
           end
           node
         else
           while node
-            par = node.not_nil!.parent
-            if par && par.not_nil!.right == node
+            par = node.try &.parent
+            if par && par.try &.right == node
               return par
             end
             node = par
@@ -128,15 +113,16 @@ module AVLTree
       end
 
       def rotate_left : Node(K, V)
-        r = right!
+        r = right
+        raise NilAssertionError.new if r.nil?
         m = r.left
         par = @parent
 
         if r.parent = par
-          if par.not_nil!.left == self
-            par.not_nil!.left = r
+          if par.try &.left == self
+            par.try &.left = r
           else
-            par.not_nil!.right = r
+            par.try &.right = r
           end
         end
 
@@ -155,19 +141,20 @@ module AVLTree
       end
 
       def rotate_right : Node(K, V)
-        l = left!
+        l = left
+        raise NilAssertionError.new if l.nil?
         m = l.right
         par = @parent
 
         if l.parent = par
-          if par.not_nil!.left == self
-            par.not_nil!.left = l
+          if par.try &.left == self
+            par.try &.left = l
           else
-            par.not_nil!.right = l
+            par.try &.right = l
           end
         end
 
-        m.not_nil!.parent = self if @left = m
+        m.try &.parent = self if @left = m
         l.right = self
         @parent = l
 
@@ -182,22 +169,24 @@ module AVLTree
       end
 
       def rotate_double_right : Node(K, V)
-        l = left!
+        l = left
+        raise NilAssertionError.new if l.nil?
         par = @parent
-        m = l.right!
+        m = l.right
+        raise NilAssertionError.new if m.nil?
         ml = m.left
         mr = m.right
 
         if m.parent = par
-          if par.not_nil!.left == self
-            par.not_nil!.left = m
+          if par.try &.left == self
+            par.try &.left = m
           else
-            par.not_nil!.right = m
+            par.try &.right = m
           end
         end
 
-        ml.not_nil!.parent = l if l.right = ml
-        mr.not_nil!.parent = self if @left = mr
+        ml.try &.parent = l if l.right = ml
+        mr.try &.parent = self if @left = mr
 
         m.left = l
         l.parent = m
@@ -217,22 +206,24 @@ module AVLTree
       end
 
       def rotate_double_left : Node(K, V)
-        r = right!
+        r = right
+        raise NilAssertionError.new if r.nil?
         par = @parent
-        m = r.left!
+        m = r.left
+        raise NilAssertionError.new if m.nil?
         ml = m.left
         mr = m.right
 
         if m.parent = par
-          if par.not_nil!.left == self
-            par.not_nil!.left = m
+          if par.try &.left == self
+            par.try &.left = m
           else
-            par.not_nil!.right = m
+            par.try &.right = m
           end
         end
 
-        ml.not_nil!.parent = self if @right = ml
-        mr.not_nil!.parent = r if r.left = mr
+        ml.try &.parent = self if @right = ml
+        mr.try &.parent = r if r.left = mr
 
         m.left = self
         @parent = m
@@ -293,8 +284,8 @@ module AVLTree
       other.unordered_each do |key, value|
         node = find_node(@root, key)
         return false if node.nil?
-        return false if node.not_nil!.key != key
-        return false if node.not_nil!.value != value
+        return false if node.key != key
+        return false if node.value != value
       end
       true
     end
@@ -353,17 +344,22 @@ module AVLTree
       node = @root
       index += 1
       loop do
-        left_size = (node.not_nil!.left.try &.size || 0) + 1
+        left_size = (node.try &.left.try &.size || 0) + 1
         break if left_size == index
 
         if index < left_size
-          node = node.not_nil!.left
+          node = node.try &.left
         else
-          node = node.not_nil!.right
+          node = node.try &.right
           index -= left_size
         end
       end
-      {node.not_nil!.key, node.not_nil!.value}
+
+      if node.nil?
+        raise NilAssertionError.new
+      else
+        {node.key, node.value}
+      end
     end
 
     def fetch_at(index : Int, &)
@@ -395,26 +391,35 @@ module AVLTree
     # Returns the key at the *index*-th.
     def key_at(index : Int) : K
       ret = fetch_at(index, nil)
-      ret ? ret.not_nil![0] : raise IndexError.new
+      if ret.nil?
+        raise IndexError.new
+      else
+        ret[0]
+      end
     end
 
     # Like `at`, but returns `nil`
     # if trying to access an key outside the set's range.
     def key_at?(index : Int) : K?
       item = at?(index)
-      item ? item.not_nil![0] : nil
+      item.try &.[0]
     end
 
     # Returns the value at the *index*-th.
     def value_at(index : Int) : V
-      ret ? ret.not_nil![1] : raise IndexError.new
+      ret = fetch_at(index, nil)
+      if ret.nil?
+        raise IndexError.new
+      else
+        ret[1]
+      end
     end
 
     # Like `at`, but returns `nil`
     # if trying to access an value outside the set's range.
     def value_at?(index : Int) : V?
       item = at?(index)
-      item ? item.not_nil![1] : nil
+      item.try &.[1]
     end
 
     def keys : Array(K)
@@ -510,7 +515,7 @@ module AVLTree
     def delete_at?(index : Int)
       key = key_at?(index)
       return nil if key.nil?
-      delete(key.not_nil!)
+      delete(key)
     end
 
     def shift : Tuple(K, V)
@@ -614,12 +619,14 @@ module AVLTree
 
     def unordered_each(node = @root, & : {K, V} ->) : Nil
       return if node.nil?
-      next_node = Deque.new([node.not_nil!])
+      next_node = Deque.new([node])
       until next_node.empty?
         now = next_node.shift
         yield({now.key, now.value})
-        next_node << now.left! if now.left
-        next_node << now.right! if now.right
+        l = now.left
+        next_node << l if l
+        r = now.right
+        next_node << r if r
       end
     end
 
@@ -704,43 +711,35 @@ module AVLTree
     end
 
     def first_key : K
-      node = first_node
-      node ? node.not_nil!.key : raise "Can't get first key of empty SortedMap"
+      first_node.try &.key || raise "Can't get first key of empty SortedMap"
     end
 
     def first_key? : K?
-      node = first_node
-      node ? node.not_nil!.key : nil
+      first_node.try &.key
     end
 
     def first_value : K
-      node = first_node
-      node ? node.not_nil!.value : raise "Can't get first value of empty SortedMap"
+      first_node.try &.value || raise "Can't get first value of empty SortedMap"
     end
 
     def first_value? : K?
-      node = first_node
-      node ? node.not_nil!.value : nil
+      first_node.try &.value
     end
 
     def last_key : K
-      node = last_node
-      node ? node.not_nil!.key : raise "Can't get last key of empty SortedMap"
+      last_node.try &.key || raise "Can't get last key of empty SortedMap"
     end
 
     def last_key? : K?
-      node = last_node
-      node ? node.not_nil!.key : nil
+      last_node.try &.key
     end
 
     def last_value : K
-      node = last_node
-      node ? node.not_nil!.value : raise "Can't get last value of empty SortedMap"
+      last_node.try &.value || raise "Can't get last value of empty SortedMap"
     end
 
     def last_value? : K?
-      node = last_node
-      node ? node.not_nil!.value : nil
+      last_node.try &.value
     end
 
     def lower_bound(key : K) : Int32
@@ -753,13 +752,14 @@ module AVLTree
 
     def less_item_with_index(key : K) : { {K, V}?, Int32? }
       return {nil, nil} if @root.nil?
+
       node, bound = lower_bound_impl(key)
-      if bound == 0
-        {nil, nil}
-      else
-        node = (bound == size ? last_node : node.not_nil!.prev).not_nil!
-        { {node.key, node.value}, bound - 1 }
-      end
+      return {nil, nil} if bound == 0
+
+      node = bound == size ? last_node : node.try &.prev
+      return {nil, nil} if node.nil?
+
+      { {node.key, node.value}, bound - 1}
     end
 
     def less_item(key : K) : {K, V}?
@@ -773,16 +773,18 @@ module AVLTree
     def less_equal_item_with_index(key : K) : { {K, V}?, Int32? }
       return {nil, nil} if @root.nil?
       node, bound = lower_bound_impl(key)
-      if node && key == node.not_nil!.key
-        { {node.not_nil!.key, node.not_nil!.value}, bound }
-      else
-        if bound == 0
-          {nil, nil}
-        else
-          node = (bound == size ? last_node : node.not_nil!.prev).not_nil!
-          { {node.key, node.value}, bound - 1 }
-        end
+
+      if !node.nil? && key == node.try &.key
+        return { {node.key, node.value}, bound }
       end
+
+      return {nil, nil} if bound == 0
+
+
+      node = bound == size ? last_node : node.try &.prev
+      return {nil, nil} if node.nil?
+
+      { {node.key, node.value}, bound - 1 }
     end
 
     def less_equal_item(key : K) : {K, V}?
@@ -795,7 +797,10 @@ module AVLTree
 
     def greater_item_with_index(key : K) : { {K, V}?, Int32? }
       node, bound = upper_bound_impl(key)
-      bound == size ? {nil, nil} : { {node.not_nil!.key, node.not_nil!.value}, bound }
+      return {nil, nil} if bound == size
+      return {nil, nil} if node.nil?
+
+      { {node.key, node.value}, bound }
     end
 
     def greater_item(key : K) : {K, V}?
@@ -808,7 +813,10 @@ module AVLTree
 
     def greater_equal_item_with_index(key : K) : { {K, V}?, Int32? }
       node, bound = lower_bound_impl(key)
-      bound == size ? {nil, nil} : { {node.not_nil!.key, node.not_nil!.value}, bound }
+      return {nil, nil} if bound == size
+      return {nil, nil} if node.nil?
+
+      { {node.key, node.value}, bound }
     end
 
     def greater_equal_item(key : K) : {K, V}?
@@ -833,23 +841,24 @@ module AVLTree
     def max
       node = last_node
       return nil if node.nil?
-      {node.not_nil!.key, node.not_nil!.value}
+      {node.key, node.value}
     end
 
     def min
       node = first_node
       return nil if node.nil?
-      {node.not_nil!.key, node.not_nil!.value}
+      {node.key, node.value}
     end
 
     def index(key : K) : Int32?
       item, index = less_equal_item_with_index(key)
-      index && item.not_nil![0] == key ? index : nil
+      index && item.try &.[0] == key ? index : nil
     end
 
     def index!(key : K) : Int32
       item, index = less_equal_item_with_index(key)
-      index && item.not_nil![0] == key ? index.not_nil! : raise Enumerable::NotFoundError.new
+      raise Enumerable::NotFoundError.new if index.nil?
+      item.try &.[0] == key ? index : raise Enumerable::NotFoundError.new
     end
 
     def has_value?(value : V) : Bool
@@ -894,12 +903,13 @@ module AVLTree
 
     # ameba:disable Metrics/CyclomaticComplexity
     private def upsert(key, value) : {K, V}
-      if @root.nil?
+      node = find_node(@root, key)
+
+      if node.nil?
         @root = Node(K, V).new(key, value)
         return {key, value}
       end
 
-      node = find_node(@root, key).not_nil!
       if node.key == key
         node.value = value
         return {key, value}
@@ -913,9 +923,9 @@ module AVLTree
       end
 
       node = new_node
+      par = node.try &.parent
 
-      while node.parent
-        par = node.parent!
+      while par
         par.size += 1
         par.update_height
         if par.left == node
@@ -933,10 +943,12 @@ module AVLTree
             node = par
           end
         end
+        par = node.parent
       end
 
-      if node.parent
-        node = node.parent!
+      par = node.try &.parent
+      if par
+        node = par
         par = node.parent
         while par
           par.size += 1
@@ -954,13 +966,15 @@ module AVLTree
     @[AlwaysInline]
     private def find_node(node : Node(K, V)?, key : K) : Node(K, V)?
       return nil if node.nil?
-      until node.not_nil!.key == key
-        if key < node.not_nil!.key
-          break if node.not_nil!.left.nil?
-          node = node.not_nil!.left
+      until node.key == key
+        if key < node.key
+          child = node.left
+          break if child.nil?
+          node = child
         else
-          break if node.not_nil!.right.nil?
-          node = node.not_nil!.right
+          child = node.right
+          break if child.nil?
+          node = child
         end
       end
       node
@@ -968,9 +982,9 @@ module AVLTree
 
     # ameba:disable Metrics/CyclomaticComplexity
     private def delete_impl(key : K) : V?
-      return nil if @root.nil?
+      node = find_node(@root, key)
 
-      node = find_node(@root, key).not_nil!
+      return nil if node.nil?
       return nil if node.key != key
 
       entry = node.value
@@ -979,8 +993,8 @@ module AVLTree
 
       if node.left.nil? || node.right.nil?
         n_node = node.left || node.right
-        if par
-          if key < par.not_nil!.key
+        unless par.nil?
+          if key < par.key
             par.left = n_node
           else
             par.right = n_node
@@ -988,14 +1002,14 @@ module AVLTree
         end
         node.parent = par if node = n_node
       else
-        child = find_node(node.right, key).not_nil!
+        child = find_node(node.right, key) || raise NilAssertionError.new
         n_node = child.right
         child_par = child.parent
 
         if node.right == child
-          n_node.not_nil!.parent = child_par if node.right = n_node
+          n_node.try &.parent = child_par if node.right = n_node
         else
-          n_node.not_nil!.parent = child_par if child_par.not_nil!.left = n_node
+          n_node.try &.parent = child_par if child_par.try &.left = n_node
         end
 
         node.assign(child)
@@ -1003,32 +1017,34 @@ module AVLTree
         par = child_par
       end
 
-      while par
+      while !par.nil?
         par.size -= 1
         par.update_height
-        if par.not_nil!.left == node
-          if par.not_nil!.balance_factor == 2
-            sib = par.not_nil!.right!
-            node = sib.balance_factor < 0 ? par.not_nil!.rotate_double_left : par.not_nil!.rotate_left
+        if par.left == node
+          if par.balance_factor == 2
+            sib = par.try &.right
+            raise NilAssertionError.new if sib.nil?
+            node = sib.balance_factor < 0 ? par.rotate_double_left : par.rotate_left
           else
             break if par.balance_factor == 1
             node = par
           end
         else
           if par.balance_factor == -2
-            sib = par.not_nil!.left!
-            node = sib.balance_factor > 0 ? par.not_nil!.rotate_double_right : par.not_nil!.rotate_right
+            sib = par.try &.left
+            raise NilAssertionError.new if sib.nil?
+            node = sib.balance_factor > 0 ? par.rotate_double_right : par.rotate_right
           else
             break if par.balance_factor == -1
             node = par
           end
         end
-        par = node.not_nil!.parent
+        par = node.parent
       end
 
       if par
         node = par
-        par = par.not_nil!.parent
+        par = par.parent
         while par
           par.size -= 1
           par.update_height
@@ -1046,14 +1062,14 @@ module AVLTree
       node = @root
       return {nil, 0} if @root.nil?
       bound = 0
-      target = @root.not_nil!
+      target = @root
       while node
-        if key <= node.not_nil!.key
-          target = node.not_nil!
-          node = node.not_nil!.left
+        if key <= node.key
+          target = node
+          node = node.left
         else
-          bound += (node.not_nil!.left ? node.not_nil!.left!.size : 0) + 1
-          node = node.not_nil!.right
+          bound += (node.left.try &.size || 0) + 1
+          node = node.right
         end
       end
 
@@ -1066,12 +1082,12 @@ module AVLTree
       bound = 0
       target = @root
       while node
-        if key < node.not_nil!.key
-          target = node.not_nil!
-          node = node.not_nil!.left
+        if key < node.key
+          target = node
+          node = node.left
         else
-          bound += (node.not_nil!.left ? node.not_nil!.left!.size : 0) + 1
-          node = node.not_nil!.right
+          bound += (node.left.try &.size || 0) + 1
+          node = node.right
         end
       end
 
@@ -1079,19 +1095,17 @@ module AVLTree
     end
 
     protected def first_node : Node(K, V)?
-      return nil if @root.nil?
       node = @root
-      while node.not_nil!.left
-        node = node.not_nil!.left
+      while node.try &.left
+        node = node.try &.left
       end
       node
     end
 
     protected def last_node : Node(K, V)?
-      return nil if @root.nil?
       node = @root
-      while node.not_nil!.right
-        node = node.not_nil!.right
+      while node.try &.right
+        node = node.try &.right
       end
       node
     end
@@ -1107,9 +1121,10 @@ module AVLTree
       end
 
       def base_next(&)
-        return stop if @node.nil?
-        item = yield @node.not_nil!
-        @node = @node.not_nil!.next
+        n = @node
+        return stop if n.nil?
+        item = yield n
+        @node = n.next
         item
       end
     end
@@ -1152,9 +1167,10 @@ module AVLTree
       end
 
       def base_next(&)
-        return stop if @node.nil?
-        item = yield @node.not_nil!
-        @node = @node.not_nil!.prev
+        n = @node
+        return stop if n.nil?
+        item = yield n
+        @node = n.prev
         item
       end
     end
