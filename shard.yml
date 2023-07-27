@@ -4,7 +4,7 @@ version: 0.1.0
 authors:
   - ngng628 <ngng628.kyopro@gmail.com>
 
-crystal: 1.8.2
+crystal: 1.9.2
 
 development_dependencies:
   ameba:
