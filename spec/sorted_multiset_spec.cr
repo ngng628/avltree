@@ -53,6 +53,37 @@ describe AVLTree::SortedMultiset do
     end
   end
 
+  describe "#at?" do
+    it "at?" do
+      set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}
+      set.at?(-7).should eq nil
+      set.at?(-6).should eq 1
+      set.at?(-5).should eq 1
+      set.at?(-4).should eq 3
+      set.at?(-3).should eq 4
+      set.at?(-2).should eq 5
+      set.at?(-1).should eq 9
+      set.at?(0).should eq 1
+      set.at?(1).should eq 1
+      set.at?(2).should eq 3
+      set.at?(3).should eq 4
+      set.at?(4).should eq 5
+      set.at?(5).should eq 9
+      set.at?(6).should eq nil
+    end
+  end
+
+  describe "#at" do
+    it "returns the element at the *index*-th." do
+      r = Random.new(628)
+      a = Array.new(10**5) { r.rand(Int32::MIN..Int32::MAX) }
+      set = AVLTree::SortedSet(Int32).new(a)
+      a.sort.each_with_index do |ai, i|
+        set.at(i).should eq ai
+      end
+    end
+  end
+
   describe "#count" do
     it "count" do
       s1 = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}

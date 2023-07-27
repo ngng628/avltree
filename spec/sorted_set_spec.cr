@@ -20,6 +20,38 @@ describe AVLTree::SortedSet do
     end
   end
 
+  describe "#proper_subset_of?" do
+    it "proper_subset_of?" do
+      AVLTree::SortedSet.new([1, 5]).proper_subset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq true
+      AVLTree::SortedSet.new([1, 3, 5]).proper_subset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq false
+      AVLTree::SortedSet.new([1, 3, 5]).proper_subset_of?(AVLTree::SortedSet.new([1, 5])).should eq false
+    end
+  end
+
+  describe "#proper_superset_of?" do
+    it "proper_superset_of?" do
+      AVLTree::SortedSet.new([1, 5]).proper_superset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq false
+      AVLTree::SortedSet.new([1, 3, 5]).proper_superset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq false
+      AVLTree::SortedSet.new([1, 3, 5]).proper_superset_of?(AVLTree::SortedSet.new([1, 5])).should eq true
+    end
+  end
+
+  describe "#subset_of?" do
+    it "subset_of?" do
+      AVLTree::SortedSet.new([1, 5]).subset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq true
+      AVLTree::SortedSet.new([1, 3, 5]).subset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq true
+      AVLTree::SortedSet.new([1, 3, 5]).subset_of?(AVLTree::SortedSet.new([1, 5])).should eq false
+    end
+  end
+
+  describe "#superset_of?" do
+    it "superset_of?" do
+      AVLTree::SortedSet.new([1, 5]).superset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq false
+      AVLTree::SortedSet.new([1, 3, 5]).superset_of?(AVLTree::SortedSet.new([1, 3, 5])).should eq true
+      AVLTree::SortedSet.new([1, 3, 5]).superset_of?(AVLTree::SortedSet.new([1, 5])).should eq true
+    end
+  end
+
   describe "#fetch(index : Int, &)" do
     it "fetch" do
       set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
@@ -56,22 +88,36 @@ describe AVLTree::SortedSet do
     end
   end
 
-  describe "#count" do
-    it "count" do
-      s1 = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
-      s1.count(0).should eq 0
-      s1.count(1).should eq 1
-      s1.count(2).should eq 0
-      s1.count(3).should eq 1
-      s1.count(4).should eq 1
+  describe "#at?" do
+    it "at?" do
+      set = AVLTree::SortedSet(Int32){3, 1, 4, 1, 5, 9}
+      set.at?(-6).should eq nil
+      set.at?(-5).should eq 1
+      set.at?(-4).should eq 3
+      set.at?(-3).should eq 4
+      set.at?(-2).should eq 5
+      set.at?(-1).should eq 9
+      set.at?(0).should eq 1
+      set.at?(1).should eq 3
+      set.at?(2).should eq 4
+      set.at?(3).should eq 5
+      set.at?(4).should eq 9
+      set.at?(5).should eq nil
+    end
+  end
 
-      s2 = AVLTree::SortedSet(Int32).new
-      n = 10**5
-      n.times { |i| s2 << i << n - i - 1 }
-      n.times do |i|
-        s2.count(i).should eq 1
-        s2.delete(i)
-        s2.count(i).should eq 0
+  describe "#at" do
+    it "returns the element at the *index*-th." do
+      r = Random.new(628)
+      s = ::Set(Int32).new
+      while s.size < 10**5
+        s << r.rand(Int32::MIN..Int32::MAX)
+      end
+
+      set = AVLTree::SortedSet(Int32).new(s.to_a)
+
+      s.to_a.sort.each_with_index do |ai, i|
+        set.at(i).should eq ai
       end
     end
   end

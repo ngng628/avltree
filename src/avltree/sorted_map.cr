@@ -67,15 +67,15 @@ module AVLTree
 
       @[AlwaysInline]
       def balance_factor
-        left_height = @left ? left!.height : 0
-        right_height = @right ? right!.height : 0
+        left_height = @left.try &.height || 0
+        right_height = @right.try &.height || 0
         right_height - left_height
       end
 
       @[AlwaysInline]
       def update_height
-        left_height = @left ? left!.height : 0
-        right_height = @right ? right!.height : 0
+        left_height = @left.try &.height || 0
+        right_height = @right.try &.height || 0
         @height = 1 + Math.max(left_height, right_height)
       end
 
@@ -145,7 +145,7 @@ module AVLTree
         @parent = r
 
         sz = @size
-        @size += (m ? m.size : 0) - r.size
+        @size += (m.try &.size || 0) - r.size
         r.size = sz
 
         update_height
@@ -172,7 +172,7 @@ module AVLTree
         @parent = l
 
         sz = @size
-        @size += (m ? m.size : 0) - l.size
+        @size += (m.try &.size || 0) - l.size
         l.size = sz
 
         update_height
@@ -205,8 +205,8 @@ module AVLTree
         @parent = m
 
         sz = @size
-        @size += (mr ? mr.size : 0) - l.size
-        l.size += (ml ? ml.size : 0) - m.size
+        @size += (mr.try &.size || 0) - l.size
+        l.size += (ml.try &.size || 0) - m.size
         m.size = sz
 
         update_height
@@ -240,8 +240,8 @@ module AVLTree
         r.parent = m
 
         sz = @size
-        @size += (ml ? ml.size : 0) - r.size
-        r.size += (mr ? mr.size : 0) - m.size
+        @size += (ml.try &.size || 0) - r.size
+        r.size += (mr.try &.size || 0) - m.size
         m.size = sz
 
         update_height
@@ -353,7 +353,7 @@ module AVLTree
       node = @root
       index += 1
       loop do
-        left_size = (node.not_nil!.left ? node.not_nil!.left!.size : 0) + 1
+        left_size = (node.not_nil!.left.try &.size || 0) + 1
         break if left_size == index
 
         if index < left_size
@@ -376,33 +376,43 @@ module AVLTree
       fetch_at(index) { default }
     end
 
-    def at(index : Int)
+    # Returns the key-value at the *index*-th.
+    def at(index : Int) : {K, V}
       fetch_at(index) { raise IndexError.new }
     end
 
+    # Returns the key-value at the *index*-th.
     def at(index : Int, &)
       fetch_at(index) { |i| yield i }
     end
 
-    def at?(index : Int)
+    # Like `at`, but returns `nil`
+    # if trying to access an key-value outside the set's range.
+    def at?(index : Int) : {K, V}?
       fetch_at(index) { nil }
     end
 
+    # Returns the key at the *index*-th.
     def key_at(index : Int) : K
       ret = fetch_at(index, nil)
       ret ? ret.not_nil![0] : raise IndexError.new
     end
 
-    def key_at?(index : Int) : K
+    # Like `at`, but returns `nil`
+    # if trying to access an key outside the set's range.
+    def key_at?(index : Int) : K?
       item = at?(index)
       item ? item.not_nil![0] : nil
     end
 
-    def value_at(index : Int) : K
+    # Returns the value at the *index*-th.
+    def value_at(index : Int) : V
       ret ? ret.not_nil![1] : raise IndexError.new
     end
 
-    def value_at?(index : Int) : K
+    # Like `at`, but returns `nil`
+    # if trying to access an value outside the set's range.
+    def value_at?(index : Int) : V?
       item = at?(index)
       item ? item.not_nil![1] : nil
     end
@@ -462,7 +472,7 @@ module AVLTree
     end
 
     def size : Int32
-      @root ? @root.not_nil!.size : 0
+      @root.try &.size || 0
     end
 
     def fetch(key : K, default)
