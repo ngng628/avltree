@@ -861,6 +861,28 @@ module AVLTree
       item.try &.[0] == key ? index : raise Enumerable::NotFoundError.new
     end
 
+    def rindex(key : K) : Int32?
+      node, bound = upper_bound_impl(key)
+      if bound == size
+        node = last_node
+      end
+      return nil if node.nil?
+      pre = node.prev
+      return nil if pre.nil?
+      pre.key == key ? bound - 1 : nil
+    end
+
+    def rindex!(key : K) : Int32
+      node, bound = upper_bound_impl(key)
+      if bound == size
+        node = last_node
+      end
+      return nil if node.nil?
+      pre = node.prev
+      return nil if pre.nil?
+      pre.key == key ? bound - 1 : raise Enumerable::NotFoundError.new
+    end
+
     def has_value?(value : V) : Bool
       each_value do |v|
         return true if v == value
@@ -1017,7 +1039,7 @@ module AVLTree
         par = child_par
       end
 
-      while !par.nil?
+      until par.nil?
         par.size -= 1
         par.update_height
         if par.left == node
@@ -1042,10 +1064,10 @@ module AVLTree
         par = node.parent
       end
 
-      if par
+      unless par.nil?
         node = par
         par = par.parent
-        while par
+        until par.nil?
           par.size -= 1
           par.update_height
           node = par
