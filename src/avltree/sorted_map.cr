@@ -759,7 +759,7 @@ module AVLTree
       node = bound == size ? last_node : node.try &.prev
       return {nil, nil} if node.nil?
 
-      { {node.key, node.value}, bound - 1}
+      { {node.key, node.value}, bound - 1 }
     end
 
     def less_item(key : K) : {K, V}?
@@ -779,7 +779,6 @@ module AVLTree
       end
 
       return {nil, nil} if bound == 0
-
 
       node = bound == size ? last_node : node.try &.prev
       return {nil, nil} if node.nil?
