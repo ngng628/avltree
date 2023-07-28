@@ -117,6 +117,14 @@ module AVLTree
       @map.index!(object)
     end
 
+    def rindex(object)
+      @map.rindex(object)
+    end
+
+    def rindex!(object)
+      @map.rindex!(object)
+    end
+
     def count(object)
       includes?(object) ? 1 : 0
     end
@@ -159,8 +167,9 @@ module AVLTree
     end
 
     def add?(object : T)
-      @map.put(object, nil) { return true }
-      false
+      return false if includes?(object)
+      add(object)
+      true
     end
 
     def concat(elems)
@@ -172,21 +181,27 @@ module AVLTree
       @map.has_key?(object)
     end
 
+    # Removes the object from the set and returns `true` if it was present, otherwise returns `false`.
     def delete(object)
-      @map.delete(object)
-      self
+      @map.delete(object) { return false }
+      true
     end
 
+    # Removes the *index*-th object and returns the deleted object, else yields `index` with given block.
     def delete_at(index : Int, &)
-      @map.delete_at(index) { yield index }
+      entry = @map.delete_at?(index)
+      return yield index if entry.nil?
+      entry[0]
     end
 
-    def delete_at(index : Int)
-      @map.delete_at(index)
+    # Removes the *index*-th object from the set and returns the deleted object.
+    def delete_at(index : Int) : T
+      @map.delete_at(index)[0]
     end
 
-    def delete_at?(index : Int)
-      @map.delete_at?(index)
+    # Removes the *index*-th object from the set and returns the deleted object if it was present, otherwise returns nil.
+    def delete_at?(index : Int) : T?
+      @map.delete_at?(index).try &.[0]
     end
 
     def shift : T
@@ -229,6 +244,7 @@ module AVLTree
       @map.size
     end
 
+    # Removes all elements in the set, and returns self.
     def clear
       @map.clear
       self

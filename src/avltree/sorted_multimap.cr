@@ -835,9 +835,9 @@ module AVLTree
       if bound == size
         node = last_node
       end
-      return nil if node.nil?
+      raise Enumerable::NotFoundError.new if node.nil?
       pre = node.prev
-      return nil if pre.nil?
+      raise Enumerable::NotFoundError.new if pre.nil?
       pre.key == key ? bound - 1 : raise Enumerable::NotFoundError.new
     end
 

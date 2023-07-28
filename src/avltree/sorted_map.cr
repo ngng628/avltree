@@ -306,7 +306,7 @@ module AVLTree
 
     def put(key : K, value : V, &)
       updated_item = upsert(key, value)
-      updated_item ? updated_item.value : yield key
+      updated_item ? updated_item[1] : yield key
     end
 
     def [](key : K) : V
@@ -343,7 +343,7 @@ module AVLTree
     def unsafe_fetch(index : Int)
       node = @root
       index += 1
-      loop do
+      until node.nil?
         left_size = (node.try &.left.try &.size || 0) + 1
         break if left_size == index
 
@@ -356,7 +356,7 @@ module AVLTree
       end
 
       if node.nil?
-        raise NilAssertionError.new
+        raise IndexError.new
       else
         {node.key, node.value}
       end
@@ -499,23 +499,27 @@ module AVLTree
 
     def delete(key : K, &)
       entry = delete_impl(key)
-      entry ? entry : yield key
+      entry ? entry[1] : yield key
     end
 
     def delete_at(index : Int, &)
       key = key_at(index)
-      delete(key) { yield index }
+      return yield index if key.nil?
+      entry = delete_impl(key)
+      entry ? entry : yield index
     end
 
-    def delete_at(index : Int)
+    def delete_at(index : Int) : {K, V}
       key = key_at(index)
-      delete(key)
+      entry = delete_impl(key)
+      raise IndexError.new if entry.nil?
+      entry
     end
 
-    def delete_at?(index : Int)
+    def delete_at?(index : Int) : {K, V}?
       key = key_at?(index)
       return nil if key.nil?
-      delete(key)
+      delete_impl(key)
     end
 
     def shift : Tuple(K, V)
@@ -828,13 +832,8 @@ module AVLTree
 
     def has_key?(key : K) : Bool
       return false if @root.nil?
-
       node = find_node(@root, key)
-      if !node.nil? && node.key == key
-        return true
-      end
-
-      false
+      !node.nil? && node.key == key
     end
 
     def max
@@ -861,25 +860,11 @@ module AVLTree
     end
 
     def rindex(key : K) : Int32?
-      node, bound = upper_bound_impl(key)
-      if bound == size
-        node = last_node
-      end
-      return nil if node.nil?
-      pre = node.prev
-      return nil if pre.nil?
-      pre.key == key ? bound - 1 : nil
+      index(key)
     end
 
     def rindex!(key : K) : Int32
-      node, bound = upper_bound_impl(key)
-      if bound == size
-        node = last_node
-      end
-      return nil if node.nil?
-      pre = node.prev
-      return nil if pre.nil?
-      pre.key == key ? bound - 1 : raise Enumerable::NotFoundError.new
+      index!(key)
     end
 
     def has_value?(value : V) : Bool
@@ -1002,13 +987,13 @@ module AVLTree
     end
 
     # ameba:disable Metrics/CyclomaticComplexity
-    private def delete_impl(key : K) : V?
+    private def delete_impl(key : K) : {K, V}?
       node = find_node(@root, key)
 
       return nil if node.nil?
       return nil if node.key != key
 
-      entry = node.value
+      entry = {node.key, node.value}
 
       par = node.parent
 
