@@ -329,7 +329,7 @@ module AVLTree
       end
     {% end %}
 
-    def &(other : Set)
+    def &(other : SortedSet) : SortedSet(T)
       smallest, largest = self, other
       if largest.size < smallest.size
         smallest, largest = largest, smallest
@@ -342,18 +342,18 @@ module AVLTree
       set
     end
 
-    def |(other : SortedSet(U)) forall U
+    def |(other : SortedSet(U)) : SortedSet(U | T) forall U
       set = SortedSet(T | U).new
       unordered_each { |value| set << value }
       other.unordered_each { |value| set << value }
       set
     end
 
-    def +(other : Set(U)) forall U
+    def +(other : SortedSet(U)) : SortedSet(T | U) forall U
       self | other
     end
 
-    def -(other : Set)
+    def -(other : SortedSet)
       set = SortedSet(T).new
       unordered_each do |value|
         set << value unless other.includes?(value)
