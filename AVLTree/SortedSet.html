@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.8.2">
+<meta name="generator" content="Crystal Docs 1.10.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="avltree">
 
@@ -23,7 +23,7 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
 <input type="checkbox" id="sidebar-btn">
@@ -101,12 +101,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> AVLTree::SortedSet(T)
+  <span class="kind">class</span> AVLTree::<wbr>SortedSet(T)
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../AVLTree/SortedSet.html">AVLTree::SortedSet(T)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../AVLTree/SortedSet.html">AVLTree::SortedSet(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -188,7 +188,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
   </h2>
   
     
-      <a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L33" target="_blank">
+      <a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L33" target="_blank">
         avltree/sorted_set.cr
       </a>
     
@@ -225,6 +225,8 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       </li>
     
   </ul>
+
+
 
 
 
@@ -507,7 +509,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <li class="entry-summary">
         <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
         
-          <div class="summary"><p>Appends this struct's name and instance variables names and values to the given IO.</p></div>
+          <div class="summary"><p>Appends a String representation of this object which includes its class name, its object address and the values of all instance variables.</p></div>
         
       </li>
     
@@ -610,6 +612,8 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <li class="entry-summary">
         <a href="#object_id-instance-method" class="signature"><strong>#object_id</strong></a>
         
+          <div class="summary"><p>Returns a <code>UInt64</code> that uniquely identifies this object.</p></div>
+        
       </li>
     
       <li class="entry-summary">
@@ -658,6 +662,8 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
     
       <li class="entry-summary">
         <a href="#same%3F%28other%3ASortedSet%29-instance-method" class="signature"><strong>#same?</strong>(other : SortedSet)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if this reference is the same as <em>other</em>.</p></div>
         
       </li>
     
@@ -708,7 +714,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <li class="entry-summary">
         <a href="#to_s%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#to_s</strong>(io : IO) : Nil</a>
         
-          <div class="summary"><p>Same as <code><a href="../AVLTree/SortedSet.html#inspect%28io%3AIO%29%3ANil-instance-method">#inspect(io)</a></code>.</p></div>
+          <div class="summary"><p>Appends a short String representation of this object which includes its class name and its object address.</p></div>
         
       </li>
     
@@ -737,8 +743,6 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
 
 
 
-
-
 <div class="methods-inherited">
   
     
@@ -750,41 +754,13 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
     
 
 
-  
-    
-
-
-    
-
-
     
 
 
   
     
 
-  <h3>Instance methods inherited from module <code><a href="../Enumerable.html">Enumerable(T)</a></code></h3>
-  
-  
-    <a href="../Enumerable.html#to_sorted_multiset-instance-method" class="tooltip">
-      <span>to_sorted_multiset</span>
-    to_sorted_multiset</a>, 
-    
-  
-    <a href="../Enumerable.html#to_sorted_set-instance-method" class="tooltip">
-      <span>to_sorted_set</span>
-    to_sorted_set</a>
-    
-  
 
-
-    
-
-
-    
-
-
-  
     
 
 
@@ -818,13 +794,6 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
     
 
 
-  
-    
-
-
-    
-
-
     
 
 
@@ -838,7 +807,53 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
     
 
 
+    
+
+
   
+    
+
+  <h3>Instance methods inherited from module <code><a href="../Enumerable.html">Enumerable(T)</a></code></h3>
+  
+  
+    <a href="../Enumerable.html#to_sorted_multiset-instance-method" class="tooltip">
+      <span>to_sorted_multiset</span>
+    to_sorted_multiset</a>, 
+    
+  
+    <a href="../Enumerable.html#to_sorted_set-instance-method" class="tooltip">
+      <span>to_sorted_set</span>
+    to_sorted_set</a>
+    
+  
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
     
 
 
@@ -872,7 +887,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -888,7 +903,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -904,11 +919,13 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
   
+
+
 
 
 
@@ -934,7 +951,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L332" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L332" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -950,7 +967,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L352" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L352" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -966,7 +983,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L356" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L356" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -982,7 +999,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L364" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L364" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -998,7 +1015,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L160" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L160" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1014,7 +1031,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L398" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L398" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1030,7 +1047,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L402" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L402" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1046,7 +1063,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L368" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L368" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1062,7 +1079,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L379" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L379" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1078,7 +1095,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L345" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L345" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1094,7 +1111,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L164" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L164" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1110,7 +1127,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1131,7 +1148,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L65" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1152,7 +1169,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L70" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1174,7 +1191,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1195,7 +1212,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L248" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L248" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1211,7 +1228,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L412" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L412" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1227,7 +1244,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L175" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L175" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1256,7 +1273,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L144" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L144" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1282,7 +1299,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L128" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L128" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1303,7 +1320,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L185" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L185" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1324,7 +1341,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L191" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L191" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1345,7 +1362,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L198" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L198" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1366,7 +1383,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L203" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L203" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1382,19 +1399,18 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
         <div class="doc">
           
             <div class="doc-inherited">
-              Description copied from struct Value
+              Description copied from class Reference
             </div>
           
           <p>Returns a shallow copy of this object.</p>
-<p>Because <code>Value</code> is a value type, this method returns <code>self</code>,
-which already involves a shallow copy of this object because
-value types are passed by value.</p>
+<p>This allocates a new object and copies the contents of
+<code>self</code> into it.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L406" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L406" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1424,7 +1440,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L257" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L257" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1449,7 +1465,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L263" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L263" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1476,7 +1492,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L253" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L253" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1506,7 +1522,7 @@ a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o"
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L50" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L50" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1522,7 +1538,7 @@ a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o"
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L55" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L55" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1550,7 +1566,7 @@ if the collection is empty.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L80" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1578,7 +1594,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L84" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1599,7 +1615,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1620,7 +1636,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1641,7 +1657,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1662,7 +1678,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1683,7 +1699,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1704,7 +1720,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1729,7 +1745,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L430" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L430" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1756,7 +1772,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L180" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L180" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1783,7 +1799,7 @@ starting from the given <em>offset</em>, or <code>nil</code> if <em>object</em> 
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L112" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1811,7 +1827,7 @@ starting from the given <em>offset</em>. Raises <code>Enumerable::NotFoundError<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1827,25 +1843,24 @@ starting from the given <em>offset</em>. Raises <code>Enumerable::NotFoundError<
         <div class="doc">
           
             <div class="doc-inherited">
-              Description copied from struct Struct
+              Description copied from class Reference
             </div>
           
-          <p>Appends this struct's name and instance variables names and values
-to the given IO.</p>
-<pre><code class="language-crystal"><span class="k">struct</span> <span class="t">Point</span>
-  <span class="k">def</span> <span class="m">initialize</span>(@x : <span class="t">Int32</span>, @y : <span class="t">Int32</span>)
+          <p>Appends a String representation of this object
+which includes its class name, its object address
+and the values of all instance variables.</p>
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">Person</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @age : <span class="t">Int32</span>)
   <span class="k">end</span>
 <span class="k">end</span>
 
-p1 <span class="o">=</span> <span class="t">Point</span>.new <span class="n">1</span>, <span class="n">2</span>
-p1.to_s    <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span>
-p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
+<span class="t">Person</span>.new(<span class="s">&quot;John&quot;</span>, <span class="n">32</span>).inspect <span class="c"># =&gt; #&lt;Person:0x10fd31f20 @name=&quot;John&quot;, @age=32&gt;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L422" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L422" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1861,7 +1876,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L432" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L432" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1888,7 +1903,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1915,7 +1930,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L92" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1936,7 +1951,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1957,7 +1972,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1978,7 +1993,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1999,7 +2014,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2020,7 +2035,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2041,7 +2056,7 @@ p1.inspect <span class="c"># &quot;Point(@x=1, @y=2)&quot;</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L309" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2071,7 +2086,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L289" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L289" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2100,7 +2115,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L104" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2125,7 +2140,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L108" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2154,7 +2169,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L96" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L96" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2179,7 +2194,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L100" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2192,10 +2207,26 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
         <a class="method-permalink" href="#object_id-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Returns a <code>UInt64</code> that uniquely identifies this object.</p>
+<p>The returned value is the memory address of this object.</p>
+<pre><code class="language-crystal">string <span class="o">=</span> <span class="s">&quot;hello&quot;</span>
+string.object_id <span class="c"># =&gt; 4460249568</span>
+
+pointer <span class="o">=</span> <span class="t">Pointer</span>(<span class="t">String</span>).new(string.object_id)
+string2 <span class="o">=</span> pointer.<span class="k">as</span>(<span class="t">String</span>)
+string2.object_id <span class="o">==</span> string.object_id <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L464" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L464" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2211,7 +2242,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L225" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L225" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2227,7 +2258,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L229" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L229" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2243,7 +2274,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L239" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L239" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2259,7 +2290,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L426" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L426" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2275,7 +2306,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L451" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L451" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2291,7 +2322,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L460" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L460" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2321,7 +2352,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L120" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2352,7 +2383,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L124" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L124" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2365,10 +2396,20 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
         <a class="method-permalink" href="#same%3F%28other%3ASortedSet%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Returns <code>true</code> if this reference is the same as <em>other</em>. This is only
+<code>true</code> if this reference's <code><a href="../AVLTree/SortedSet.html#object_id-instance-method">#object_id</a></code> is the same as <em>other</em>'s.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L468" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L468" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2384,7 +2425,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L207" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L207" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2400,7 +2441,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L211" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L211" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2416,7 +2457,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L221" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L221" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2441,7 +2482,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L243" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L243" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2457,7 +2498,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L446" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L446" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2473,7 +2514,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L391" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L391" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2489,7 +2530,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L456" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L456" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2505,17 +2546,17 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
         <div class="doc">
           
             <div class="doc-inherited">
-              Description copied from module Indexable(T)
+              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
             </div>
           
           <p>Returns an <code>Array</code> with all the elements in the collection.</p>
-<pre><code class="language-crystal">{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.to_a <span class="c"># =&gt; [1, 2, 3]</span></code></pre>
+<pre><code class="language-crystal">(<span class="n">1</span>..<span class="n">5</span>).to_a <span class="c"># =&gt; [1, 2, 3, 4, 5]</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L418" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L418" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2531,16 +2572,23 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
         <div class="doc">
           
             <div class="doc-inherited">
-              Description copied from struct Struct
+              Description copied from class Reference
             </div>
           
-          <p>Same as <code><a href="../AVLTree/SortedSet.html#inspect%28io%3AIO%29%3ANil-instance-method">#inspect(io)</a></code>.</p>
+          <p>Appends a short String representation of this object
+which includes its class name and its object address.</p>
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">Person</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @age : <span class="t">Int32</span>)
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="t">Person</span>.new(<span class="s">&quot;John&quot;</span>, <span class="n">32</span>).to_s <span class="c"># =&gt; #&lt;Person:0x10a199f20&gt;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L440" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L440" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2562,7 +2610,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L270" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L270" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2594,7 +2642,7 @@ of performance.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L60" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2624,13 +2672,11 @@ set.upper_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/0465574809badca37e92a90daef66009cee14ae3/src/avltree/sorted_set.cr#L305" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/d3a3a45069f652a3cc84c8cc80ddb9a158647584/src/avltree/sorted_set.cr#L305" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 </div>
