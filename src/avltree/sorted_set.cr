@@ -30,7 +30,7 @@ module AVLTree
   # set.upper_bound(3)  # => 1  (O(logN))
   # set.upper_bound(10) # => 4  (O(logN))
   # ```
-  struct SortedSet(T)
+  class SortedSet(T)
     include Enumerable(T)
     include Indexable(T)
     include Iterable(T)

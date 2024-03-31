@@ -26,7 +26,7 @@ module AVLTree
   # mset.delete(1)
   # mset # => SortedMultiset{1, 3, 4, 5, 9}
   # ```
-  struct SortedMultiset(T)
+  class SortedMultiset(T)
     include Enumerable(T)
     include Indexable(T)
     include Iterable(T)
