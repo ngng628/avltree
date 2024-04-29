@@ -134,6 +134,18 @@ describe AVLTree::SortedMultiset do
     end
   end
 
+  describe "#add?" do
+    it "add object" do
+      set = AVLTree::SortedMultiset(Int32).new
+      set.add?(3).should eq true
+      set.add?(1).should eq true
+      set.add?(4).should eq true
+      set.add?(1).should eq true
+      set.add?(5).should eq true
+      set.add?(9).should eq true
+    end
+  end
+
   describe "#delete_at" do
     it "delete at" do
       set = AVLTree::SortedMultiset(Int32){3, 1, 4, 1, 5, 9}

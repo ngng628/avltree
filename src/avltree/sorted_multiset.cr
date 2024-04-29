@@ -168,7 +168,7 @@ module AVLTree
 
     def add?(object : T)
       @map.put(object, nil) { return true }
-      false
+      true
     end
 
     def concat(elems)

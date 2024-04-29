@@ -274,7 +274,7 @@ module AVLTree
 
     def put(key : K, value : V, &)
       updated_item = upsert(key, value)
-      updated_item ? updated_item.value : yield key
+      updated_item ? updated_item[1] : yield key
     end
 
     def [](key : K) : V
