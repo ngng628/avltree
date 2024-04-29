@@ -908,12 +908,12 @@ module AVLTree
     end
 
     # ameba:disable Metrics/CyclomaticComplexity
-    private def upsert(key, value) : {K, V}
+    private def upsert(key, value) : {K, V}?
       node = find_node(@root, key)
 
       if node.nil?
         @root = Node(K, V).new(key, value)
-        return {key, value}
+        return nil
       end
 
       if node.key == key
@@ -966,7 +966,7 @@ module AVLTree
 
       @root = node
 
-      {key, value}
+      nil
     end
 
     @[AlwaysInline]
