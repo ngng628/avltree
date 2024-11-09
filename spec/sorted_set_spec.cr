@@ -61,8 +61,8 @@ describe AVLTree::SortedSet do
 
       set = AVLTree::SortedSet(Int32).new(s.to_a)
 
-      s.to_a.sort.each_with_index do |ai, i|
-        set.at(i).should eq ai
+      s.to_a.sort.each_with_index do |elem, i|
+        set.at(i).should eq elem
       end
     end
   end
@@ -561,87 +561,87 @@ describe AVLTree::SortedSet do
     end
   end
 
-  describe "#less_object_with_index" do
-    it "less_object_with_index" do
+  describe "#largest_lt_with_index" do
+    it "largest_lt_with_index" do
       set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
-      set.less_object_with_index("@").should eq({nil, nil})
-      set.less_object_with_index("A").should eq({nil, nil})
-      set.less_object_with_index("B").should eq({"A", 0})
-      set.less_object_with_index("C").should eq({"B", 1})
-      set.less_object_with_index("D").should eq({"C", 2})
-      set.less_object_with_index("E").should eq({"C", 2})
-      set.less_object_with_index("F").should eq({"E", 3})
-      set.less_object_with_index("Z").should eq({"E", 3})
+      set.largest_lt_with_index("@").should eq({nil, nil})
+      set.largest_lt_with_index("A").should eq({nil, nil})
+      set.largest_lt_with_index("B").should eq({"A", 0})
+      set.largest_lt_with_index("C").should eq({"B", 1})
+      set.largest_lt_with_index("D").should eq({"C", 2})
+      set.largest_lt_with_index("E").should eq({"C", 2})
+      set.largest_lt_with_index("F").should eq({"E", 3})
+      set.largest_lt_with_index("Z").should eq({"E", 3})
     end
   end
 
-  describe "#less_equal_object_with_index" do
-    it "less_equal_object_with_index" do
+  describe "#largest_leq_with_index" do
+    it "largest_leq_with_index" do
       set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
-      set.less_equal_object_with_index("@").should eq({nil, nil})
-      set.less_equal_object_with_index("A").should eq({"A", 0})
-      set.less_equal_object_with_index("B").should eq({"B", 1})
-      set.less_equal_object_with_index("C").should eq({"C", 2})
-      set.less_equal_object_with_index("D").should eq({"C", 2})
-      set.less_equal_object_with_index("E").should eq({"E", 3})
-      set.less_equal_object_with_index("F").should eq({"E", 3})
-      set.less_equal_object_with_index("Z").should eq({"E", 3})
+      set.largest_leq_with_index("@").should eq({nil, nil})
+      set.largest_leq_with_index("A").should eq({"A", 0})
+      set.largest_leq_with_index("B").should eq({"B", 1})
+      set.largest_leq_with_index("C").should eq({"C", 2})
+      set.largest_leq_with_index("D").should eq({"C", 2})
+      set.largest_leq_with_index("E").should eq({"E", 3})
+      set.largest_leq_with_index("F").should eq({"E", 3})
+      set.largest_leq_with_index("Z").should eq({"E", 3})
     end
   end
 
-  describe "#greater_object_with_index" do
-    it "greater_object_with_index" do
+  describe "#smallest_gt_with_index" do
+    it "smallest_gt_with_index" do
       set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
-      set.greater_object_with_index("@").should eq({"A", 0})
-      set.greater_object_with_index("A").should eq({"B", 1})
-      set.greater_object_with_index("B").should eq({"C", 2})
-      set.greater_object_with_index("C").should eq({"E", 3})
-      set.greater_object_with_index("D").should eq({"E", 3})
-      set.greater_object_with_index("E").should eq({nil, nil})
-      set.greater_object_with_index("F").should eq({nil, nil})
-      set.greater_object_with_index("Z").should eq({nil, nil})
+      set.smallest_gt_with_index("@").should eq({"A", 0})
+      set.smallest_gt_with_index("A").should eq({"B", 1})
+      set.smallest_gt_with_index("B").should eq({"C", 2})
+      set.smallest_gt_with_index("C").should eq({"E", 3})
+      set.smallest_gt_with_index("D").should eq({"E", 3})
+      set.smallest_gt_with_index("E").should eq({nil, nil})
+      set.smallest_gt_with_index("F").should eq({nil, nil})
+      set.smallest_gt_with_index("Z").should eq({nil, nil})
     end
   end
 
-  describe "#greater_equal_object_with_index" do
-    it "greater_equal_object_with_index" do
+  describe "#smallest_geq_with_index" do
+    it "smallest_geq_with_index" do
       set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
-      set.greater_equal_object_with_index("@").should eq({"A", 0})
-      set.greater_equal_object_with_index("A").should eq({"A", 0})
-      set.greater_equal_object_with_index("B").should eq({"B", 1})
-      set.greater_equal_object_with_index("C").should eq({"C", 2})
-      set.greater_equal_object_with_index("D").should eq({"E", 3})
-      set.greater_equal_object_with_index("E").should eq({"E", 3})
-      set.greater_equal_object_with_index("F").should eq({nil, nil})
-      set.greater_equal_object_with_index("Z").should eq({nil, nil})
+      set.smallest_geq_with_index("@").should eq({"A", 0})
+      set.smallest_geq_with_index("A").should eq({"A", 0})
+      set.smallest_geq_with_index("B").should eq({"B", 1})
+      set.smallest_geq_with_index("C").should eq({"C", 2})
+      set.smallest_geq_with_index("D").should eq({"E", 3})
+      set.smallest_geq_with_index("E").should eq({"E", 3})
+      set.smallest_geq_with_index("F").should eq({nil, nil})
+      set.smallest_geq_with_index("Z").should eq({nil, nil})
     end
   end
 
-  describe "#greater_equal_object" do
-    it "greater_equal_object_with_index" do
+  describe "#smallest_geq" do
+    it "smallest_geq_with_index" do
       set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
-      set.greater_equal_object("@").should eq("A")
-      set.greater_equal_object("A").should eq("A")
-      set.greater_equal_object("B").should eq("B")
-      set.greater_equal_object("C").should eq("C")
-      set.greater_equal_object("D").should eq("E")
-      set.greater_equal_object("E").should eq("E")
-      set.greater_equal_object("F").should eq(nil)
-      set.greater_equal_object("Z").should eq(nil)
+      set.smallest_geq("@").should eq("A")
+      set.smallest_geq("A").should eq("A")
+      set.smallest_geq("B").should eq("B")
+      set.smallest_geq("C").should eq("C")
+      set.smallest_geq("D").should eq("E")
+      set.smallest_geq("E").should eq("E")
+      set.smallest_geq("F").should eq(nil)
+      set.smallest_geq("Z").should eq(nil)
     end
   end
 
-  describe "#greater_equal_index" do
-    it "greater_equal_index" do
+  describe "#index_of_smallest_geq" do
+    it "index_of_smallest_geq" do
       set = AVLTree::SortedSet(String){"A", "B", "B", "C", "E"}
-      set.greater_equal_index("@").should eq(0)
-      set.greater_equal_index("A").should eq(0)
-      set.greater_equal_index("B").should eq(1)
-      set.greater_equal_index("C").should eq(2)
-      set.greater_equal_index("D").should eq(3)
-      set.greater_equal_index("E").should eq(3)
-      set.greater_equal_index("F").should eq(nil)
-      set.greater_equal_index("Z").should eq(nil)
+      set.index_of_smallest_geq("@").should eq(0)
+      set.index_of_smallest_geq("A").should eq(0)
+      set.index_of_smallest_geq("B").should eq(1)
+      set.index_of_smallest_geq("C").should eq(2)
+      set.index_of_smallest_geq("D").should eq(3)
+      set.index_of_smallest_geq("E").should eq(3)
+      set.index_of_smallest_geq("F").should eq(nil)
+      set.index_of_smallest_geq("Z").should eq(nil)
     end
   end
 

@@ -305,10 +305,10 @@ module AVLTree
       @map.upper_bound(object)
     end
 
-    {% for method_name in ["less", "less_equal", "greater", "greater_equal"] %}
-      # See `SortedMap#{{ method_name.id }}_item_with_index`
-      def {{ method_name.id }}_object_with_index(object) : {T?, Int32?}
-        item, index = @map.{{ method_name.id }}_item_with_index(object)
+    {% for method_name in ["largest_lt", "largest_leq", "smallest_gt", "smallest_geq"] %}
+      # See `SortedMap#{{ method_name.id }}_with_index`
+      def {{ method_name.id }}_with_index(object) : {T?, Int32?}
+        item, index = @map.{{ method_name.id }}_with_index(object)
         if item.nil?
           {nil, nil}
         else
@@ -316,15 +316,15 @@ module AVLTree
         end
       end
 
-      # See `SortedMap#{{ method_name.id }}_item`
-      def {{ method_name.id }}_object(object) : T?
-        item = @map.{{ method_name.id }}_item(object)
+      # See `SortedMap#{{ method_name.id }}`
+      def {{ method_name.id }}(object) : T?
+        item = @map.{{ method_name.id }}(object)
         item.try &.[0]
       end
 
       # See `SortedMap#{{ method_name.id }}_index`
-      def {{ method_name.id }}_index(object) : Int32?
-        @map.{{ method_name.id }}_index(object)
+      def index_of_{{ method_name.id }}(object) : Int32?
+        @map.index_of_{{ method_name.id }}(object)
       end
     {% end %}
 
@@ -398,8 +398,8 @@ module AVLTree
       same?(other) || @map == other.@map
     end
 
-    def ===(object : T)
-      includes? object
+    def ===(other : T)
+      includes? other
     end
 
     def dup
@@ -430,9 +430,9 @@ module AVLTree
 
     def intersects?(other : Set)
       if size < other.size
-        any? { |o| other.includes?(o) }
+        any? { |object| other.includes?(object) }
       else
-        other.any? { |o| includes?(o) }
+        other.any? { |object| includes?(object) }
       end
     end
 

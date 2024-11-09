@@ -78,8 +78,8 @@ describe AVLTree::SortedMultiset do
       r = Random.new(628)
       a = Array.new(10**5) { r.rand(Int32::MIN..Int32::MAX) }
       set = AVLTree::SortedSet(Int32).new(a)
-      a.sort.each_with_index do |ai, i|
-        set.at(i).should eq ai
+      a.sort.each_with_index do |elem, i|
+        set.at(i).should eq elem
       end
     end
   end

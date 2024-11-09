@@ -754,7 +754,7 @@ module AVLTree
       upper_bound_impl(key)[1]
     end
 
-    def less_item_with_index(key : K) : { {K, V}?, Int32? }
+    def largest_lt_with_index(key : K) : { {K, V}?, Int32? }
       return {nil, nil} if @root.nil?
 
       node, bound = lower_bound_impl(key)
@@ -766,15 +766,15 @@ module AVLTree
       { {node.key, node.value}, bound - 1 }
     end
 
-    def less_item(key : K) : {K, V}?
-      less_item_with_index(key)[0]
+    def largest_lt(key : K) : {K, V}?
+      largest_lt_with_index(key)[0]
     end
 
-    def less_index(key : K) : Int32?
-      less_item_with_index(key)[1]
+    def index_of_largest_lt(key : K) : Int32?
+      largest_lt_with_index(key)[1]
     end
 
-    def less_equal_item_with_index(key : K) : { {K, V}?, Int32? }
+    def largest_leq_with_index(key : K) : { {K, V}?, Int32? }
       return {nil, nil} if @root.nil?
       node, bound = lower_bound_impl(key)
 
@@ -790,15 +790,15 @@ module AVLTree
       { {node.key, node.value}, bound - 1 }
     end
 
-    def less_equal_item(key : K) : {K, V}?
-      less_equal_item_with_index(key)[0]
+    def largest_leq(key : K) : {K, V}?
+      largest_leq_with_index(key)[0]
     end
 
-    def less_equal_index(key : K) : Int32?
-      less_equal_item_with_index(key)[1]
+    def index_of_largest_leq(key : K) : Int32?
+      largest_leq_with_index(key)[1]
     end
 
-    def greater_item_with_index(key : K) : { {K, V}?, Int32? }
+    def smallest_gt_with_index(key : K) : { {K, V}?, Int32? }
       node, bound = upper_bound_impl(key)
       return {nil, nil} if bound == size
       return {nil, nil} if node.nil?
@@ -806,15 +806,15 @@ module AVLTree
       { {node.key, node.value}, bound }
     end
 
-    def greater_item(key : K) : {K, V}?
-      greater_item_with_index(key)[0]
+    def smallest_gt(key : K) : {K, V}?
+      smallest_gt_with_index(key)[0]
     end
 
-    def greater_index(key : K) : Int32?
-      greater_item_with_index(key)[1]
+    def index_of_smallest_gt(key : K) : Int32?
+      smallest_gt_with_index(key)[1]
     end
 
-    def greater_equal_item_with_index(key : K) : { {K, V}?, Int32? }
+    def smallest_geq_with_index(key : K) : { {K, V}?, Int32? }
       node, bound = lower_bound_impl(key)
       return {nil, nil} if bound == size
       return {nil, nil} if node.nil?
@@ -822,12 +822,12 @@ module AVLTree
       { {node.key, node.value}, bound }
     end
 
-    def greater_equal_item(key : K) : {K, V}?
-      greater_equal_item_with_index(key)[0]
+    def smallest_geq(key : K) : {K, V}?
+      smallest_geq_with_index(key)[0]
     end
 
-    def greater_equal_index(key : K) : Int32?
-      greater_equal_item_with_index(key)[1]
+    def index_of_smallest_geq(key : K) : Int32?
+      smallest_geq_with_index(key)[1]
     end
 
     def has_key?(key : K) : Bool
@@ -849,12 +849,12 @@ module AVLTree
     end
 
     def index(key : K) : Int32?
-      item, index = less_equal_item_with_index(key)
+      item, index = largest_leq_with_index(key)
       index && item.try &.[0] == key ? index : nil
     end
 
     def index!(key : K) : Int32
-      item, index = less_equal_item_with_index(key)
+      item, index = largest_leq_with_index(key)
       raise Enumerable::NotFoundError.new if index.nil?
       item.try &.[0] == key ? index : raise Enumerable::NotFoundError.new
     end
