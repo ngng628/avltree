@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.11.2">
+<meta name="generator" content="Crystal Docs 1.13.3">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="avltree">
 
@@ -188,7 +188,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
   </h2>
   
     
-      <a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L33" target="_blank">
+      <a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L33" target="_blank">
         avltree/sorted_set.cr
       </a>
     
@@ -273,7 +273,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       </li>
     
       <li class="entry-summary">
-        <a href="#%3D%3D%3D%28object%3AT%29-instance-method" class="signature"><strong>#===</strong>(object : T)</a>
+        <a href="#%3D%3D%3D%28other%3AT%29-instance-method" class="signature"><strong>#===</strong>(other : T)</a>
         
       </li>
     
@@ -437,48 +437,6 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       </li>
     
       <li class="entry-summary">
-        <a href="#greater_equal_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_equal_index</strong>(object) : Int32 | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#greater_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#greater_equal_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_equal_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#greater_equal_object</strong>(object) : T | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#greater_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#greater_equal_item</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#greater_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#greater_equal_item_with_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_index</strong>(object) : Int32 | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#greater_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#greater_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#greater_object</strong>(object) : T | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#greater_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#greater_item</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#greater_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#greater_item_with_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#hash%28hasher%29-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
         
           <div class="summary"><p>See <code>Object#hash(hasher)</code></p></div>
@@ -507,6 +465,34 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       </li>
     
       <li class="entry-summary">
+        <a href="#index_of_largest_leq%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_largest_leq</strong>(object) : Int32 | Nil</a>
+        
+          <div class="summary"><p>See <code>SortedMap#largest_leq_index</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_of_largest_lt%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_largest_lt</strong>(object) : Int32 | Nil</a>
+        
+          <div class="summary"><p>See <code>SortedMap#largest_lt_index</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_of_smallest_geq%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_smallest_geq</strong>(object) : Int32 | Nil</a>
+        
+          <div class="summary"><p>See <code>SortedMap#smallest_geq_index</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_of_smallest_gt%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_smallest_gt</strong>(object) : Int32 | Nil</a>
+        
+          <div class="summary"><p>See <code>SortedMap#smallest_gt_index</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
         
           <div class="summary"><p>Appends a String representation of this object which includes its class name, its object address and the values of all instance variables.</p></div>
@@ -515,6 +501,34 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
     
       <li class="entry-summary">
         <a href="#intersects%3F%28other%3ASet%29-instance-method" class="signature"><strong>#intersects?</strong>(other : Set)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_leq%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#largest_leq</strong>(object) : T | Nil</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#largest_leq%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#largest_leq</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_leq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#largest_leq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#largest_leq_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#largest_leq_with_index</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_lt%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#largest_lt</strong>(object) : T | Nil</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#largest_lt%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#largest_lt</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_lt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#largest_lt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#largest_lt_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#largest_lt_with_index</a></code></p></div>
         
       </li>
     
@@ -529,48 +543,6 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
         <a href="#last%3F-instance-method" class="signature"><strong>#last?</strong></a>
         
           <div class="summary"><p>Returns the last element of <code>self</code> if it's not empty, or <code>nil</code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_equal_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_equal_index</strong>(object) : Int32 | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#less_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#less_equal_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_equal_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#less_equal_object</strong>(object) : T | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#less_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#less_equal_item</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#less_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#less_equal_item_with_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_index</strong>(object) : Int32 | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#less_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#less_index</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#less_object</strong>(object) : T | Nil</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#less_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#less_item</a></code></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#less_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#less_item_with_index</a></code></p></div>
         
       </li>
     
@@ -686,6 +658,34 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
         <a href="#size-instance-method" class="signature"><strong>#size</strong></a>
         
           <div class="summary"><p>Returns the number of elements in this container.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_geq%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#smallest_geq</strong>(object) : T | Nil</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#smallest_geq%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#smallest_geq</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_geq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#smallest_geq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#smallest_geq_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#smallest_geq_with_index</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_gt%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#smallest_gt</strong>(object) : T | Nil</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#smallest_gt%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#smallest_gt</a></code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_gt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#smallest_gt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+          <div class="summary"><p>See <code><a href="../AVLTree/SortedMap.html#smallest_gt_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#smallest_gt_with_index</a></code></p></div>
         
       </li>
     
@@ -887,7 +887,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -903,7 +903,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -919,7 +919,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -951,7 +951,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L331" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L331" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -967,7 +967,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L351" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L351" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -983,7 +983,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L355" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L355" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -999,7 +999,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L363" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L363" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1015,7 +1015,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L160" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L160" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1031,23 +1031,23 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L397" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L397" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="===(object:T)-instance-method">
+    <div class="entry-detail" id="===(other:T)-instance-method">
       <div class="signature">
         
-        def <strong>===</strong>(object : T)
+        def <strong>===</strong>(other : T)
 
-        <a class="method-permalink" href="#%3D%3D%3D%28object%3AT%29-instance-method">#</a>
+        <a class="method-permalink" href="#%3D%3D%3D%28other%3AT%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L401" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L401" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1063,7 +1063,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L367" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L367" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1079,7 +1079,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L378" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L378" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1095,7 +1095,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L344" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L344" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1111,7 +1111,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L164" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L164" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1127,7 +1127,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1148,7 +1148,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L65" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1169,7 +1169,7 @@ set.upper_bound(<span class="n">10</span>) <span class="c"># =&gt; 4  (O(logN))<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L70" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1191,7 +1191,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1212,7 +1212,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L247" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L247" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1228,7 +1228,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L411" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L411" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1244,7 +1244,7 @@ if trying to access an element outside the set's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L174" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L174" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1273,7 +1273,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L144" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L144" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1299,7 +1299,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L128" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L128" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1320,7 +1320,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L184" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L184" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1341,7 +1341,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L190" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L190" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1362,7 +1362,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L197" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L197" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1383,7 +1383,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L202" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L202" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1410,7 +1410,7 @@ set.count(...<span class="n">9</span>)  <span class="c"># =&gt; 4</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L405" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L405" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1440,7 +1440,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L256" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L256" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1465,7 +1465,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L262" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L262" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1492,7 +1492,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L252" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L252" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1522,7 +1522,7 @@ a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o"
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L50" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L50" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1538,7 +1538,7 @@ a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o"
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L55" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L55" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1566,7 +1566,7 @@ if the collection is empty.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L80" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1594,133 +1594,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L84" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_equal_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_equal_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#greater_equal_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#greater_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#greater_equal_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_equal_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_equal_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#greater_equal_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#greater_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#greater_equal_item</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_equal_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#greater_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#greater_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#greater_equal_item_with_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#greater_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#greater_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#greater_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#greater_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#greater_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#greater_item</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#greater_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#greater_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#greater_item_with_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1745,7 +1619,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L429" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L429" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1772,7 +1646,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L179" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L179" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1799,7 +1673,7 @@ starting from the given <em>offset</em>, or <code>nil</code> if <em>object</em> 
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L112" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1827,7 +1701,91 @@ starting from the given <em>offset</em>. Raises <code>Enumerable::NotFoundError<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L116" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_largest_leq(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_largest_leq</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_largest_leq%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code>SortedMap#largest_leq_index</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_largest_lt(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_largest_lt</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_largest_lt%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code>SortedMap#largest_lt_index</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_smallest_geq(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_smallest_geq</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_smallest_geq%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code>SortedMap#smallest_geq_index</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_smallest_gt(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_smallest_gt</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_smallest_gt%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code>SortedMap#smallest_gt_index</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1860,7 +1818,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L421" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L421" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1876,7 +1834,91 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L431" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L431" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_leq(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_leq</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#largest_leq%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#largest_leq%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#largest_leq</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_leq_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_leq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#largest_leq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#largest_leq_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#largest_leq_with_index</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_lt(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_lt</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#largest_lt%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#largest_lt%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#largest_lt</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_lt_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_lt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#largest_lt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#largest_lt_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#largest_lt_with_index</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1903,7 +1945,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1930,133 +1972,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L92" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_equal_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_equal_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#less_equal_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#less_equal_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#less_equal_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_equal_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_equal_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#less_equal_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#less_equal_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#less_equal_item</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_equal_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>less_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#less_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#less_equal_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#less_equal_item_with_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#less_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#less_index%28key%3AK%29%3AInt32%7CNil-instance-method">SortedMap#less_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#less_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#less_item%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#less_item</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>less_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#less_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>See <code><a href="../AVLTree/SortedMap.html#less_item_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#less_item_with_index</a></code></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2086,7 +2002,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L288" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L288" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2115,7 +2031,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L104" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2140,7 +2056,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L108" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2169,7 +2085,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L96" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L96" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2194,7 +2110,7 @@ set.lower_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L100" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2226,7 +2142,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L463" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L463" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2242,7 +2158,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L224" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L224" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2258,7 +2174,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L228" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L228" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2274,7 +2190,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L238" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L238" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2290,7 +2206,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L425" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L425" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2306,7 +2222,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L450" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L450" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2322,7 +2238,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L459" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L459" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2352,7 +2268,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L120" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2383,7 +2299,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L124" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L124" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2409,7 +2325,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L467" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L467" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2425,7 +2341,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L206" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L206" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2441,7 +2357,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L210" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L210" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2457,7 +2373,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L220" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L220" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2482,7 +2398,91 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L242" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L242" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_geq(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_geq</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#smallest_geq%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#smallest_geq%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#smallest_geq</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_geq_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_geq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#smallest_geq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#smallest_geq_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#smallest_geq_with_index</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_gt(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_gt</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#smallest_gt%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#smallest_gt%28key%3AK%29%3ATuple%28K%2CV%29%7CNil-instance-method">SortedMap#smallest_gt</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_gt_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_gt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#smallest_gt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../AVLTree/SortedMap.html#smallest_gt_with_index%28key%3AK%29%3ATuple%28Tuple%28K%2CV%29%7CNil%2CInt32%7CNil%29-instance-method">SortedMap#smallest_gt_with_index</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L308" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2498,7 +2498,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L445" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L445" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2514,7 +2514,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L390" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L390" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2530,7 +2530,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L455" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L455" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2546,17 +2546,17 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
         <div class="doc">
           
             <div class="doc-inherited">
-              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+              Description copied from module Indexable(T)
             </div>
           
           <p>Returns an <code>Array</code> with all the elements in the collection.</p>
-<pre><code class="language-crystal">(<span class="n">1</span>..<span class="n">5</span>).to_a <span class="c"># =&gt; [1, 2, 3, 4, 5]</span></code></pre>
+<pre><code class="language-crystal">{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.to_a <span class="c"># =&gt; [1, 2, 3]</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L417" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L417" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2588,7 +2588,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L439" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L439" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2610,7 +2610,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L269" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L269" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2642,7 +2642,7 @@ of performance.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L60" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2672,7 +2672,7 @@ set.upper_bound(<span class="s">&quot;Z&quot;</span>) <span class="c"># =&gt; 4<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_set.cr#L304" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_set.cr#L304" target="_blank">View source</a>]
         
       </div>
     </div>

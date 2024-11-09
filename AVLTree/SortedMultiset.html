@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.11.2">
+<meta name="generator" content="Crystal Docs 1.13.3">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="avltree">
 
@@ -187,7 +187,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
   </h2>
   
     
-      <a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L29" target="_blank">
+      <a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L29" target="_blank">
         avltree/sorted_multiset.cr
       </a>
     
@@ -272,7 +272,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#%3D%3D%3D%28object%3AT%29-instance-method" class="signature"><strong>#===</strong>(object : T)</a>
+        <a href="#%3D%3D%3D%28other%3AT%29-instance-method" class="signature"><strong>#===</strong>(other : T)</a>
         
       </li>
     
@@ -421,36 +421,6 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#greater_equal_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_equal_index</strong>(object) : Int32 | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_equal_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#greater_equal_object</strong>(object) : T | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#greater_index</strong>(object) : Int32 | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#greater_object</strong>(object) : T | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#greater_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#greater_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#hash%28hasher%29-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
         
           <div class="summary"><p>See <code>Object#hash(hasher)</code></p></div>
@@ -479,6 +449,26 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       </li>
     
       <li class="entry-summary">
+        <a href="#index_of_largest_leq%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_largest_leq</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_of_largest_lt%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_largest_lt</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_of_smallest_geq%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_smallest_geq</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#index_of_smallest_gt%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#index_of_smallest_gt</strong>(object) : Int32 | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
         
           <div class="summary"><p>Appends a String representation of this object which includes its class name, its object address and the values of all instance variables.</p></div>
@@ -487,6 +477,26 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
     
       <li class="entry-summary">
         <a href="#intersects%3F%28other%3ASortedMultiset%29-instance-method" class="signature"><strong>#intersects?</strong>(other : SortedMultiset)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_leq%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#largest_leq</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_leq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#largest_leq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_lt%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#largest_lt</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#largest_lt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#largest_lt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
         
       </li>
     
@@ -501,36 +511,6 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
         <a href="#last%3F-instance-method" class="signature"><strong>#last?</strong></a>
         
           <div class="summary"><p>Returns the last element of <code>self</code> if it's not empty, or <code>nil</code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_equal_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_equal_index</strong>(object) : Int32 | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_equal_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#less_equal_object</strong>(object) : T | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_index%28object%29%3AInt32%7CNil-instance-method" class="signature"><strong>#less_index</strong>(object) : Int32 | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_object%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#less_object</strong>(object) : T | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#less_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#less_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
         
       </li>
     
@@ -644,6 +624,26 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
         <a href="#size-instance-method" class="signature"><strong>#size</strong></a>
         
           <div class="summary"><p>Returns the number of elements in this container.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_geq%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#smallest_geq</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_geq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#smallest_geq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_gt%28object%29%3AT%7CNil-instance-method" class="signature"><strong>#smallest_gt</strong>(object) : T | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smallest_gt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method" class="signature"><strong>#smallest_gt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)</a>
         
       </li>
     
@@ -841,7 +841,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -857,7 +857,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -873,7 +873,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -905,7 +905,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L291" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L291" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -921,7 +921,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L311" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L311" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -937,7 +937,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L315" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L315" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -953,7 +953,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L323" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L323" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -969,7 +969,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L160" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L160" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -985,23 +985,23 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L357" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L357" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="===(object:T)-instance-method">
+    <div class="entry-detail" id="===(other:T)-instance-method">
       <div class="signature">
         
-        def <strong>===</strong>(object : T)
+        def <strong>===</strong>(other : T)
 
-        <a class="method-permalink" href="#%3D%3D%3D%28object%3AT%29-instance-method">#</a>
+        <a class="method-permalink" href="#%3D%3D%3D%28other%3AT%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L361" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L361" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1017,7 +1017,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L327" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L327" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1033,7 +1033,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L338" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L338" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1049,7 +1049,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L304" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L304" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1065,7 +1065,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L164" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L164" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1081,7 +1081,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1102,7 +1102,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L61" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L61" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1123,7 +1123,7 @@ mset <span class="c"># =&gt; SortedMultiset{1, 3, 4, 5, 9}</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1145,7 +1145,7 @@ if trying to access an element outside the multiset's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L72" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L72" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1161,7 +1161,7 @@ if trying to access an element outside the multiset's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L238" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L238" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1177,7 +1177,7 @@ if trying to access an element outside the multiset's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L371" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L371" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1193,7 +1193,7 @@ if trying to access an element outside the multiset's range.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L174" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L174" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1226,7 +1226,7 @@ set.count(...<span class="n">9</span>).should eq <span class="n">5</span></code>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L144" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L144" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1252,7 +1252,7 @@ set.count(...<span class="n">9</span>).should eq <span class="n">5</span></code>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L124" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L124" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1268,7 +1268,7 @@ set.count(...<span class="n">9</span>).should eq <span class="n">5</span></code>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L183" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L183" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1284,7 +1284,7 @@ set.count(...<span class="n">9</span>).should eq <span class="n">5</span></code>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L188" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L188" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1300,7 +1300,7 @@ set.count(...<span class="n">9</span>).should eq <span class="n">5</span></code>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L193" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L193" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1327,7 +1327,7 @@ set.count(...<span class="n">9</span>).should eq <span class="n">5</span></code>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L365" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L365" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1357,7 +1357,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L247" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L247" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1382,7 +1382,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L253" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L253" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1409,7 +1409,7 @@ a.each { <span class="o">|</span>x<span class="o">|</span> print x, <span class=
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L243" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L243" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1439,7 +1439,7 @@ a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o"
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1455,7 +1455,7 @@ a.fetch(<span class="n">2</span>) { <span class="o">|</span>index<span class="o"
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L51" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1483,7 +1483,7 @@ if the collection is empty.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1511,103 +1511,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L80" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_equal_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_equal_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#greater_equal_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_equal_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_equal_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#greater_equal_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_equal_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#greater_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#greater_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#greater_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="greater_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>greater_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#greater_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1632,7 +1536,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L389" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L389" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1659,7 +1563,7 @@ When the collection is empty, returns <code>nil</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L179" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L179" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1686,7 +1590,7 @@ starting from the given <em>offset</em>, or <code>nil</code> if <em>object</em> 
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L108" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1714,7 +1618,71 @@ starting from the given <em>offset</em>. Raises <code>Enumerable::NotFoundError<
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L112" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_largest_leq(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_largest_leq</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_largest_leq%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_largest_lt(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_largest_lt</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_largest_lt%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_smallest_geq(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_smallest_geq</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_smallest_geq%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="index_of_smallest_gt(object):Int32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>index_of_smallest_gt</strong>(object) : Int32 | Nil
+
+        <a class="method-permalink" href="#index_of_smallest_gt%28object%29%3AInt32%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1747,7 +1715,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L381" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L381" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1763,7 +1731,71 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L391" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L391" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_leq(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_leq</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#largest_leq%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_leq_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_leq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#largest_leq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_lt(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_lt</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#largest_lt%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="largest_lt_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>largest_lt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#largest_lt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1790,7 +1822,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L84" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1817,103 +1849,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L88" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_equal_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_equal_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#less_equal_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_equal_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_equal_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#less_equal_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_equal_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>less_equal_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#less_equal_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_index(object):Int32|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_index</strong>(object) : Int32 | Nil
-
-        <a class="method-permalink" href="#less_index%28object%29%3AInt32%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_object(object):T|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>less_object</strong>(object) : T | Nil
-
-        <a class="method-permalink" href="#less_object%28object%29%3AT%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="less_object_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>less_object_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
-
-        <a class="method-permalink" href="#less_object_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1929,7 +1865,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L263" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L263" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1958,7 +1894,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L100" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1983,7 +1919,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L104" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2012,7 +1948,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L92" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2037,7 +1973,7 @@ and the values of all instance variables.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L96" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L96" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2069,7 +2005,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L423" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L423" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2085,7 +2021,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L216" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2101,7 +2037,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L220" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L220" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2117,7 +2053,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L230" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L230" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2133,7 +2069,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L385" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L385" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2149,7 +2085,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L410" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L410" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2165,7 +2101,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L419" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L419" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2195,7 +2131,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2226,7 +2162,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L120" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2252,7 +2188,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L427" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L427" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2268,7 +2204,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L198" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L198" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2284,7 +2220,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L202" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L202" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2300,7 +2236,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L212" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L212" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2325,7 +2261,71 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L234" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L234" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_geq(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_geq</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#smallest_geq%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_geq_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_geq_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#smallest_geq_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_gt(object):T|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_gt</strong>(object) : T | Nil
+
+        <a class="method-permalink" href="#smallest_gt%28object%29%3AT%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smallest_gt_with_index(object):Tuple(T|Nil,Int32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>smallest_gt_with_index</strong>(object) : Tuple(T | Nil, Int32 | Nil)
+
+        <a class="method-permalink" href="#smallest_gt_with_index%28object%29%3ATuple%28T%7CNil%2CInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L271" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2341,7 +2341,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L405" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L405" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2357,7 +2357,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L350" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L350" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2373,7 +2373,7 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L415" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L415" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2389,17 +2389,17 @@ string2.object_id <span class="o">==</span> string.object_id <span class="c"># =
         <div class="doc">
           
             <div class="doc-inherited">
-              Description copied from module <a href="../Enumerable.html">Enumerable(T)</a>
+              Description copied from module Indexable(T)
             </div>
           
           <p>Returns an <code>Array</code> with all the elements in the collection.</p>
-<pre><code class="language-crystal">(<span class="n">1</span>..<span class="n">5</span>).to_a <span class="c"># =&gt; [1, 2, 3, 4, 5]</span></code></pre>
+<pre><code class="language-crystal">{<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>}.to_a <span class="c"># =&gt; [1, 2, 3]</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L377" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L377" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2431,7 +2431,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L399" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L399" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2447,7 +2447,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L257" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L257" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2479,7 +2479,7 @@ of performance.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L56" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -2495,7 +2495,7 @@ of performance.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/ngng628/avltree/blob/2a1c9d2fea741437600ecfe8c8acdf9e442aef87/src/avltree/sorted_multiset.cr#L267" target="_blank">View source</a>]
+          [<a href="https://github.com/ngng628/avltree/blob/f056db5cfbcf9179571aebf10147f6ce8c0fb2aa/src/avltree/sorted_multiset.cr#L267" target="_blank">View source</a>]
         
       </div>
     </div>
